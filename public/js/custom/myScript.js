@@ -1,0 +1,28 @@
+const loadMoreButton = document.querySelector("#loadMore");
+
+const produtEjs = `<div class="product-item">
+<div class="pi-pic">
+    <img src=<%= product.img %> alt="">
+    <div class="pi-links">
+        <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+        <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+    </div>
+</div>
+<div class="pi-text">
+    <h6><%= product.price %>đ</h6>
+    <p><%= product.name %> </p>
+</div>
+</div>`;
+
+loadMoreButton.addEventListener("click", async () => {
+    const response = await fetch('http://localhost:8080?loadMore=true');
+    const products = await response.json();
+    products['products'].forEach(product => {
+        let div = document.createElement('div');
+        div.className = "col-lg-3 col-sm-6";
+        div.innerHTML = ejs.render(produtEjs, {
+            product: product
+        });
+        document.querySelector('#top-sell').appendChild(div);
+    })
+})
