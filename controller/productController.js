@@ -20,14 +20,14 @@ exports.addProduct = async (req, res, next) => {
     //     throw error;
     // }
     const newProduct = new Product({
-        name:"Jeese Lingard",
-        description:"Eiusmod irure tempor tempor cillum ad non esse amet cillum incididunt duis. Magna reprehenderit proident elit tempor anim non amet est laborum et culpa. Cillum do cillum do laborum ex nisi. Cupidatat consequat aute aliqua sint est.",
-        price:1111,
-        productType:'608bde3f5c5c365388ed62e8'
+        name: "Jeese Lingard",
+        description: "Eiusmod irure tempor tempor cillum ad non esse amet cillum incididunt duis. Magna reprehenderit proident elit tempor anim non amet est laborum et culpa. Cillum do cillum do laborum ex nisi. Cupidatat consequat aute aliqua sint est.",
+        price: 1111,
+        productType: '608bde3f5c5c365388ed62e8'
     });
     await newProduct.save();
 }
-exports.getAllProduct = async (offset,limit) => {
+exports.getAllProduct = async (offset, limit) => {
     try {
         return await Product.find().skip(offset).limit(limit);
     } catch (error) {
@@ -35,9 +35,11 @@ exports.getAllProduct = async (offset,limit) => {
         throw error;
     }
 }
-exports.getTopNewest= async (limit) => {
+exports.getTopByProperty = async (property, limit) => {
     try {
-        return await Product.find().sort({createAt:-1}).limit(limit);
+        return await Product.find().sort({
+            [`${property}`]: -1
+        }).limit(limit);
     } catch (error) {
         console.log(error);
         throw error;

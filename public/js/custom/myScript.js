@@ -1,4 +1,7 @@
-const loadMoreButton = document.querySelector("#loadMore");
+let loadMoreButton = document.querySelector("#loadMore");
+let offset = 1;
+let limit = 8;
+
 
 const produtEjs = `<div class="product-item">
 <div class="pi-pic">
@@ -15,8 +18,9 @@ const produtEjs = `<div class="product-item">
 </div>`;
 
 loadMoreButton.addEventListener("click", async () => {
-    const response = await fetch('http://localhost:8080?loadMore=true');
+    const response = await fetch(`http://localhost:8080/index/loadMore?offset=${offset}&&limit=${limit}`);
     const products = await response.json();
+
     products['products'].forEach(product => {
         let div = document.createElement('div');
         div.className = "col-lg-3 col-sm-6";
@@ -24,5 +28,11 @@ loadMoreButton.addEventListener("click", async () => {
             product: product
         });
         document.querySelector('#top-sell').appendChild(div);
-    })
+    });
+
+    if (products['products'].length == limit)
+        offset += 1;
+    else
+        loadMoreButton.style.visibility = "hidden";
+
 })

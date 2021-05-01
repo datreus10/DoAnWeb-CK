@@ -1,0 +1,14 @@
+<section class="top-letest-product-section">
+    <div class="container">
+        <div class="section-title">
+            <h2><%= title %></h2>
+        </div>
+        <div class="product-slider owl-carousel">
+
+            <% products.forEach(function(product) { %>
+            <%-include("../partial/productCard", {product:product}) %>
+            <% }); %>
+
+        </div>
+    </div>
+</section>
