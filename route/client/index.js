@@ -1,15 +1,18 @@
 const express = require("express");
 const router = express.Router();
-const product = require("../../controller/productController");
+const Product = require('../../model/product');
 
 
 router.get("/", async (req, res) => {
     res.render("./client/index", {
-        lastedProducts: await product.getTopByProperty('createAt', 10),
-        products: await product.getAllProduct(0, 8),
+        lastedProducts: await Product.find().sort({
+            createAt: -1
+        }).limit(10),
+        products: await Product.find().limit(8),
         layout: './layout/clientLayout'
     });
 });
+
 
 router.get("/index/loadMore", async (req, res) => {
     let {
@@ -19,7 +22,7 @@ router.get("/index/loadMore", async (req, res) => {
     limit = parseInt(limit) || 8;
     offset = parseInt(offset) * limit || 0;
     res.status(200).send({
-        products: await product.getAllProduct(offset, limit),
+        products: await Product.find().skip(offset).limit(limit),
     });
 });
 

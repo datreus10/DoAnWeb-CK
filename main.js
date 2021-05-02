@@ -1,6 +1,7 @@
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const app = express();
+
 const dotenv = require('dotenv');
 const db = require('./db/dbConfig');
 dotenv.config();
@@ -22,10 +23,10 @@ const adminProductRouter = require('./route/admin/product');
 const adminProductTypeRouter = require('./route/admin/productType');
 
 
-app.use('/',clientIndexRouter);
-app.use('/admin',adminIndexRouter);
-app.use('/admin/product',adminProductRouter);
-app.use('/admin/product/type',adminProductTypeRouter);
+app.use('/', clientIndexRouter);
+app.use('/admin', adminIndexRouter);
+app.use('/admin/product', adminProductRouter);
+app.use('/admin/product/type', adminProductTypeRouter);
 
 
 app.listen(app.get('port'), () => {

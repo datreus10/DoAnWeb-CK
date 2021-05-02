@@ -6,6 +6,8 @@ const upload = multer({
     storage
 });
 
+
+// helper functions
 const resizeAndSaveTo = async (file, height, width, path) => {
     fs.mkdirSync(path, {
         recursive: true
@@ -18,6 +20,11 @@ const resizeAndSaveTo = async (file, height, width, path) => {
     }).toFile(path + `/${fileName}`);
     return fileName;
 }
+
+
+
+
+
 
 module.exports = {
     upload,

@@ -3,9 +3,12 @@
         <div class="section-title">
             <h2>THÊM SẢN PHẨM</h2>
         </div>
-        <form action="/admin/product/add" id="post" method="post" enctype="multipart/form-data">
-            <!--  -->
 
+        <div class="form-group">
+            <h3 class="text-primary"><%= msg %></h3>
+        </div>
+
+        <form action="/admin/product/add" id="post" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="type">Loại sản phẩm</label>
                 <select name="type" id="" class="form-control">
@@ -40,8 +43,6 @@
                     Submit
                 </button>
             </div>
-            <div class="form-group">
-                <h3 class="text-primary"><%= msg %></h3>
-            </div>
+           
         </form>
 </section>

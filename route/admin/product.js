@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const ProductType = require('../../controller/productTypeController');
-const Product = require('../../controller/productController');
+const Product = require('../../model/product');
+const ProductType = require('../../model/productType');
 const helper = require('../helper');
 
 // Proccess Section
@@ -26,9 +26,11 @@ const proccessImg = async (req, res, next) => {
 
 
 // Router Section
+
+// Trang thêm sản phẩm
 router.get('/add', async (req, res) => {
     res.render("./admin/addProduct", {
-        productTypes: await ProductType.getAllProductTypes(),
+        productTypes: await ProductType.find(),
         msg: req.query.msg || '',
         layout: './layout/adminLayout',
     });
@@ -36,11 +38,53 @@ router.get('/add', async (req, res) => {
 
 
 router.post('/add', uploadMultiple, proccessImg, async (req, res, next) => {
-    const msg = await Product.addProduct(req, res);
+    let msg = '';
+    try {
+
+        const newProduct = new Product({
+            name: req.body.name,
+            description: req.body.description,
+            price: req.body.price,
+            img: req.files.product_img.map(e => e.fileName),
+            thumb: req.files.product_thumb.map(e => e.fileName),
+            productType: req.body.type
+        });
+        await newProduct.save();
+        msg = "Thêm sản phẩm thành công";
+
+    } catch (error) {
+        console.log(error);
+        msg = "Thêm sản phẩm thất bại";
+    }
     res.redirect('/admin/product/add?msg=' + msg);
 })
 
-
+// Trang sản phẩm
+router.get('/', async (req, res) => {
+    res.render("./admin/product", {
+        products: await Product.find().sort({
+            createAt: -1
+        }),
+        layout: './layout/adminLayout',
+    })
+})
+router.post('/', async (req, res) => {
+    res.render("./admin/product", {
+        products: await Product.find({
+            name: {
+                $regex: req.body.name.trim(),
+                $options: 'i'
+            },
+            createAt: {
+                $lte: req.body.dayAfter,
+                $gte: req.body.dayBefore
+            }
+        }).sort({
+            createAt: -1
+        }),
+        layout: './layout/adminLayout',
+    })
+})
 
 
 

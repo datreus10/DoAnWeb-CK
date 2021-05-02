@@ -1,8 +1,3 @@
-let loadMoreButton = document.querySelector("#loadMore");
-let offset = 1;
-let limit = 8;
-
-
 const produtEjs = `<div class="product-item">
 <div class="pi-pic">
     <img src='./img/upload/<%= product.img[0] %>' alt="">
@@ -16,6 +11,13 @@ const produtEjs = `<div class="product-item">
     <p><%= product.name %> </p>
 </div>
 </div>`;
+
+
+let loadMoreButton = document.querySelector("#loadMore");
+let offset = 1;
+let limit = 8;
+
+
 
 loadMoreButton.addEventListener("click", async () => {
     const response = await fetch(`http://localhost:8080/index/loadMore?offset=${offset}&&limit=${limit}`);
@@ -37,9 +39,11 @@ loadMoreButton.addEventListener("click", async () => {
 
 });
 
+
+
 function submitForm() {
     var frm = document.querySelector('#id');
     frm.submit(); // Submit the form
-    frm.reset();  // Reset all form data
+    frm.reset(); // Reset all form data
     return false; // Prevent page refresh
- }
+}
