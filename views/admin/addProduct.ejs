@@ -1,0 +1,47 @@
+<section class="top-letest-product-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>THÊM SẢN PHẨM</h2>
+        </div>
+        <form action="/admin/product/add" id="post" method="post" enctype="multipart/form-data">
+            <!--  -->
+
+            <div class="form-group">
+                <label for="type">Loại sản phẩm</label>
+                <select name="type" id="" class="form-control">
+                    <% productTypes.forEach(function(type) { %>
+                    <option value="<%= type._id %>"><%= type.name %></option>
+                    <% }); %>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="name">Tên sản phẩm</label>
+                <input type="text" name="name" id="" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="price">Giá bán</label>
+                <input type="number" name="price" id="" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="price">Mô tả</label>
+                <textarea name="description" id="" cols="50" rows="4" required class="form-control"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="img">Upload ảnh chính</label>
+                <input type="file" name="product_img" id="" required multiple class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="thumb">Upload ảnh phụ</label>
+                <input type="file" name="product_thumb" id="" required multiple class="form-control">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-danger btn-block" id="submit">
+                    Submit
+                </button>
+            </div>
+            <div class="form-group">
+                <h3 class="text-primary"><%= msg %></h3>
+            </div>
+        </form>
+</section>

@@ -1,31 +1,23 @@
 const Product = require('../model/product');
 
+
 exports.addProduct = async (req, res, next) => {
-    // try {
-    //     const {
-    //         name,
-    //         description,
-    //         price,
-    //         productType
-    //     } = req.body;
-    //     const newProduct = new Product({
-    //         name,
-    //         description,
-    //         price,
-    //         productType
-    //     });
-    //     await newProduct.save();
-    // } catch (error) {
-    //     console.log(error);
-    //     throw error;
-    // }
-    const newProduct = new Product({
-        name: "Jeese Lingard",
-        description: "Eiusmod irure tempor tempor cillum ad non esse amet cillum incididunt duis. Magna reprehenderit proident elit tempor anim non amet est laborum et culpa. Cillum do cillum do laborum ex nisi. Cupidatat consequat aute aliqua sint est.",
-        price: 1111,
-        productType: '608bde3f5c5c365388ed62e8'
-    });
-    await newProduct.save();
+    try {
+
+        const newProduct = new Product({
+            name: req.body.name,
+            description: req.body.description,
+            price: req.body.price,
+            img: req.files.product_img.map(e => e.fileName),
+            thumb: req.files.product_thumb.map(e => e.fileName),
+            productType: req.body.type
+        });
+        await newProduct.save();
+        return "Success";
+    } catch (error) {
+        console.log(error);
+        return "Fail";
+    }
 }
 exports.getAllProduct = async (offset, limit) => {
     try {

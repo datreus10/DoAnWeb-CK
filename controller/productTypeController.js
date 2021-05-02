@@ -7,10 +7,11 @@ exports.addProductType = async (req, res, next) => {
                 name: req.body.name
             });
             await newProductType.save();
+            return "Success";
         }
     } catch (error) {
         console.log(error);
-        throw error;
+        return "Fail";
     }
 }
 

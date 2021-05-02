@@ -22,11 +22,14 @@ const productSchema = new mongoose.Schema({
         required: true,
         default: Date.now
     },
-    img: {
+    img: [{
         type: String,
-        required: true,
-        default: './img/product/1.jpg'
-    },
+        required: true
+    }],
+    thumb: [{
+        type: String,
+        required: true
+    }],
     productType: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
