@@ -17,13 +17,16 @@ app.use(express.urlencoded({
     extended: true
 }));
 
+const apiRouter = require('./route/api');
 const clientIndexRouter = require('./route/client/index');
+const clientProductRouter = require('./route/client/product');
 const adminIndexRouter = require('./route/admin/index');
 const adminProductRouter = require('./route/admin/product');
 const adminProductTypeRouter = require('./route/admin/productType');
 
-
+app.use('/api',apiRouter);
 app.use('/', clientIndexRouter);
+app.use('/product', clientProductRouter);
 app.use('/admin', adminIndexRouter);
 app.use('/admin/product', adminProductRouter);
 app.use('/admin/product/type', adminProductTypeRouter);

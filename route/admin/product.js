@@ -4,29 +4,6 @@ const Product = require('../../model/product');
 const ProductType = require('../../model/productType');
 const helper = require('../helper');
 
-// Proccess Section
-const uploadMultiple = helper.upload.fields([{
-    name: 'product_img',
-    maxCount: 4
-}, {
-    name: 'product_thumb',
-    maxCount: 4
-}])
-
-const proccessImg = async (req, res, next) => {
-    for (const item of req.files.product_img) {
-        item.fileName = await helper.resizeAndSaveTo(item, 755, 500, 'public/img/product/main');
-    }
-    for (const item of req.files.product_thumb) {
-        item.fileName = await helper.resizeAndSaveTo(item, 116, 116, 'public/img/product/thumb');
-    }
-    next();
-}
-
-
-
-// Router Section
-
 // Trang thêm sản phẩm
 router.get('/add', async (req, res) => {
     res.render("./admin/addProduct", {
@@ -37,16 +14,20 @@ router.get('/add', async (req, res) => {
 })
 
 
-router.post('/add', uploadMultiple, proccessImg, async (req, res, next) => {
+const uploadMultiple = helper.upload.fields([{
+    name: 'product_img',
+    maxCount: 4
+}])
+
+
+router.post('/add', uploadMultiple, async (req, res, next) => {
     let msg = '';
     try {
-
         const newProduct = new Product({
             name: req.body.name,
             description: req.body.description,
             price: req.body.price,
-            img: req.files.product_img.map(e => e.fileName),
-            thumb: req.files.product_thumb.map(e => e.fileName),
+            img: req.files.product_img.map(e => e.filename),
             productType: req.body.type
         });
         await newProduct.save();
@@ -86,6 +67,12 @@ router.post('/', async (req, res) => {
     })
 })
 
-
+// Trang chi tiết
+router.get('/:id', async (req, res) => {
+    res.render('./admin/detailProduct', {
+        product: await Product.findById(req.params.id),
+        layout: './layout/adminLayout'
+    })
+})
 
 module.exports = router

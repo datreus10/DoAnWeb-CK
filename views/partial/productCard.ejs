@@ -1,7 +1,7 @@
-
-<div class="product-item">
+<div class="product-item" id="<%= product._id %>" onclick="location.href='/product/<%= product._id %>';"
+    style="cursor:pointer">
     <div class="pi-pic">
-        <img src='/img/product/main/<%= product.img[0] %>' alt="">
+        <img src='/api/img/<%= product.img[0] %>?format=png&width=500&height=755' alt="">
         <div class="pi-links">
             <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
             <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>

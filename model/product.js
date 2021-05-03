@@ -9,10 +9,6 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    // publishDate:{
-    //     type: Date,
-    //     required: true
-    // },
     price: {
         type: Number,
         required: true
@@ -23,10 +19,6 @@ const productSchema = new mongoose.Schema({
         default: Date.now
     },
     img: [{
-        type: String,
-        required: true
-    }],
-    thumb: [{
         type: String,
         required: true
     }],

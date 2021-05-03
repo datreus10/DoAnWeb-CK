@@ -1,32 +1,40 @@
 const fs = require('fs');
 const sharp = require('sharp');
 const multer = require('multer');
-const storage = multer.memoryStorage();
+
+
+
+// save image upload
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public/img/product')
+    },
+    filename: function (req, file, cb) {
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        const fileName = uniqueSuffix + '.' + file.mimetype.split('/')[1];
+        cb(null, fileName);
+    }
+});
 const upload = multer({
-    storage
+    storage: storage
 });
 
-
-// helper functions
-const resizeAndSaveTo = async (file, height, width, path) => {
-    fs.mkdirSync(path, {
-        recursive: true
-    });
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    const fileName = uniqueSuffix + '.' + file.mimetype.split('/')[1];
-    await sharp(file.buffer).resize({
-        height: height,
-        width: width
-    }).toFile(path + `/${fileName}`);
-    return fileName;
+// resize image to stream
+const resize = (path, format, width, height) => {
+    const readStream = fs.createReadStream(path)
+    let transform = sharp()
+    if (format) {
+        transform = transform.toFormat(format)
+    }
+    if (width || height) {
+        transform = transform.resize(width, height)
+    }
+    return readStream.pipe(transform)
 }
-
-
-
 
 
 
 module.exports = {
     upload,
-    resizeAndSaveTo
+    resize
 }
