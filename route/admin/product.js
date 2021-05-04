@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Product = require('../../model/product');
+
 const ProductType = require('../../model/productType');
 const helper = require('../helper');
 
@@ -26,11 +27,20 @@ router.post('/add', uploadMultiple, async (req, res, next) => {
         const newProduct = new Product({
             name: req.body.name,
             description: req.body.description,
-            price: req.body.price,
             img: req.files.product_img.map(e => e.filename),
+            price: req.body.price,
+            sizes: {
+                XL: req.body.XL,
+                L: req.body.L,
+                M: req.body.M,
+                S: req.body.S,
+                XS: req.body.XS
+            },
             productType: req.body.type
         });
         await newProduct.save();
+       
+
         msg = "Thêm sản phẩm thành công";
 
     } catch (error) {
