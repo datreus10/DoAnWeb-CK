@@ -1,36 +1,8 @@
 const mongoose = require('mongoose');
 
 const sizeSchema = new mongoose.Schema({
-    XL: {
-        type: Number,
-        min: 0,
-        max: 200,
-        default: 0
-    },
-    L: {
-        type: Number,
-        min: 0,
-        max: 200,
-        default: 0
-    },
-    M: {
-        type: Number,
-        min: 0,
-        max: 200,
-        default: 0
-    },
-    S: {
-        type: Number,
-        min: 0,
-        max: 200,
-        default: 0
-    },
-    XS: {
-        type: Number,
-        min: 0,
-        max: 200,
-        default: 0
-    },
+    sizeName: String,
+    quantity: Number,
 })
 
 const productSchema = new mongoose.Schema({
@@ -50,7 +22,10 @@ const productSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    sizes: sizeSchema,
+    sizes: [{
+        name:String,
+        quantity:Number
+    }],
     productType: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,

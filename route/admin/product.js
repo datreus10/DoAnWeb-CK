@@ -29,17 +29,26 @@ router.post('/add', uploadMultiple, async (req, res, next) => {
             description: req.body.description,
             img: req.files.product_img.map(e => e.filename),
             price: req.body.price,
-            sizes: {
-                XL: req.body.XL,
-                L: req.body.L,
-                M: req.body.M,
-                S: req.body.S,
-                XS: req.body.XS
-            },
+            sizes: [{
+                name: 'XL',
+                quantity: req.body.XL
+            }, {
+                name: 'L',
+                quantity: req.body.L
+            }, {
+                name: 'M',
+                quantity: req.body.M
+            }, {
+                name: 'S',
+                quantity: req.body.S
+            }, {
+                name: 'XS',
+                quantity: req.body.XS
+            }],
             productType: req.body.type
         });
         await newProduct.save();
-       
+
 
         msg = "Thêm sản phẩm thành công";
 
