@@ -1,13 +1,14 @@
 const mongoose = require('mongoose')
 
+
 const cartSchema = new mongoose.Schema({
-    userid: {
+    userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
     },
     items: [{
-        itemid: {
+        itemId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Product',
             required: true
@@ -23,7 +24,11 @@ const cartSchema = new mongoose.Schema({
             type: Date,
             default: Date.now()
         }
-    }]
+    }],
+    total: {
+        type: Number,
+        default: 0
+    }
 }, {
     timestamps: true
 });

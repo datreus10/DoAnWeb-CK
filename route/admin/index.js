@@ -1,11 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const Product = require("../../controller/productController");
+
 
 router.get('/', async (req, res) => {
 
     res.render("./admin/index", {
-        products: await Product.getTopByProperty('createAt',10),
+        products: await Product.find().sort({
+            createAt: -1
+        }).limit(10),
         layout: './layout/adminLayout',
     })
 })

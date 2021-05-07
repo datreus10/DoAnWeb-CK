@@ -18,7 +18,11 @@
                     <div class="user-panel">
                         <div class="up-item">
                             <i class="flaticon-profile"></i>
-                            <a href="#">Sign In</a> or <a href="#">Create Account</a>
+                            <% if (isLogin) { %>
+                            <a href="/logout">Hello <%= isLogin %></a>
+                            <% } else {%>
+                            <a href="/login">Log In</a> or <a href="/register">Create Account</a>
+                            <% } %>
                         </div>
                         <div class="up-item">
                             <div class="shopping-card">

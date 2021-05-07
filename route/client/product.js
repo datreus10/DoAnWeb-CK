@@ -10,12 +10,6 @@ router.get('/:id',async (req, res) => {
     });
 })
 
-// add product to cart
-router.post('/:id',async (req, res) => {
-    res.render("./client/cart", {
-        layout: './layout/clientLayout'
-    });
-    
-})
+
 
 module.exports = router

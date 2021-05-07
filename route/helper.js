@@ -3,7 +3,6 @@ const sharp = require('sharp');
 const multer = require('multer');
 
 
-
 // save image upload
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -31,7 +30,6 @@ const resize = (path, format, width, height) => {
     }
     return readStream.pipe(transform)
 }
-
 
 
 module.exports = {
