@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
 
 router.get("/login", async (req, res) => {
     const user = await User.findOne({
-        name: "test"
+        name: "dat"
     });
     req.session.user = user;
     
@@ -31,7 +31,7 @@ router.get("/logout", async (req, res) => {
 
 router.get("/register", async (req, res) => {
     const user = await User.create({
-        name: "test"
+        name: "dat"
     });
     await Cart.create({
         userId: user.id,

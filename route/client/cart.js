@@ -22,9 +22,11 @@ router.get('/', async (req, res) => {
 
 router.post('/product/:id', async (req, res) => {
     if (req.session.user) {
-
-        // viet code update (neu co san pham va trung size khac so luong thi update so luong, ko thi add vo mang)
+        // viet code update (neu co san pham va trung size khac so luong thi 
+        // update so luong, ko thi add vo mang)
+        
         await Cart.updateOne({
+            userId: req.session.user._id,
             items: {
                 "$not": {
                     "$elemMatch": {
@@ -44,6 +46,7 @@ router.post('/product/:id', async (req, res) => {
         });
 
         await Cart.updateOne({
+            userId: req.session.user._id,
             "items.size": req.body.size,
             "items.itemId": req.params.id
         }, {
