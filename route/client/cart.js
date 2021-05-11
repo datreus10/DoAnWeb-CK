@@ -22,15 +22,13 @@ router.get('/', async (req, res) => {
 
 router.post('/product/:id', async (req, res) => {
     if (req.session.user) {
-        // viet code update (neu co san pham va trung size khac so luong thi 
-        // update so luong, ko thi add vo mang)
-        
+
         await Cart.updateOne({
             userId: req.session.user._id,
             items: {
                 "$not": {
                     "$elemMatch": {
-                        itemId: req.params.id,
+                        itemId: req.body.id,
                         size: req.body.size
                     }
                 }
@@ -38,22 +36,32 @@ router.post('/product/:id', async (req, res) => {
         }, {
             $addToSet: {
                 items: {
-                    itemId: req.params.id,
+                    itemId: req.body.id,
                     size: req.body.size,
                     quantity: req.body.quantity
                 }
             }
         });
 
-        await Cart.updateOne({
-            userId: req.session.user._id,
-            "items.size": req.body.size,
-            "items.itemId": req.params.id
-        }, {
-            $set: {
-                "items.$.quantity": req.body.quantity
-            }
-        });
+        await Cart.findOneAndUpdate({
+                userId: req.session.user._id,
+                items: {
+                    $elemMatch: {
+                        size: req.body.size,
+                        itemId: req.body.id
+                    }
+                }
+            }, {
+                $set: {
+                    'items.$.quantity': req.body.quantity,
+                }
+            },
+            {
+                'new': true,
+                'safe': true,
+                'upsert': true
+            });
+
     }
     res.redirect('/cart');
 })
