@@ -52,9 +52,9 @@
 						<p>Size</p>
 						<% product.sizes.forEach(size => { %>
 						<div class="sc-item<% if (size.quantity==0) { %> disable<% } %>">
-							<input type="radio" name="size" id="size-<%= size.name %>" value="<%= size.name %>"
+							<input type="radio" name="size" id="size-<%= size.name %> " value="<%= size.name %> "
 								<% if (size.quantity==0) { %> disabled <% }  else {%> checked <% } %>>
-							<label for="size-<%= size.name %>"><%= size.name %></label>
+							<label for="size-<%= size.name %> "><%= size.name %> </label>
 						</div>
 						<% }); %>
 
@@ -63,7 +63,6 @@
 						<p>Quantity</p>
 						<div class="pro-qty"><input type="text" value="1" name="quantity"></div>
 					</div>
-					<input type="text" name="id" value="<%= product._id %>" hidden>
 					<button type="submit" class="site-btn">ADD TO CART</button>
 				</form>
 

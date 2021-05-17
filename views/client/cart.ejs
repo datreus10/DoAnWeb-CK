@@ -48,24 +48,18 @@
                                     <tr>
                                         <td>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="<%= item._id %>"
-                                                    id="flexCheckDefault" name="product">
+                                                <input class="form-check-input" type="checkbox"
+                                                    value="<%= item._id %>" id="flexCheckDefault" name="product">
                                                 <label class="form-check-label" for="flexCheckDefault"></label>
                                             </div>
                                         </td>
-
                                         <td class="product-col">
-                                            <div onclick="location.href='./product/<%= item.itemId._id %>'"
-                                                style="cursor:pointer">
-                                                <img src="/api/img/<%= item.itemId.img[0] %>?format=png&width=80&height=81"
-                                                    alt="">
-                                                <div class="pc-title">
-                                                    <h4><%= item.itemId.name %></h4>
-                                                    <p><%= item.itemId.price.toString()
-                                                    .replace(/\B(?=(\d{3})+(?!\d))/g, " ") %>đ</p>
-                                                </div>
+                                            <img src="/api/img/<%= item.itemId.img[0] %>?format=png&width=80&height=81"
+                                                alt="">
+                                            <div class="pc-title">
+                                                <h4><%= item.itemId.name %> </h4>
+                                                <p><%= item.itemId.price %>đ</p>
                                             </div>
-
                                         </td>
                                         <td class="size-col">
                                             <h4><%= item.quantity %></h4>
@@ -75,8 +69,7 @@
                                             <h4><%= item.size %></h4>
                                         </td>
                                         <td class="total-col">
-                                            <h4><%= (item.quantity * item.itemId.price).toString()
-                                                .replace(/\B(?=(\d{3})+(?!\d))/g, " ") %>đ</h4>
+                                            <h4><%= item.quantity * item.itemId.price %></h4>
                                         </td>
                                     </tr>
                                     <% }) %>
@@ -86,8 +79,7 @@
                         </div>
                         <div class="total-cost">
                             <h6>Total <span><% if (cart) { %>
-                                    <%= cart.total.toString()
-                                    .replace(/\B(?=(\d{3})+(?!\d))/g, " ") %>đ
+                                    <%= cart.total %>
                                     <% } else {%> 0 <% } %> </span></h6>
                         </div>
                     </div>
