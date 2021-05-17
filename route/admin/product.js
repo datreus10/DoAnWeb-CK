@@ -5,6 +5,10 @@ const Product = require('../../model/product');
 const ProductType = require('../../model/productType');
 const helper = require('../helper');
 
+const fs = require('fs')
+const util = require('util')
+const unlinkFile = util.promisify(fs.unlink)
+
 // Trang thêm sản phẩm
 router.get('/add', async (req, res) => {
     res.render("./admin/addProduct", {
@@ -23,11 +27,18 @@ const uploadMultiple = helper.upload.fields([{
 
 router.post('/add', uploadMultiple, async (req, res, next) => {
     let msg = '';
+    const listFileName =[];
+    for(let file of req.files.product_img){
+        listFileName.push(file.filename);
+        const result = await helper.uploadFile(file)
+        await unlinkFile(file.path)
+        console.log(result)
+    }
     try {
         const newProduct = new Product({
             name: req.body.name,
             description: req.body.description,
-            img: req.files.product_img.map(e => e.filename),
+            img: listFileName,
             price: req.body.price,
             sizes: [{
                 name: 'XL',

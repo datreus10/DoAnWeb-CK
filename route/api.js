@@ -15,7 +15,7 @@ router.get('/img/:id', async (req, res) => {
         height = parseInt(heightStr);
     }
     res.type(`image/${ format || 'png' }`);
-    helper.resize(`public/img/product/${req.params.id}`, format, width, height).pipe(res);
+    helper.resize(req.params.id, format, width, height).pipe(res);
 })
 
 router.get('/loadMore', async (req, res) => {

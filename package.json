@@ -12,6 +12,7 @@
   "author": "dat",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.907.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.6",
