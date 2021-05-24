@@ -1,0 +1,81 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Cua hang Hoa Dep</title>
+<style type="text/css">
+<!--
+.style2 {
+	color: #000099;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: smaller;
+}
+.style3 {
+	color: #006633;
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: smaller;
+}
+.style4 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 18px;
+	color: #009933;
+}
+.style10 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: smaller; }
+.style17 {font-size: smaller}
+.style19 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: smaller;
+	color: #009933;
+	font-weight: bold;
+}
+a:link {
+	color: #006633;
+}
+a:visited {
+	color: #006633;
+}
+a:hover {
+	color: #009900;
+}
+a:active {
+	color: #009900;
+}
+-->
+</style>
+<script src="../controllers/Product/Product.js">
+</script>
+
+</head>
+
+<body>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+    <td colspan="3" valign="top"><p>&nbsp;</p>
+      <form action="/delete" method="DELETE" name="formDelete" >
+        <table width="70%" border="0" align="center" cellpadding="1" cellspacing="1" bgcolor="#E6F6D9">
+          <tr>
+            <td><p class="style10">&nbsp;Tên sản phẩm:</p></td>
+            <td><label>
+              
+              <select name="name" id="name">
+                <% products.forEach((product)=> { %>
+                  <option value="<%=product.name%>"><%=product.name%></option>
+                  <%})%>
+              </select>
+            </label></td>
+          </tr>
+          <tr>
+            <td height="35" colspan="2"><p align="center">
+              <label>
+                <Button size="small" color="primary" onClick=""><DeleteIcon fontSize="small" /> Delete</Button>
+              </label>
+            </p></td>
+          </tr>
+        </table>
+      </form>
+     	</td>
+  </tr>
+</table>
+</body>
+</html>
