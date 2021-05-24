@@ -12,7 +12,7 @@ export const signin = async (req,res) => {
         if(!existingUser) return res.status(404).render('signin', {success: '' ,message: 'Account not exist'});
         const isPasswordCorrect = await bcrypt.compare(password, existingUser.password);
         if(!isPasswordCorrect) return res.status(400).render('signin', {success: '' ,message: 'Password is invalid'});
-        const token = jwt.sign({ name: existingUser.name, id: existingUser._id}, 'test' , {expiresIn: "10s"});
+        const token = jwt.sign({ name: existingUser.name, id: existingUser._id}, 'test' , {expiresIn: "1h"});
         res.cookie("token", token);
         res.redirect('/');
     } catch (error) {
