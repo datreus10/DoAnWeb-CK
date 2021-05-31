@@ -5,7 +5,6 @@ const ProductType = require('../../model/productType');
 router.get('/add', async (req, res) => {
     res.render("./admin/addProductType", {
         msg: req.query.msg || '',
-        layout: './layout/adminLayout',
     });
 })
 

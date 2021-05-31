@@ -8,7 +8,6 @@ router.get('/', async (req, res) => {
         products: await Product.find().sort({
             createAt: -1
         }).limit(10),
-        layout: './layout/adminLayout',
     })
 })
 

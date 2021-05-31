@@ -7,7 +7,6 @@ router.get('/:id',async (req, res) => {
         product : await Product.findById(req.params.id),
         products : await Product.find().limit(8),
         isLogin : req.session.user? req.session.user.name : false,
-        layout: './layout/clientLayout'
     });
 })
 

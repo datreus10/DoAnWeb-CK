@@ -14,7 +14,6 @@ router.get('/add', async (req, res) => {
     res.render("./admin/addProduct", {
         productTypes: await ProductType.find(),
         msg: req.query.msg || '',
-        layout: './layout/adminLayout',
     });
 })
 
@@ -76,7 +75,6 @@ router.get('/', async (req, res) => {
         products: await Product.find().sort({
             createAt: -1
         }),
-        layout: './layout/adminLayout',
     })
 })
 router.post('/', async (req, res) => {
@@ -93,7 +91,6 @@ router.post('/', async (req, res) => {
         }).sort({
             createAt: -1
         }),
-        layout: './layout/adminLayout',
     })
 })
 
@@ -101,7 +98,7 @@ router.post('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     res.render('./admin/detailProduct', {
         product: await Product.findById(req.params.id),
-        layout: './layout/adminLayout'
+        
     })
 })
 

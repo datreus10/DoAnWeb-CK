@@ -1,26 +1,85 @@
-<section class="top-letest-product-section">
-    <div class="container">
-        <div class="section-title">
-            <h2>SẢN PHẨM</h2>
-        </div>
-        <form action="/admin/product" id="post" method="post">
-            <div class="form-group">
-                <label for="name">Tìm sản phẩm</label>
-                <input type="text" name="name" id="" required class="form-control" placeholder="Tên sản phẩm">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Divisima | eCommerce Template</title>
+    <meta charset="UTF-8">
+    <meta name="description" content=" Divisima | eCommerce Template">
+    <meta name="keywords" content="divisima, eCommerce, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link href="/img/favicon.ico" rel="shortcut icon" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
+
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/css/flaticon.css" />
+    <link rel="stylesheet" href="/css/slicknav.min.css" />
+    <link rel="stylesheet" href="/css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/css/animate.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+
+
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header section -->
+    <%- include('../partial/adminHeader.ejs')%>
+    <!-- Header section end -->
+
+    <section class="top-letest-product-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>SẢN PHẨM</h2>
             </div>
-            <div class="form-group">
-                <label for="price">Ngày tạo trước đó</label>
-                <input type="date" name="dayBefore" id="" required class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="price">Ngày tạo sau đó</label>
-                <input type="date" name="dayAfter" id="" required class="form-control">
-            </div>
-            <div class="form-group">
-                <button class="btn btn-danger btn-block" id="submit">
-                    Tìm kiếm
-                </button>
-            </div>
-        </form>
-        <%-include("../partial/gridCard", {products:products,title:""}) %>
-</section>
+            <form action="/admin/product" id="post" method="post">
+                <div class="form-group">
+                    <label for="name">Tìm sản phẩm</label>
+                    <input type="text" name="name" id="" required class="form-control" placeholder="Tên sản phẩm">
+                </div>
+                <div class="form-group">
+                    <label for="price">Ngày tạo trước đó</label>
+                    <input type="date" name="dayBefore" id="" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="price">Ngày tạo sau đó</label>
+                    <input type="date" name="dayAfter" id="" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-danger btn-block" id="submit">
+                        Tìm kiếm
+                    </button>
+                </div>
+            </form>
+            <%-include("../partial/gridCard", {products:products,title:""}) %>
+    </section>
+
+
+    <!-- Footer section -->
+    <%- include('../partial/clientFooter.ejs')%>
+    <!-- Footer section end -->
+
+
+
+    <!--====== Javascripts & Jquery ======-->
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.slicknav.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/jquery.nicescroll.min.js"></script>
+    <script src="/js/jquery.zoom.min.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+
+</html>

@@ -14,7 +14,6 @@ router.get('/', async (req, res) => {
         }) : undefined,
         isLogin: req.session.user ? req.session.user.name : false,
         products: await Product.find().limit(8),
-        layout: './layout/clientLayout'
     });
 })
 

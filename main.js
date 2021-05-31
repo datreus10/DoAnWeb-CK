@@ -1,5 +1,5 @@
 const express = require('express');
-const expressLayouts = require('express-ejs-layouts');
+// const expressLayouts = require('express-ejs-layouts');
 const app = express();
 const session = require('express-session');
 const dotenv = require('dotenv');
@@ -10,7 +10,7 @@ db.dbConnect();
 app.set('port', process.env.PORT || 3000);
 app.use(express.static(__dirname + '/public'));
 
-app.use(expressLayouts);
+// app.use(expressLayouts);
 app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({
