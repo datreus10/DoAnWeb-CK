@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const helper = require('../route/helper');
 
 const sizeSchema = new mongoose.Schema({
     sizeName: String,
@@ -23,8 +24,8 @@ const productSchema = new mongoose.Schema({
         required: true
     },
     sizes: [{
-        name:String,
-        quantity:Number
+        name: String,
+        quantity: Number
     }],
     productType: {
         type: mongoose.Schema.Types.ObjectId,
@@ -32,7 +33,13 @@ const productSchema = new mongoose.Schema({
         ref: 'ProductType'
     },
 }, {
-    timestamps: true
+    timestamps: true,
+    getters: true
 });
+
+productSchema.virtual('fileLinks').get(function () {
+    return this.img.map(e => helper.getFileLink(e));
+});
+
 
 module.exports = mongoose.model('Product', productSchema, 'Product');
