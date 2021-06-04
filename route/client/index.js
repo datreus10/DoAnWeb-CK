@@ -3,15 +3,15 @@ const router = express.Router();
 const Product = require('../../model/product');
 const User = require('../../model/user');
 const Cart = require('../../model/cart');
-
-router.get("/", async (req, res) => {
+const {auth} = require ('../../middleware/auth')
+router.get("/",auth, async (req, res) => {
     res.render("./client/index", {
         lastedProducts: await Product.find().sort({
             createAt: -1
         }).limit(10),
         products: await Product.find().limit(8),
         // isLogin: req.session.user ? req.session.user.name : false
-        isLogin: false
+        isLogin: req.userName
     });
 });
 

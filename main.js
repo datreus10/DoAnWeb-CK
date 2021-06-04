@@ -4,10 +4,12 @@ const app = express();
 // const session = require('express-session');
 const dotenv = require('dotenv');
 const db = require('./db/dbConfig');
+const cookieParser = require ('cookie-parser');
 dotenv.config();
 db.dbConnect();
 
 app.set('port', process.env.PORT || 3000);
+app.use(cookieParser());
 app.use(express.static(__dirname + '/public'));
 
 // app.use(expressLayouts);
@@ -33,6 +35,8 @@ const clientCheckoutRouter = require('./route/client/checkout');
 const adminIndexRouter = require('./route/admin/index');
 const adminProductRouter = require('./route/admin/product');
 const adminProductTypeRouter = require('./route/admin/productType');
+const auth = require('./route/auth/auth');
+const customer = require('./route/Customer/Customer');
 
 app.use('/api', apiRouter);
 app.use('/', clientIndexRouter);
@@ -42,7 +46,8 @@ app.use('/checkout',clientCheckoutRouter);
 app.use('/admin', adminIndexRouter);
 app.use('/admin/product', adminProductRouter);
 app.use('/admin/product/type', adminProductTypeRouter);
-
+app.use('/', auth);
+app.use('/', customer);
 
 app.listen(app.get('port'), () => {
     console.log('Server has started and listening on port ' + app.get('port'));

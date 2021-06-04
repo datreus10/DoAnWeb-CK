@@ -19,9 +19,9 @@
                         <div class="up-item">
                             <i class="flaticon-profile"></i>
                             <% if (isLogin) { %>
-                            <a href="/logout">Hello <%= isLogin %></a>
+                            <a href="/myaccount">Hello <%= isLogin %></a>
                             <% } else {%>
-                            <a href="/login">Log In</a> or <a href="/register">Create Account</a>
+                            <a href="/signin">Log In</a> or <a href="/signup">Create Account</a>
                             <% } %>
                         </div>
                         <div class="up-item">
@@ -30,6 +30,11 @@
                                 <span>3</span>
                             </div>
                             <a href="/cart">Shopping Cart</a>
+                        </div>
+                        <div class="up-item">
+                            <% if (isLogin) { %>
+                                <a href="/logout" class="flaticon-logout"></a>
+                                <% }  %>
                         </div>
                     </div>
                 </div>
