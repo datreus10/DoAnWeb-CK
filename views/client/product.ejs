@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Divisima | eCommerce Template</title>
+	<meta charset="UTF-8">
+	<meta name="description" content=" Divisima | eCommerce Template">
+	<meta name="keywords" content="divisima, eCommerce, creative, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->
+	<link href="img/favicon.ico" rel="shortcut icon" />
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
+
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="/css/flaticon.css" />
+	<link rel="stylesheet" href="/css/slicknav.min.css" />
+	<link rel="stylesheet" href="/css/jquery-ui.min.css" />
+	<link rel="stylesheet" href="/css/owl.carousel.min.css" />
+	<link rel="stylesheet" href="/css/animate.css" />
+	<link rel="stylesheet" href="/css/style.css" />
+
+
+
+
+</head>
+
+<body>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+
+
+	<!-- Header section -->
+	<%- include('../partial/clientHeader.ejs')%>
+	<!-- Header section end -->
+
+
+	<!-- product section -->
+	<section class="product-section">
+		<div class="container">
+			<div class="back-link">
+				<a href="./category.html"> &lt;&lt; Back to Category</a>
+			</div>
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="product-pic-zoom">
+						<img class="product-big-img"
+							src="/api/img/<%= product.img[0] %>?format=png&width=1000&height=1358" alt="">
+					</div>
+					<div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
+						<div class="product-thumbs-track">
+							<div class="pt active"
+								data-imgbigurl="/api/img/<%= product.img[0] %>?format=png&width=1000&height=1358"><img
+									src="/api/img/<%= product.img[0] %>?format=png&width=116&height=116" alt=""></div>
+
+
+							<% for(let i=1;i<product.img.length;i++) { %>
+							<div class="pt"
+								data-imgbigurl="/api/img/<%= product.img[i] %>?format=png&width=1000&height=1358"><img
+									src="/api/img/<%= product.img[i] %>?format=png&width=116&height=116" alt=""></div>
+							<% } %>
+
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 product-details">
+					<h2 class="p-title"><%= product.name %></h2>
+					</h2>
+					<h3 class="p-price"> <%= product.price %>đ</h3>
+					<h4 class="p-stock">Available: <span>In Stock</span></h4>
+					<div class="p-rating">
+						<i class="fa fa-star-o"></i>
+						<i class="fa fa-star-o"></i>
+						<i class="fa fa-star-o"></i>
+						<i class="fa fa-star-o"></i>
+						<i class="fa fa-star-o fa-fade"></i>
+					</div>
+					<div class="p-review">
+						<a href="">3 reviews</a>
+					</div>
+
+					<form action="/cart/product/<%= product._id %> " method="post">
+						<div class="fw-size-choose">
+							<p>Size</p>
+							<% product.sizes.forEach(size => { %>
+							<div class="sc-item<% if (size.quantity==0) { %> disable<% } %>">
+								<input type="radio" name="size" id="size-<%= size.name %> " value="<%= size.name %> "
+									<% if (size.quantity==0) { %> disabled <% }  else {%> checked <% } %>>
+								<label for="size-<%= size.name %> "><%= size.name %> </label>
+							</div>
+							<% }); %>
+
+						</div>
+						<div class="quantity">
+							<p>Quantity</p>
+							<div class="pro-qty"><input type="text" value="1" name="quantity"></div>
+						</div>
+						<button type="submit" class="site-btn">ADD TO CART</button>
+					</form>
+
+					<div id="accordion" class="accordion-area">
+						<div class="panel">
+							<div class="panel-header" id="headingOne">
+								<button class="panel-link active" data-toggle="collapse" data-target="#collapse1"
+									aria-expanded="true" aria-controls="collapse1">information</button>
+							</div>
+							<div id="collapse1" class="collapse show" aria-labelledby="headingOne"
+								data-parent="#accordion">
+								<div class="panel-body">
+									<p><%= product.description %> </p>
+								</div>
+							</div>
+						</div>
+						<div class="panel">
+							<div class="panel-header" id="headingTwo">
+								<button class="panel-link" data-toggle="collapse" data-target="#collapse2"
+									aria-expanded="false" aria-controls="collapse2">care details </button>
+							</div>
+							<div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+								<div class="panel-body">
+									<img src="/img/cards.png" alt="">
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so
+										dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te
+										mpus.
+										Ut consectetur lacus leo, non scelerisque nulla euismod nec.</p>
+								</div>
+							</div>
+						</div>
+						<div class="panel">
+							<div class="panel-header" id="headingThree">
+								<button class="panel-link" data-toggle="collapse" data-target="#collapse3"
+									aria-expanded="false" aria-controls="collapse3">shipping & Returns</button>
+							</div>
+							<div id="collapse3" class="collapse" aria-labelledby="headingThree"
+								data-parent="#accordion">
+								<div class="panel-body">
+									<h4>7 Days Returns</h4>
+									<p>Cash on Delivery Available<br>Home Delivery <span>3 - 4 days</span></p>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so
+										dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te
+										mpus.
+										Ut consectetur lacus leo, non scelerisque nulla euismod nec.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="social-sharing">
+						<a href=""><i class="fa fa-google-plus"></i></a>
+						<a href=""><i class="fa fa-pinterest"></i></a>
+						<a href=""><i class="fa fa-facebook"></i></a>
+						<a href=""><i class="fa fa-twitter"></i></a>
+						<a href=""><i class="fa fa-youtube"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- product section end -->
+
+
+	<!-- RELATED PRODUCTS section -->
+	<%-include("../partial/carouselCard", {products:products,title:"SẢN PHẨM LIÊN QUAN"}) %>
+	<!-- RELATED PRODUCTS section end -->
+
+
+	<!-- Footer section -->
+	<%- include('../partial/clientFooter.ejs')%>
+	<!-- Footer section end -->
+
+
+
+	<!--====== Javascripts & Jquery ======-->
+	<script src="/js/jquery-3.2.1.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/jquery.slicknav.min.js"></script>
+	<script src="/js/owl.carousel.min.js"></script>
+	<script src="/js/jquery.nicescroll.min.js"></script>
+	<script src="/js/jquery.zoom.min.js"></script>
+	<script src="/js/jquery-ui.min.js"></script>
+	<script src="/js/main.js"></script>
+	<script src="/js/custom/ejs.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Divisima | eCommerce Template</title>
+    <meta charset="UTF-8">
+    <meta name="description" content=" Divisima | eCommerce Template">
+    <meta name="keywords" content="divisima, eCommerce, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="shortcut icon" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
+
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/css/flaticon.css" />
+    <link rel="stylesheet" href="/css/slicknav.min.css" />
+    <link rel="stylesheet" href="/css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/css/animate.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+
+
+
+
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+
+
+    <!-- Header section -->
+    <%- include('../partial/clientHeader.ejs',{isLogin:isLogin})%>
+    <!-- Header section end -->
+
+    <!-- Page info -->
+    <div class="page-top-info">
+        <div class="container">
+            <h4>Your cart</h4>
+            <div class="site-pagination">
+                <a href="">Home</a> /
+                <a href="">Your cart</a>
+            </div>
+        </div>
+    </div>
+    <!-- Page info end -->
+
+
+    <!-- cart section end -->
+    <section class="cart-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <form action="/cart/remove" method="post">
+                        <div class="cart-table">
+                            <div style="display: flex; justify-content: space-between;align-items: center;">
+                                <h3>Your Cart</h3>
+                                <% if (cart && cart.items.length >0) { %>
+                                <button type="submit" class="site-btn" style="margin-bottom: 37px;">Xóa</button>
+                                <% } %>
+
+                            </div>
+
+                            <div class="cart-table-warp">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th class="product-th">Product</th>
+                                            <th class="quy-th">Quantity</th>
+                                            <th class="size-th">Size</th>
+                                            <th class="total-th">Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+
+                                        <% !cart || cart.items.forEach(item => { %>
+                                        <tr>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        value="<%= item._id %>" id="flexCheckDefault" name="product">
+                                                    <label class="form-check-label" for="flexCheckDefault"></label>
+                                                </div>
+                                            </td>
+                                            <td class="product-col">
+                                                <img src="/api/img/<%= item.itemId.img[0] %>?format=png&width=80&height=81"
+                                                    alt="">
+                                                <div class="pc-title">
+                                                    <h4><%= item.itemId.name %> </h4>
+                                                    <p><%= item.itemId.price %>đ</p>
+                                                </div>
+                                            </td>
+                                            <td class="size-col">
+                                                <h4><%= item.quantity %></h4>
+
+                                            </td>
+                                            <td class="size-col">
+                                                <h4><%= item.size %></h4>
+                                            </td>
+                                            <td class="total-col">
+                                                <h4><%= item.quantity * item.itemId.price %></h4>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="total-cost">
+                                <h6>Total <span><% if (cart) { %>
+                                        <%= cart.total %>
+                                        <% } else {%> 0 <% } %> </span></h6>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-4 card-right">
+
+                    <a href="/checkout" class="site-btn">Proceed to checkout</a>
+                    <a href="/" class="site-btn sb-dark">Continue shopping</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- cart section end -->
+
+    <!-- Related product section -->
+    <%-include("../partial/carouselCard", {products:products,title:"SẢN PHẨM LIÊN QUAN"}) %>
+    <!-- Related product section end -->
+    <script src="js/custom/cart.js"></script>
+
+
+    <!-- Footer section -->
+    <%- include('../partial/clientFooter.ejs')%>
+    <!-- Footer section end -->
+
+
+
+    <!--====== Javascripts & Jquery ======-->
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.slicknav.min.js"></script>
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/jquery.nicescroll.min.js"></script>
+    <script src="/js/jquery.zoom.min.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/custom/ejs.min.js"></script>
+
+</body>
+
+</html>
