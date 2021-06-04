@@ -1,7 +1,7 @@
-import User from '../../models/User.js'
-import mongoose from 'mongoose';
+const User = require('../../model/user.js')
+const mongoose= require('mongoose');
 
-export const getCustomer = async (req, res) => {
+const getCustomer = async (req, res) => {
     try {
         
         const id=req.userID;
@@ -10,7 +10,7 @@ export const getCustomer = async (req, res) => {
             const Username = UserID.name;
             const email = UserID.email;
             if(UserID) 
-                return res.status(201).render('customer', {Username: Username, email: email});
+                return res.status(201).render('./customer', {Username: Username, email: email});
         }
         else
         {
@@ -21,3 +21,4 @@ export const getCustomer = async (req, res) => {
         res.status(409).json({ message: error.message });
     }
 }
+module.exports = {getCustomer}
