@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const { compareSync } = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../../model/user.js');
+const Cart = require ('../../model/cart.js')
 const express = require('express');
 const bodyParser = require('body-parser');
 const signin = async (req,res) => {
@@ -30,6 +31,10 @@ const signup = async (req,res) => {
         const hashedPassword = await bcrypt.hash(password,12 ); 
         const result = new User({ name, email, password: hashedPassword, role: 'member'})
         const token = jwt.sign({ email: result.email, id: result._id, role: result.role}, 'test' , {expiresIn: "1h"});
+        await Cart.create({
+            userId: result._id,
+            items: []
+        })
         await result.save();
         res.status(200).render('./auth/signin', {success: result.name, message: ''});
     } catch (error) {

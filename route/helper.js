@@ -34,47 +34,55 @@ const resize = (keyId, format, width, height) => {
 
 // amazon s3 config
 require('dotenv').config()
-const S3 = require('aws-sdk/clients/s3')
+const {
+    BlobServiceClient,
+    generateBlobSASQueryParameters,
+    StorageSharedKeyCredential,
+    BlobSASPermissions
+} = require("@azure/storage-blob");
+const accountName = process.env.AZURE_ACCOUNT_NAME
+const containerName = process.env.AZURE_CONTAINER_NAME
+const accountKey = process.env.AZURE_ACCOUNT_KEY
 
-const bucketName = process.env.AWS_BUCKET_NAME
-const region = process.env.AWS_BUCKET_REGION
-const accessKeyId = process.env.AWS_ACCESS_KEY
-const secretAccessKey = process.env.AWS_SECRET_KEY
+const sharedKeyCredential = new StorageSharedKeyCredential(accountName, accountKey);
 
-const s3 = new S3({
-    region,
-    accessKeyId,
-    secretAccessKey
-})
-
-// uploads a file to s3
-const uploadFile = file => {
+// uploads a file to amzon blob
+const uploadFile = async file => {
+    const blobServiceClient = new BlobServiceClient(
+        `https://${accountName}.blob.core.windows.net`,
+        sharedKeyCredential
+    );
     const fileStream = fs.createReadStream(file.path)
-
-    const uploadParams = {
-        Bucket: bucketName,
-        Body: fileStream,
-        Key: file.filename
-    }
-
-    return s3.upload(uploadParams).promise()
+    const containerClient = blobServiceClient.getContainerClient(containerName);
+    const blockBlobClient = containerClient.getBlockBlobClient(file.filename);
+    return blockBlobClient.uploadStream(fileStream, file.size);
 }
 
-// downloads a file from s3
-function getFileStream(fileKey) {
-    const downloadParams = {
-        Key: fileKey,
-        Bucket: bucketName
-    }
-
-    return s3.getObject(downloadParams).createReadStream()
+// get file link 
+const getFileLink = (fileName) => {
+    const blobServiceClient = new BlobServiceClient(
+        `https://${accountName}.blob.core.windows.net`,
+        sharedKeyCredential
+    );
+    const containerClient = blobServiceClient.getContainerClient(containerName);
+    const blockBlobClient = containerClient.getBlockBlobClient(fileName);
+    const startDate = new Date();
+    const expiryDate = new Date(startDate);
+    expiryDate.setMinutes(startDate.getMinutes() + 100);
+    startDate.setMinutes(startDate.getMinutes() - 100);
+    return blockBlobClient.url + "?" + generateBlobSASQueryParameters({
+            containerName: containerName, // Required
+            blobName: fileName, // Required
+            permissions: BlobSASPermissions.parse("r"), // Required
+            startsOn: startDate, //Date.now(), // Required
+            expiresOn: expiryDate //new Date(new Date().valueOf() + 86400) // Optional. Date type (1 ngày)
+        },
+        sharedKeyCredential // StorageSharedKeyCredential - `new StorageSharedKeyCredential(account, accountKey)`
+    ).toString();
 }
-
-
 
 module.exports = {
     upload,
-    resize,
     uploadFile,
-    getFileStream
+    getFileLink
 }
