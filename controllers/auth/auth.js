@@ -76,6 +76,7 @@ const signup = async (req, res) => {
             userId: result._id,
             items: []
         })
+
         await result.save();
         res.status(200).render('./auth/signin', {
             success: result.name,

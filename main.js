@@ -2,6 +2,7 @@ const express = require('express');
 // const expressLayouts = require('express-ejs-layouts');
 const app = express();
 // const session = require('express-session');
+const path = require('path');
 const dotenv = require('dotenv');
 const db = require('./db/dbConfig');
 const cookieParser = require ('cookie-parser');
@@ -12,8 +13,10 @@ app.set('port', process.env.PORT || 3000);
 app.use(cookieParser());
 app.use(express.static(__dirname + '/public'));
 
+
 // app.use(expressLayouts);
-app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs'); 
 app.use(express.json());
 app.use(express.urlencoded({
     extended: true
@@ -30,6 +33,7 @@ app.use(express.urlencoded({
 const apiRouter = require('./route/api');
 const clientIndexRouter = require('./route/client/index');
 const clientProductRouter = require('./route/client/product');
+const clientCategoryRouter = require('./route/client/category');
 const clientCartRouter = require('./route/client/cart');
 const clientCheckoutRouter = require('./route/client/checkout');
 const adminIndexRouter = require('./route/admin/index');
@@ -41,6 +45,7 @@ const customer = require('./route/Customer/Customer');
 app.use('/api', apiRouter);
 app.use('/', clientIndexRouter);
 app.use('/product', clientProductRouter);
+app.use('/products', clientCategoryRouter);
 app.use('/cart', clientCartRouter);
 app.use('/checkout',clientCheckoutRouter);
 app.use('/admin', adminIndexRouter);

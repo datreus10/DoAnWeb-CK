@@ -57,15 +57,15 @@ router.post('/product/:id', auth ,async (req, res) => {
     res.redirect('/cart');
 })
 
-router.post('/remove', async (req, res) => {
-    if (req.session.user && req.body.product) {
+router.post('/remove',auth, async (req, res) => {
+    if (req.userID && req.body.product) {
         const temp = typeof req.body.product === "string" ? [{
             _id: req.body.product
         }] : req.body.product.map(e => ({
             _id: e
         }));
         await Cart.updateOne({
-            userId: req.session.user._id
+            userId: req.userID
         }, {
             $pull: {
                 "items": {
