@@ -3,29 +3,29 @@ const router = express.Router();
 
 const Product = require("../../model/product");
 const Cart = require("../../model/cart");
-
-router.get('/', async (req, res) => {
+const {auth} = require ('../../middleware/auth')
+router.get('/', auth,async (req, res) => {
     res.render("./client/cart", {
-        cart: req.session.user ? await Cart.findOne({
-            userId: req.session.user._id
+        cart: req.user ? await Cart.findOne({
+            userId: req.userID
         }).populate({
             path: 'items.itemId',
             select: '_id name img price'
         }) : undefined,
-        isLogin: req.session.user ? req.session.user.name : false,
+        isLogin: req.user ? req.userName : false,
         products: await Product.find().limit(8),
     });
 })
 
 // add product to cart
 
-router.post('/product/:id', async (req, res) => {
-    if (req.session.user) {
+router.post('/product/:id', auth ,async (req, res) => {
+    if (req.user) {
         // viet code update (neu co san pham va trung size khac so luong thi 
         // update so luong, ko thi add vo mang)
         
         await Cart.updateOne({
-            userId: req.session.user._id,
+            userId: req.userID,
             items: {
                 "$not": {
                     "$elemMatch": {
@@ -45,7 +45,7 @@ router.post('/product/:id', async (req, res) => {
         });
 
         await Cart.updateOne({
-            userId: req.session.user._id,
+            userId: req.userID,
             "items.size": req.body.size,
             "items.itemId": req.params.id
         }, {

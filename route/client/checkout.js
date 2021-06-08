@@ -1,14 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const Cart = require("../../model/cart");
+const {auth} = require ('../../middleware/auth')
 
-
-router.get('/', async (req, res) => {
-    if(req.session.user){
+router.get('/', auth, async (req, res) => {
+    if(req.user){
         res.render('./client/checkout', {
-            isLogin: req.session.user.name,
+            isLogin: req.userName,
             cart: await Cart.findOne({
-                userId: req.session.user._id
+                userId: req.userID
             }).populate({
                 path: 'items.itemId',
                 select: '_id name img price'
