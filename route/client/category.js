@@ -13,6 +13,7 @@ router.get("/",auth, async (req, res) => {
         products: await Product.find().limit(8),
         productTypes: await ProductType.find(),
         // isLogin: req.session.user ? req.session.user.name : false
+        isAdmin: req.userRole=="admin"? "Admin": "",
         isLogin: req.userName
     });
 });
@@ -27,6 +28,7 @@ router.post("/",auth,async (req,res) =>{
         }).limit(10),
         products: await Product.find(query).limit(8),
         productTypes: await ProductType.find(),
+        isAdmin: req.userRole=="admin"? "Admin": "",
         // isLogin: req.session.user ? req.session.user.name : false
         isLogin: req.userName
     });}
@@ -40,6 +42,7 @@ router.post("/",auth,async (req,res) =>{
         products: await Product.find(query).limit(8),
         productTypes: await ProductType.find(),
         // isLogin: req.session.user ? req.session.user.name : false
+        isAdmin: req.userRole=="admin"? "Admin": "",
         isLogin: req.userName
     });}
 })

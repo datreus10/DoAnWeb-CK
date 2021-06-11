@@ -13,6 +13,7 @@ router.get('/', auth,async (req, res) => {
             select: '_id name img price'
         }) : undefined,
         isLogin: req.user ? req.userName : false,
+        isAdmin: req.userRole=="admin"? "Admin": "",
         products: await Product.find().limit(8),
     });
 })

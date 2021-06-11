@@ -8,6 +8,7 @@ router.get('/:id',auth,async (req, res) => {
             res.render("./client/product", {
                 product : await Product.findById(req.params.id),
                 products : await Product.find().limit(8),
+                isAdmin: req.userRole=="admin"? "Admin": "",
                 isLogin : req.userName
             });
   
