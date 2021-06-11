@@ -16,7 +16,6 @@ const auth = async (req,res,next) => {
                 req.userName = decodedData?.name;
                 req.userID = decodedData?.id;
                 req.userRole = decodeData?.role;
-                
                 req.user=decodedData;
             }
             else{
