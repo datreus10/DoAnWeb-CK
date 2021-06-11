@@ -11,6 +11,7 @@ router.get("/",auth, async (req, res) => {
         }).limit(10),
         products: await Product.find().limit(8),
         // isLogin: req.session.user ? req.session.user.name : false
+        isAdmin: req.userRole=="admin"? "Admin": "",
         isLogin: req.userName
     });
 });
