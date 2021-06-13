@@ -20,13 +20,14 @@ const auth = async (req,res,next) => {
             }
             else{
                 req.userName = "";
-                req.userID = "";
+                req.userID = "";          
             }
         }
         next();
     }
     catch (error) {
         console.log(error);
+        res.redirect('/logout');
     }
 }
 module.exports = {auth}
