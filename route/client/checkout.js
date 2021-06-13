@@ -9,6 +9,7 @@ const {
 router.get('/', auth, async (req, res) => {
     if (req.user) {
         res.render('./client/checkout', {
+            isAdmin: req.userRole=="admin"? "Admin": "",
             isLogin: req.userName,
             cart: await Cart.findOne({
                 userId: req.userID

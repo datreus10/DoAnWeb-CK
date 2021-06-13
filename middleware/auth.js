@@ -14,18 +14,20 @@ const auth = async (req,res,next) => {
             if (token) {
                 decodedData=jwt.verify (token, 'test');
                 req.userName = decodedData?.name;
-                req.userID = decodedData?.id
+                req.userID = decodedData?.id;
+                req.userRole = decodedData?.role;
                 req.user=decodedData;
             }
             else{
                 req.userName = "";
-                req.userID = "";
+                req.userID = "";          
             }
         }
         next();
     }
     catch (error) {
         console.log(error);
+        res.redirect('/logout');
     }
 }
 module.exports = {auth}

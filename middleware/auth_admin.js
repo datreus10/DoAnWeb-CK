@@ -27,6 +27,7 @@ const auth_admin = async (req,res,next) => {
 
     catch (error) {
         console.log(error);
+        res.redirect('/logout');
     }
 }
 
