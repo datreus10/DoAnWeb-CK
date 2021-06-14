@@ -124,7 +124,25 @@
                                         <hr />
                                     </div>
                                     <div class="tab-pane fade" id="connectedServices" role="tabpanel" aria-labelledby="ConnectedServices-tab">
-                                        <a href="/myaccount/<%=Bill%>"><%=Bill%></a>
+                                        <% Bills.forEach(function(Bill) { %>
+                                            <div class="row">
+                                                <div class="col-sm-3 col-md-2 col-5">
+                                                    <label style="font-weight:bold;">Đơn hàng</label>
+                                                </div>
+                                                <div class="col-md-8 col-6">
+                                                    <a href="/myaccount/<%=Bill._id%>"><%=Bill._id%></a>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3 col-md-2 col-5">
+                                                    <label style="font-weight:bold;">Tổng tiền</label>
+                                                </div>
+                                                <div class="col-md-8 col-6">
+                                                    <%=Bill.total%>
+                                                </div>
+                                            </div>
+                                            <hr />
+                                        <%})%>
                                     </div>
                                 </div>
                             </div>

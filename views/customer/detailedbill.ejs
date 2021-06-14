@@ -124,7 +124,43 @@
                                         <hr />
                                     </div>
                                     <div class="tab-pane fade show active" id="connectedServices" role="tabpanel" aria-labelledby="ConnectedServices-tab">
-                                        <a href="/myaccount/<%=Bill%>"><%=Bill%></a>
+                                        <% Bills.forEach(function(Bill) { %>
+                                            <% Bill.items.forEach(function(Billitems) { %>
+                                            <div class="row">
+                                                <div class="col-sm-3 col-md-2 col-5">
+                                                    <label style="font-weight:bold;">Sản phẩm</label>
+                                                </div>
+                                                <div class="col-md-8 col-6">
+                                                    <a href="/product/<%=Billitems.itemId%>"><%=Billitems.itemId%></a>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3 col-md-2 col-5">
+                                                    <label style="font-weight:bold;">Số lượng</label>
+                                                </div>
+                                                <div class="col-md-8 col-6">
+                                                    <%=Billitems.quantity%>
+                                                </div>
+                                            </div>
+                                            <hr />
+                                            <%})%>
+                                            
+                                        
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">Tổng tiền</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                <%=Bill.total%>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <%})%>
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <a href="/myaccount">Trở lại</a>
+                                            </div>
                                     </div>
                                 </div>
                             </div>

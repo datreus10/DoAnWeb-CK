@@ -1,5 +1,5 @@
 const User = require('../../model/user.js')
-const Bill = require('../../model/cart.js')
+const Bill = require('../../model/bill.js')
 const mongoose= require('mongoose');
 
 const getCustomer = async (req, res) => {
@@ -18,7 +18,7 @@ const getCustomer = async (req, res) => {
                 email: email,
                 isAdmin: req.userRole=="admin"? "Admin": "",
                 isLogin: req.userName,
-                Bill: ListBill[0]._id
+                Bills: ListBill
             });
         }
         else
