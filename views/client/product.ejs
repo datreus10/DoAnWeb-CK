@@ -49,27 +49,28 @@
 				<a href="./category.html"> &lt;&lt; Back to Category</a>
 			</div>
 			<div class="row">
+
 				<div class="col-lg-6">
-					<div class="product-pic-zoom">
-						<img class="product-big-img"
-							src="<%= product.fileLinks[0] %>" alt="">
+					<div class="product-pic-zoom" style="position: relative; overflow: hidden;">
+						<img class="product-big-img" src="<%= product.fileLinks[0] %>" width="558" height="757" alt="">
+						<img role="presentation" alt="" src="<%= product.fileLinks[0] %>" class="zoomImg"
+							style="position: absolute; top: -542.446px; left: -442.024px; opacity: 0; border: none; max-width: none; max-height: none; width: 1000px; height: 1358px;">
 					</div>
 					<div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
 						<div class="product-thumbs-track">
-							<div class="pt active"
-								data-imgbigurl="<%= product.fileLinks[0] %>?format=png&width=1000&height=1358"><img
-									src="<%= product.fileLinks[0] %>" height="116px" width="116px" alt=""></div>
-
-
+							<div class="pt active" data-imgbigurl="<%= product.fileLinks[0] %>"><img
+									src="<%= product.fileLinks[0] %>" height="116" width="116" alt=""></div>
 							<% for(let i=1;i<product.img.length;i++) { %>
-							<div class="pt"
-								data-imgbigurl="<%= product.fileLinks[i] %> %>?format=png&width=1000&height=1358"><img
-									src="<%= product.fileLinks[i] %>" height="116px" width="116px" alt=""></div>
+							<div class="pt" data-imgbigurl="<%= product.fileLinks[i] %>"><img
+									src="<%= product.fileLinks[i] %>" height="116" width="116" alt=""></div>
 							<% } %>
-
 						</div>
 					</div>
 				</div>
+
+
+
+
 				<div class="col-lg-6 product-details">
 					<h2 class="p-title"><%= product.name %></h2>
 					</h2>
