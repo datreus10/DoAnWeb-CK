@@ -88,21 +88,66 @@
 					</div>
 
 					<form action="/cart/product/<%= product._id %> " method="post">
-						<div class="fw-size-choose">
+						<div class="fw-size-choose" role="tablist">
 							<p>Size</p>
-							<% product.sizes.forEach(size => { %>
-							<div class="sc-item<% if (size.quantity==0) { %> disable<% } %>">
-								<input type="radio" name="size" id="size-<%= size.name %> " value="<%= size.name %> "
-									<% if (size.quantity==0) { %> disabled <% }  else {%> checked <% } %>>
-								<label for="size-<%= size.name %> "><%= size.name %> </label>
+
+							<% for( let i = 0,f=true; i < product.sizes.length; i++ ) { %>
+
+							<% if (product.sizes[i].quantity==0) { %>
+							<div class="sc-item disable">
+								<input type="radio" name="size" value="<%= product.sizes[i].name %>"
+									id="size-<%= product.sizes[i].name %>" disabled>
+								<label for="size-<%= product.sizes[i].name %>"><%= product.sizes[i].name %></label>
 							</div>
-							<% }); %>
+
+							<% } else { %>
+
+							<% if (f) { %>
+							<div class="sc-item">
+								<input type="radio" name="size" id="size-<%= product.sizes[i].name %>"
+									value="<%= product.sizes[i].name %>"
+									data-target="#available-<%= product.sizes[i].name %>" checked>
+								<label for="size-<%= product.sizes[i].name %>"><%= product.sizes[i].name %></label>
+							</div>
+							<% f=false %>
+							<% } else { %>
+							<input type="radio" name="size" id="size-<%= product.sizes[i].name %>"
+								value="<%= product.sizes[i].name %>"
+								data-target="#available-<%= product.sizes[i].name %>">
+							<label for="size-<%= product.sizes[i].name %>"><%= product.sizes[i].name %></label>
+							<% }}} %>
 
 						</div>
+						<!-- <div class="quantity">
+							<p>Quantity</p>
+							<div class="pro-qty"><span class="dec qtybtn">-</span><input type="text" value="1"><span
+									class="inc qtybtn">+</span></div>
+						</div> -->
+
 						<div class="quantity">
 							<p>Quantity</p>
-							<div class="pro-qty"><input type="text" value="1" name="quantity"></div>
+
+							<div class="pro-qty"><span class="dec qtybtn">-</span><input type="text" value="1" name="quantity"><span
+									class="inc qtybtn">+</span></div>
+							<div class="tab-content" id="max-quantity-product" style="margin-left: 1rem;">
+
+								<% for( let i = 0,f=true; i < product.sizes.length; i++ ) { %>
+
+								<% if (product.sizes[i].quantity!=0) { %>
+
+								<% if (f) { %>
+								<div id="available-<%= product.sizes[i].name %>" class="tab-pane active">
+									<span><%=product.sizes[i].quantity%></span> sản phẩm sẵn có</div>
+								<% f=false %>
+								<% } else { %>
+								<div id="available-<%= product.sizes[i].name %>" class="tab-pane">
+									<span><%=product.sizes[i].quantity%></span> sản phẩm sẵn có</div>
+								<% }}} %>
+							</div>
 						</div>
+
+
+
 						<button type="submit" class="site-btn">ADD TO CART</button>
 					</form>
 

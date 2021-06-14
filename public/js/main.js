@@ -184,17 +184,18 @@ $(window).on('load', function () {
 		Quantity change
 	--------------------- */
 	var proQty = $('.pro-qty');
-	proQty.prepend('<span class="dec qtybtn">-</span>');
-	proQty.append('<span class="inc qtybtn">+</span>');
+	// proQty.prepend('<span class="dec qtybtn">-</span>');
+	// proQty.append('<span class="inc qtybtn">+</span>');
 	proQty.on('click', '.qtybtn', function () {
 		var $button = $(this);
 		var oldValue = $button.parent().find('input').val();
+		var maxQuantity = $('#max-quantity-product .tab-pane.active span').text();
 		if ($button.hasClass('inc')) {
-			var newVal = (parseFloat(oldValue) + 1) > 20 ? parseFloat(oldValue) : parseFloat(oldValue) + 1;
+			var newVal = (parseFloat(oldValue) + 1) > maxQuantity ? parseFloat(oldValue) : parseFloat(oldValue) + 1;
 		} else {
 			// Don't allow decrementing below zero
 			if (oldValue > 1) {
-				var newVal = parseFloat(oldValue) - 1;
+				newVal = parseFloat(oldValue) - 1;
 			} else {
 				newVal = 1;
 			}
@@ -203,6 +204,14 @@ $(window).on('load', function () {
 	});
 
 
+	/*-------------------
+			Size change
+		--------------------- */
+	$('input[name="size"]').click(function () {
+		$(this).tab('show');
+		$(this).removeClass('active');
+		$('.pro-qty input[type=text]').val("1");
+	});
 
 	/*------------------
 		Single Product
