@@ -6,6 +6,7 @@ const path = require('path');
 const dotenv = require('dotenv');
 const db = require('./db/dbConfig');
 const cookieParser = require ('cookie-parser');
+const methodOverrride = require('method-override')
 dotenv.config();
 db.dbConnect();
 
@@ -21,6 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({
     extended: true
 }));
+app.use(methodOverrride('_method'))
 // app.use(session({
 //     resave: true,
 //     saveUninitialized: true,

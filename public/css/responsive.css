@@ -1,0 +1,19 @@
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+  }
+  @media (max-width: 850px) {
+    .flex-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    .card{
+        width: 300px !important; 
+    }
+  }
+ 

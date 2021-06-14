@@ -40,22 +40,39 @@
     <section class="top-letest-product-section">
         <div class="container">
             <div class="section-title">
-                <h2>THÊM LOẠI SẢN PHẨM</h2>
+                <h2>Sửa loại sản phẩm</h2>
             </div>
-            <form action="/admin/product/type/add" id="post" method="post">
-                <div class="form-group"style="width: 500px; margin-left: auto;margin-right: auto;">
-                    <label for="name">Tên loại sản phẩm</label>
-                    <input type="text" name="name" id="" required class="form-control">
-                </div>
+            <form action="/admin/product/type/edit/<%= type.id%>?_method=PUT"  method="post">
                 <div class="form-group">
-                    <button class="btn btn-danger btn-block" style="width: 200px; margin-left: auto;margin-right: auto;" type="submit">
-                        Submit
-                    </button>
+                    <label for="name">Tên loại sản phẩm</label>
+                    <input type="text" value="<%= type.name%>" name="name" id="" required class="form-control">
+                </div>
+                <div class="form-group" style="width: 170px;">
+                    <div class="d-flex flex-row bd-highlight mb-3">
+                        <div class="p-2 bd-highlight">
+                            <button class="btn btn-danger btn-block" type="submit">
+                                Update
+                            </button>
+                        </div>
+                </form>        
+                        <div class="p-2 bd-highlight">
+                           
+                            <button class="btn btn-primary btn-block" >
+                                <a href="/admin/product/type/index" style="color:white">
+                                     Cancel
+                                </a>
+                            </button>
+                           
+                        </div>
+                       
+                      </div>
+                    
+                   
                 </div>
                 <div class="form-group">
                     <h3 class="text-primary"><%= msg %></h3>
                 </div>
-            </form>
+          
     </section>
 
 

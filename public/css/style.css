@@ -124,6 +124,14 @@ ol {
 
 /* buttons */
 
+.btn-customize{
+	border-radius: 100% ;
+	margin-top: 3px;
+}
+.btn-customize:hover i{
+	color:yellow
+}
+
 .site-btn {
 	display: inline-block;
 	border: none;

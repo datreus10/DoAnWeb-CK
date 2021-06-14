@@ -9,7 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon -->
     <link href="/img/favicon.ico" rel="shortcut icon" />
-
+    	<!-- Fontawesome  -->
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
 
@@ -38,10 +39,11 @@
     <!-- Header section end -->
 
     <section class="top-letest-product-section">
-        <div class="container">
+        <div class="container" >
             <div class="section-title">
                 <h2>SẢN PHẨM</h2>
             </div>
+           <div>
             <form action="/admin/product" id="post" method="post">
                 <div class="form-group">
                     <label for="name">Tìm sản phẩm</label>
@@ -56,12 +58,22 @@
                     <input type="date" name="dayAfter" id="" required class="form-control">
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-danger btn-block" id="submit">
+                    <button class="btn btn-danger btn-block" id="submit" style="width: 200px;margin-left: auto;margin-right: auto">
                         Tìm kiếm
                     </button>
                 </div>
             </form>
-            <%-include("../partial/gridCard", {products:products,title:""}) %>
+        </div>
+            <% if(msg != ''){%>
+                <div class="alert alert-danger d-flex align-items-center" role="alert">
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                    <div>
+                        <%= msg %>
+                    </div>
+                  </div>
+                <%}%>    
+           
+            <%-include("../partial/admingridCard", {products:products,title:""}) %>
     </section>
 
 

@@ -3,11 +3,31 @@
 <head>
   <meta name="google-signin-client_id" content="964046842523-cvq77d0em3r1aerkngbon2v091h7mtns.apps.googleusercontent.com">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <link href="img/favicon.ico" rel="shortcut icon" />
+  
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
+
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/css/flaticon.css" />
+  <link rel="stylesheet" href="/css/slicknav.min.css" />
+  <link rel="stylesheet" href="/css/jquery-ui.min.css" />
+  <link rel="stylesheet" href="/css/owl.carousel.min.css" />
+  <link rel="stylesheet" href="/css/animate.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+
+
+
   <style>
     body {
       align-items: center;
       margin: 20px auto;
-      width: 500px;
+      /* width: 500px; */
       font-family: Arial, Helvetica, sans-serif;
     }
 
@@ -113,21 +133,22 @@
 </head>
 
 <body onload="signOut()">
+
   <% if (success !='' ) {%>
-    <div class='alert success'>
+    <div class='alert success' style="width: 500px;">
       <span class="closebtn">&times;</span>
       Sign in <%=success%> 's account !!!
     </div>
     <% } %>
     <% if (message !='' ) {%>
-      <div class='alert'>
+      <div class='alert' style="width: 500px;">
         <span class="closebtn">&times;</span>
        <%=message%>
       </div>
       <% } %>
 
       <form action="/signin" method="post">
-        <div class="container">
+        <div class="container"style="width: 500px;">
           <h1>Sign In</h1>
           <a href="/signup">Don't have account? Sign Up</a>
           <hr>
@@ -142,13 +163,20 @@
             <label>
               <input type="checkbox" checked="checked" name="remember"> Remember me
             </label>
+
+            <div class="container" style="background-color:#f1f1f1">
+              <a href="/"><button type="button" class="cancelbtn">Back home</button></a>
+              <a href="#" onclick="signOut();">Sign out</a>
+            </div>
         </div>
-        <div class="container" style="background-color:#f1f1f1">
-          <a href="/"><button type="button" class="cancelbtn">Back home</button></a>
-          <a href="#" onclick="signOut();">Sign out</a>
-        </div>
+      
 
       </form>
+
+	<!-- Footer section -->
+	<%- include('../partial/clientFooter.ejs')%>
+	<!-- Footer section end -->
+
       <script>
 
 
