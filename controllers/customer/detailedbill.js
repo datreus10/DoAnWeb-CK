@@ -1,41 +1,33 @@
 const User = require('../../model/user.js')
-const Bill = require('../../model/cart.js')
+const Bill = require('../../model/bill.js')
 const mongoose= require('mongoose');
 
 const getdetailedBill = async (req, res) => {
     try {
         
         const id=req.userID;
-        query={userId: id};
-        const ListBill= await Bill.find(query)
+
         if(id){
             const Userid = await User.findById(id);
             const Username = Userid.name;
             const email = Userid.email;
-            const Billitem= ListBill[0].items[0];
-            if(req.params.id!=ListBill[0]._id)
+            DetailedBill= await Bill.find({$and: [{_id: req.params.id},{userId: id}]})
+            if(!DetailedBill && DetailedBill=="")
             {
-               return res.status(201).render('./customer/detailedbill', 
-                {
-                    Username: Username, 
-                    email: email,
-                    isAdmin: req.userRole=="admin"? "Admin": "",
-                    isLogin: req.userName,
-                    Bill: "Không tồn tại đơn hàng"
-                });
+                res.redirect('/myaccount')
             }
-            else
-            {
+
             return res.status(201).render('./customer/detailedbill', 
             {
                 Username: Username, 
                 email: email,
                 isAdmin: req.userRole=="admin"? "Admin": "",
                 isLogin: req.userName,
-                Bill: Billitem
+                Bills: DetailedBill
             });
-        }
-        }
+
+}
+            
         else
         {
             return res.status(401).redirect('/');
