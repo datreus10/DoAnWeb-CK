@@ -25,13 +25,14 @@ const uploadMultiple = helper.upload.fields([{
 
 
 router.post('/add', uploadMultiple, async (req, res, next) => {
+    console.log(req.body)
     let msg = '';
     const listFileName =[];
     for(let file of req.files.product_img){
         listFileName.push(file.filename);
         const result = await helper.uploadFile(file)
         await unlinkFile(file.path)
-        console.log(result)
+        // console.log(result)
     }
     try {
         const newProduct = new Product({
@@ -58,8 +59,6 @@ router.post('/add', uploadMultiple, async (req, res, next) => {
             productType: req.body.type
         });
         await newProduct.save();
-
-
         msg = "Thêm sản phẩm thành công";
 
     } catch (error) {
@@ -75,6 +74,7 @@ router.get('/', async (req, res) => {
         products: await Product.find().sort({
             createAt: -1
         }),
+        msg: req.query.msg || ''
     })
 })
 router.post('/', async (req, res) => {
@@ -101,5 +101,97 @@ router.get('/:id', async (req, res) => {
         
     })
 })
+// update sản phẩm
+router.get('/edit/:id', async (req,res)=>{
+    try{
+        const product = await Product.findById(req.params.id)
+        res.render("./admin/editProduct", {
+            product:product,
+            productTypes: await ProductType.find(),
+            msg: req.query.msg || '',
+        });
+    }
+    catch{
+        res.redirect('/admin')
+    }
+  
+})
+router.put('/edit/:id',uploadMultiple,async(req,res)=>{
+   
+    let product
 
+    try
+    {    
+        product = await Product.findById(req.params.id)
+        if( req.files.product_img != undefined){
+            const listFileName =[];
+            for(let file of req.files.product_img){
+                listFileName.push(file.filename);
+                const result = await helper.uploadFile(file)
+                await unlinkFile(file.path) 
+                console.log(result)
+            }
+            product.img= listFileName
+        } 
+        product.name= req.body.name
+        product.description= req.body.description
+       
+        product.price= req.body.price
+        product.sizes= [{
+            name: 'XL',
+            quantity: req.body.XL
+        }, {
+            name: 'L',
+            quantity: req.body.L
+        }, {
+            name: 'M',
+            quantity: req.body.M
+        }, {
+            name: 'S',
+            quantity: req.body.S
+        }, {
+            name: 'XS',
+            quantity: req.body.XS
+        }]
+        product.productType= req.body.type
+
+        await product.save()
+        msg = "Update sản phẩm thành công";
+        res.redirect(`/admin/product/edit/${product._id}?msg=` + msg);
+    }
+    catch(err){
+        console.log(err)
+        //Kiem tra loi nhung da tao product thanh cong=> loi do save len db
+        if( product != null){
+            res.render("./admin/editProduct", {
+                product:product,
+                productTypes: await ProductType.find(),
+                msg: req.query.msg || '',
+            });
+        }
+      
+        else{ 
+            redirect('/admin/product')
+        }
+       
+    }
+})
+// xóa sản phẩm
+router.delete('/delete/:id', async (req,res)=>{
+    let product 
+    try{
+        product= await Product.findById(req.params.id)
+        await product.remove()
+        res.redirect('/admin/product')
+    }
+    catch(err){
+        console.log(err);
+        if( product != null){
+            res.redirect('/admin/products',{ msg:"Không thể xóa sản phẩm"})
+        }
+        else{
+            res.redirect('/admin')
+        }
+    }
+})
 module.exports = router

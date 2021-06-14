@@ -30,7 +30,7 @@ const signin = async (req, res) => {
             id: existingUser._id,
             role: existingUser.role
         }, 'test', {
-            expiresIn: "1h"
+            expiresIn: "24h"
         });
         res.cookie("token", token);
         res.redirect('/');
