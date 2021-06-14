@@ -41,6 +41,7 @@ const adminProductRouter = require('./route/admin/product');
 const adminProductTypeRouter = require('./route/admin/productType');
 const auth = require('./route/auth/auth');
 const customer = require('./route/Customer/Customer');
+const detailedbill = require('./route/Customer/detailedbill');
 
 app.use('/api', apiRouter);
 app.use('/', clientIndexRouter);
@@ -53,6 +54,7 @@ app.use('/admin/product', adminProductRouter);
 app.use('/admin/product/type', adminProductTypeRouter);
 app.use('/', auth);
 app.use('/', customer);
+app.use ('/',detailedbill);
 
 app.listen(app.get('port'), () => {
     console.log('Server has started and listening on port ' + app.get('port'));

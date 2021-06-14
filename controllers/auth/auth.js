@@ -80,7 +80,9 @@ const signup = async (req, res) => {
         await result.save();
         res.status(200).render('./auth/signin', {
             success: result.name,
-            message: ''
+            message: '',
+            isAdmin: req.userRole=="admin"? "Admin": "",
+            isLogin: req.userName
         });
     } catch (error) {
         res.status(409).json({
@@ -94,7 +96,9 @@ const getsignup = (req, res) => {
 
     try {
         res.status(201).render('./auth/signup', {
-            message: ''
+            message: '',
+            isAdmin: req.userRole=="admin"? "Admin": "",
+            isLogin: req.userName
         });
     } catch (error) {
         res.status(409).json({
@@ -108,7 +112,9 @@ const getsignin = (req, res) => {
         if (!req.cookies.token) {
             res.status(201).render('./auth/signin', {
                 success: '',
-                message: ''
+                message: '',
+                isAdmin: req.userRole=="admin"? "Admin": "",
+                isLogin: req.userName
             });
         } else {
             res.redirect('/');
