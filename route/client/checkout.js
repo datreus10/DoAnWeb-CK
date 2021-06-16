@@ -8,22 +8,51 @@ const {
 
 router.get('/', auth, async (req, res) => {
     if (req.user) {
+        console.log(req.session.cart);
+        const temp = await new Cart({
+            userId: req.userID,
+            items: req.session.cart || []
+        }).populate({
+            path: 'items.itemId',
+            select: '_id name img price'
+        });
         res.render('./client/checkout', {
-            isAdmin: req.userRole=="admin"? "Admin": "",
+            isAdmin: req.userRole == "admin" ? "Admin" : "",
             isLogin: req.userName,
-            cart: await Cart.findOne({
-                userId: req.userID
+            // cart: await Cart.findOne({
+            //     userId: req.userID
+            // }).populate({
+            //     path: 'items.itemId',
+            //     select: '_id name img price'
+            // }),
+            cart: await new Cart({
+                userId: req.userID,
+                items: req.session.cart || []
             }).populate({
                 path: 'items.itemId',
                 select: '_id name img price'
-            }),
+            })
         })
     } else {
         res.redirect("/")
     }
 
-})
+});
+
 router.post('/', auth, async (req, res) => {
+
+    const listItem = JSON.parse(req.body["data"]).map(e => {
+        return {
+            itemId: e["product-checkbox"],
+            quantity: e["quantity"],
+            size: e["size"]
+        }
+    });
+    req.session.cart = listItem;
+    req.session.save();
+});
+
+router.post('/thanh_toan', auth, async (req, res) => {
     if (req.user) {
         console.log("Hello");
         const cart = await Cart.findOne({

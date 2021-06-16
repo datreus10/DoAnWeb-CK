@@ -189,9 +189,15 @@ $(window).on('load', function () {
 	proQty.on('click', '.qtybtn', function () {
 		var $button = $(this);
 		var oldValue = $button.parent().find('input').val();
-		var maxQuantity = $('#max-quantity-product .tab-pane.active span').text();
+
+		var maxQuantity = $(this).closest('.quantity').find('.tab-pane.active span').text();
+		var thanh_tien = $(this).closest('tr').find('.thanh_tien span');
+
+		//var thanh_tien_old = parseInt(thanh_tien.text());
+
 		if ($button.hasClass('inc')) {
 			var newVal = (parseFloat(oldValue) + 1) > maxQuantity ? parseFloat(oldValue) : parseFloat(oldValue) + 1;
+
 		} else {
 			// Don't allow decrementing below zero
 			if (oldValue > 1) {
@@ -201,8 +207,30 @@ $(window).on('load', function () {
 			}
 		}
 		$button.parent().find('input').val(newVal);
+		thanh_tien.text(function (index, context) {
+			return context / oldValue * newVal;
+		})
+		// if ($(this).closest('tr').find('input[name="product-checkbox"]').is(":checked")) {
+		// 	$('#total-price').text(function (i, c) {
+		// 		return parseInt(c) - thanh_tien_old + parseInt(thanh_tien.text());
+		// 	});
+		// }
+
 	});
 
+	$('.thanh_tien span').on('DOMSubtreeModified', function () {
+		if ($(this).text()) {
+			$('#total-price').text("0");
+			$('.thanh_tien span').each(function () {
+				if ($(this).closest('tr').find('input[name="product-checkbox"]').is(":checked")) {
+					var m = parseInt($(this).text());
+					$('#total-price').text(function (i, c) {
+						return parseInt(c) + m;
+					});
+				}
+			})
+		}
+	})
 
 	/*-------------------
 			Size change
@@ -212,6 +240,17 @@ $(window).on('load', function () {
 		$(this).removeClass('active');
 		$('.pro-qty input[type=text]').val("1");
 	});
+
+	$('select[name="size"]').on('change', function (e) {
+		var $optionSelected = $("option:selected", this);
+		$optionSelected.tab('show')
+		$optionSelected.removeClass('active');
+		$('.pro-qty input[type=text]').val("1");
+		$(this).closest('tr').find('.thanh_tien span').text(function (i, c) {
+			return $(this).closest('tr').find('.product-info .font-weight-light span').text();
+		})
+	});
+
 
 	/*------------------
 		Single Product

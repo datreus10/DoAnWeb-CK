@@ -3,28 +3,39 @@ const router = express.Router();
 
 const Product = require("../../model/product");
 const Cart = require("../../model/cart");
-const {auth} = require ('../../middleware/auth')
-router.get('/', auth,async (req, res) => {
-    res.render("./client/cart", {
-        cart: req.user ? await Cart.findOne({
-            userId: req.userID
-        }).populate({
-            path: 'items.itemId',
-            select: '_id name img price'
-        }) : undefined,
-        isLogin: req.user ? req.userName : false,
-        isAdmin: req.userRole=="admin"? "Admin": "",
-        products: await Product.find().limit(8),
-    });
+const {
+    auth
+} = require('../../middleware/auth')
+router.get('/', auth, async (req, res) => {
+    if (req.userID) {
+        res.render("./client/cart", {
+            cart: req.user ? await Cart.findOne({
+                userId: req.userID
+            }).populate({
+                path: 'items.itemId',
+                select: '_id name img price sizes'
+            }) : undefined,
+            isLogin: req.user ? req.userName : false,
+            isAdmin: req.userRole == "admin" ? "Admin" : "",
+            products: await Product.find().limit(8),
+        });
+    } else {
+        res.redirect('/signin');
+    }
+
 })
 
-// add product to cart
 
-router.post('/product/:id', auth ,async (req, res) => {
+// select product to checkout
+
+
+
+// add product to cart
+router.post('/product/:id', auth, async (req, res) => {
     if (req.user) {
         // viet code update (neu co san pham va trung size khac so luong thi 
         // update so luong, ko thi add vo mang)
-        
+
         await Cart.updateOne({
             userId: req.userID,
             items: {
@@ -58,7 +69,7 @@ router.post('/product/:id', auth ,async (req, res) => {
     res.redirect('/cart');
 })
 
-router.post('/remove',auth, async (req, res) => {
+router.post('/remove', auth, async (req, res) => {
     if (req.userID && req.body.product) {
         const temp = typeof req.body.product === "string" ? [{
             _id: req.body.product

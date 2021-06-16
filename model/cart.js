@@ -16,7 +16,7 @@ const itemSchema = mongoose.Schema({
     date: {
         type: Date,
         default: Date.now()
-    }
+    },
 });
 
 itemSchema.virtual('total').get(function () {
