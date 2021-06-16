@@ -38,7 +38,7 @@
     <!-- Header section end -->
 
     <section class="top-letest-product-section">
-        <div class="container" style="width: 700px;">
+        <div class="container" >
             <div class="section-title">
                 <h2>SỬA SẢN PHẨM</h2>
             </div>
@@ -52,7 +52,7 @@
                     <label for="type">Loại sản phẩm</label>
                     <select name="type" id="" class="form-control">
                         <% productTypes.forEach(type=>{ %>
-                            <%if(type._id === product.productType){%>
+                            <%if(type.id == product.productType){%>
                                 <option selected label="<%= type.name%>" value="<%= type._id %>">
                                     <%= type.name %>
                                 </option>

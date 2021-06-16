@@ -185,12 +185,13 @@ router.delete('/delete/:id', async (req,res)=>{
         res.redirect('/admin/product')
     }
     catch(err){
-        console.log(err);
-        if( product != null){
-            res.redirect('/admin/products',{ msg:"Không thể xóa sản phẩm"})
+        console.log(err)
+        if( product == null){
+            res.redirect('/admin/product')
         }
         else{
-            res.redirect('/admin')
+           
+            res.redirect('/admin/product?msg='+err)
         }
     }
 })
