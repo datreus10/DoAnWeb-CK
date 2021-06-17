@@ -42,29 +42,29 @@ productSchema.virtual('fileLinks').get(function () {
     return this.img.map(e => helper.getFileLink(e));
 });
 // kiểm tra ràng buộc khi xóa sp với giỏ hàng và hóa đơn
-productSchema.pre('remove',async function(next){
-    try{
-        existProductCart = await Cart.find({
-            'items.itemId':this.id
-        })
-        existProductBill = await Bill.find({
-            'items.itemId':this.id
-        })
-        if(existProductCart ){
-            next(new Error(`Sản phẩm: "${this.name}"  đã có trong giỏ hàng`))
-        }
-        else if( existProductBill){
-            next(new Error(`Sản phẩm: "${this.name}"  đã có trong hóa đơn`))
-        }
-        else{
-            next()
-        }
-    }
-    catch(err){
-        next(err)
-    }
+// productSchema.pre('remove',async function(next){
+//     try{
+//         existProductCart = await Cart.find({
+//             'items.itemId':this.id
+//         })
+//         existProductBill = await Bill.find({
+//             'items.itemId':this.id
+//         })
+//         if(existProductCart ){
+//             next(new Error(`Sản phẩm: "${this.name}"  đã có trong giỏ hàng`))
+//         }
+//         else if( existProductBill){
+//             next(new Error(`Sản phẩm: "${this.name}"  đã có trong hóa đơn`))
+//         }
+//         else{
+//             next()
+//         }
+//     }
+//     catch(err){
+//         next(err)
+//     }
    
-})
+// })
 
 
 module.exports = mongoose.model('Product', productSchema, 'Product');
