@@ -29,6 +29,7 @@ const getdetailedBill = async (req, res) => {
                     item.push(Listitem);
                 }
                 return item;
+                
             }
             const item= await Finditem(DetailedBills[0].items)
             return res.status(201).render('./customer/detailedbill', 
