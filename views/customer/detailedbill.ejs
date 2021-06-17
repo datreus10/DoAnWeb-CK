@@ -126,6 +126,7 @@
                                     <div class="tab-pane fade show active" id="connectedServices" role="tabpanel" aria-labelledby="ConnectedServices-tab">
                                         <% Bills.forEach(function(Bill) { %>
                                             <% Bill.items.forEach(function(Billitems) { %>
+<<<<<<< HEAD
                                                 
                                               <%  Items.forEach(function(Item) { %>
                                                 <% if(!Item) {%>
@@ -139,6 +140,11 @@
                                                     
                                                 <%      if(Item.id==Billitems.itemId) { %>
                                                    
+=======
+                                                <%Items.forEach(function(Item) { %>
+                                                        <%if(Item.id==Billitems.itemId) {%>
+                                                           
+>>>>>>> Huy
                                             <div class="row">
                                                 <div class="col-sm-3 col-md-2 col-5">
                                                     <label style="font-weight:bold;">Sản phẩm</label>

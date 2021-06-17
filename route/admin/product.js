@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Product = require('../../model/product');
+const Cart = require('../../model/cart');
 
 const ProductType = require('../../model/productType');
 const helper = require('../helper');
@@ -181,16 +182,41 @@ router.delete('/delete/:id', async (req,res)=>{
     let product 
     try{
         product= await Product.findById(req.params.id)
-        await product.remove()
+        updateitems= []
+        data = await Cart.find(
+            {
+                "items.itemId": req.params.id
+            })
+        if(data){
+            data.forEach(async cart=>{
+                cart.items.forEach(item=>{
+                    if(item.itemId != req.params.id){
+                        updateitems.push(item)
+                        
+                    }
+                })
+                cart.items=updateitems
+                await cart.save()
+            })
+        }
+        data = await Cart.find(
+            {
+                "items.itemId": req.params.id
+            })
+        await product.remove()     
         res.redirect('/admin/product')
+       
+      
+        
     }
     catch(err){
-        console.log(err);
-        if( product != null){
-            res.redirect('/admin/products',{ msg:"Không thể xóa sản phẩm"})
+        console.log(err)
+        if( product == null){
+            res.redirect('/admin/product')
         }
         else{
-            res.redirect('/admin')
+           
+            res.redirect('/admin/product?msg='+err)
         }
     }
 })
