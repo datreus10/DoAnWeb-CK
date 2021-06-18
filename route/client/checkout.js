@@ -6,7 +6,7 @@ const {
     CartItem
 } = require("../../model/cart");
 
-
+const Product = require("../../model/product");
 
 const Bill = require("../../model/bill");
 const {
@@ -15,21 +15,16 @@ const {
 
 router.get('/', auth, async (req, res) => {
     if (req.user) {
-        
         const listItem = []
-
         if(req.session.cart){
-            for (let i = 0; i < req.session.cart.length; i++) {
+            for(let item of req.session.cart){
                 listItem.push(await CartItem.create({
-                    itemId: mongoose.mongo.ObjectId(req.session.cart[i].itemId),
-                    size: req.session.cart[i].size,
-                    quantity: req.session.cart[i].quantity
+                    itemId: mongoose.mongo.ObjectId(item.itemId),
+                    size: item.size,
+                    quantity: item.quantity
                 }))
             }
         }
-
-        //i = await i.populate('itemId').execPopulate()
-
 
         let c = await Cart.create({
             userId: req.userID,
@@ -75,6 +70,8 @@ router.post('/thanh_toan', auth, async (req, res) => {
             path: 'items.itemId',
             select: '_id name price'
         });
+
+        // tao bill
         const bill = new Bill({
             userId: cart.userId,
             items: cart.items,
@@ -83,13 +80,14 @@ router.post('/thanh_toan', auth, async (req, res) => {
             phone: req.body.phone
         });
         await bill.save();
-        await Cart.updateOne({
-            _id: cart._id
-        }, {
-            $set: {
-                "items": []
-            }
-        })
+
+        // giam so luong san pham theo size
+        for(let item of cart.items) {
+            // const y  = await Product.findOne({_id: item.itemId.id,'sizes.name':item.size});
+            await Product.updateOne({_id: item.itemId.id,'sizes.name':item.size},{$inc: {'sizes.$.quantity': -item.quantity}})
+        }
+
+        await Cart.updateOne({_id: cart._id}, {$set: {"items": []}});
         
         res.redirect("/");
     } else {

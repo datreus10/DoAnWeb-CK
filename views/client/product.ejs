@@ -88,7 +88,7 @@
 					<div class="p-review">
 						<a href="">3 đánh giá</a>
 					</div>
-
+					<% if (conHang) { %>
 					<form action="/cart/product/<%= product._id %> " method="post">
 						<div class="fw-size-choose" role="tablist">
 							<p>Kích cỡ</p>
@@ -121,17 +121,17 @@
 
 						</div>
 						<!-- <div class="quantity">
-							<p>Quantity</p>
-							<div class="pro-qty"><span class="dec qtybtn">-</span><input type="text" value="1"><span
-									class="inc qtybtn">+</span></div>
-						</div> -->
+								<p>Quantity</p>
+								<div class="pro-qty"><span class="dec qtybtn">-</span><input type="text" value="1"><span
+										class="inc qtybtn">+</span></div>
+							</div> -->
 
 						<div class="quantity">
 							<p>Số lượng</p>
 
-							<div class="pro-qty"><span class="dec qtybtn">-</span><input type="text" value="1" name="quantity"><span
-									class="inc qtybtn">+</span></div>
-							<div class="tab-content"  style="margin-left: 1rem;">
+							<div class="pro-qty"><span class="dec qtybtn">-</span><input type="text" value="1"
+									name="quantity"><span class="inc qtybtn">+</span></div>
+							<div class="tab-content" style="margin-left: 1rem;">
 
 								<% for( let i = 0,f=true; i < product.sizes.length; i++ ) { %>
 
@@ -152,6 +152,10 @@
 
 						<button type="submit" class="site-btn">Thêm vào giỏ hàng</button>
 					</form>
+					<% } else { %>
+					<h2>Hết hàng</h2>
+					<% } %>
+
 
 					<div id="accordion" class="accordion-area">
 						<div class="panel">
@@ -174,11 +178,18 @@
 							<div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
 								<div class="panel-body">
 									<p>
-										- Thời gian đổi trong vòng 3 ngày kể từ khi các bạn mua. Khách hàng mua online được tính từ ngày nhận hàng.<br>
-- Sản phẩm đổi phải còn nguyên tem, nhãn mác, chưa qua sử dụng, không mùi, dính bẩn, hay giặt qua một lần, và có toàn bộ bao bì và hóa đơn mua hàng kèm theo.<br>
-- Khách hàng được đổi sản phẩm theo yêu cầu kích cỡ ( Size ), do lỗi sản xuất.<br>
-- Không đổi sản phẩm bán trong các đợt cửa hàng Sale Off, hoặc hàng đã được đổi một lần trước đó, trừ trường hợp sản phẩm đó lại gặp lỗi kỹ thuật.<br>
-- Các bạn mua online, khi nhận hàng xong, các bạn vui lòng kiểm tra sản phẩm sau khi thanh toán cho nhân viên giao hàng, nếu có lỗi sản xuất xin báo ngay về cho chúng tôi, không nên mặc thử, hoặc sử dụng sản phẩm sau khi phát hiện lỗi .
+										- Thời gian đổi trong vòng 3 ngày kể từ khi các bạn mua. Khách hàng mua online
+										được tính từ ngày nhận hàng.<br>
+										- Sản phẩm đổi phải còn nguyên tem, nhãn mác, chưa qua sử dụng, không mùi, dính
+										bẩn, hay giặt qua một lần, và có toàn bộ bao bì và hóa đơn mua hàng kèm
+										theo.<br>
+										- Khách hàng được đổi sản phẩm theo yêu cầu kích cỡ ( Size ), do lỗi sản
+										xuất.<br>
+										- Không đổi sản phẩm bán trong các đợt cửa hàng Sale Off, hoặc hàng đã được đổi
+										một lần trước đó, trừ trường hợp sản phẩm đó lại gặp lỗi kỹ thuật.<br>
+										- Các bạn mua online, khi nhận hàng xong, các bạn vui lòng kiểm tra sản phẩm sau
+										khi thanh toán cho nhân viên giao hàng, nếu có lỗi sản xuất xin báo ngay về cho
+										chúng tôi, không nên mặc thử, hoặc sử dụng sản phẩm sau khi phát hiện lỗi .
 									</p>
 								</div>
 							</div>
