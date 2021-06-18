@@ -45,7 +45,7 @@ router.post("/product/:id", auth, async (req, res) => {
             let index = cart.items.findIndex(element => element.itemId.equals(p._id))
             if (index > -1 && cart.items[index].size == req.body.size) {
                 let newQuantity = req.body.quantity + p.sizes[pSizeIndex].quantity;
-                if(newQuantity > p.sizes[pSizeIndex].quantity)
+                if (newQuantity > p.sizes[pSizeIndex].quantity)
                     cart.items[index].quantity = p.sizes[pSizeIndex].quantity;
                 else
                     cart.items[index].quantity = newQuantity;
@@ -67,15 +67,19 @@ router.post("/remove", auth, async (req, res) => {
         const cart = await Cart.findOne({
             userId: req.userID
         });
-        for (let i = 0; i < cart.items.length; i++) {
-            if (cart.items[i].itemId.toString() == req.body.product) {
+        
+        for (let i = 0, j = 0; i < cart.items.length; i++) {
+            if (cart.items[i].itemId.toString() == req.body.data[j].product) {
                 cart.items.splice(i, 1);
                 i--;
+                j++;
             }
         }
+
+
         await cart.save();
     }
-    res.redirect("/cart");
+    res.status(200).send('');
 });
 
 module.exports = router;

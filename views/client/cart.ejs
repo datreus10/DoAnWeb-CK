@@ -55,105 +55,8 @@
 
 
     <!-- cart section end -->
-    <!-- <section class="cart-section spad">
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <form action="/cart/remove" method="post">
-                        <div class="cart-table">
-                            <div style="display: flex; justify-content: space-between;align-items: center;">
-                                <h3>Your Cart</h3>
-                                <% if (cart && cart.items.length >0) { %>
-                                <button type="submit" class="site-btn" style="margin-bottom: 37px;">Xóa</button>
-                                <% } %>
-
-                            </div>
-
-                            <div class="cart-table-warp">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th class="product-th">Product</th>
-                                            <th class="quy-th">Quantity</th>
-                                            <th class="size-th">Size</th>
-                                            <th class="total-th">Price</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
 
 
-                                        <% !cart || cart.items.forEach(item => { %>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox"
-                                                        value="<%= item._id %>" id="flexCheckDefault" name="product">
-                                                    <label class="form-check-label" for="flexCheckDefault"></label>
-                                                </div>
-                                            </td>
-                                            <td class="product-col">
-                                                <img src="<%= item.itemId.fileLinks[0] %>" height="80" width="81"
-                                                    alt="">
-                                                <div class="pc-title">
-                                                    <h4><%= item.itemId.name %> </h4>
-                                                    <p><%= item.itemId.price %>đ</p>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="quantity">
-
-                                                    <div class="pro-qty"><span class="dec qtybtn">-</span><input
-                                                            type="text" value="1" name="quantity"><span
-                                                            class="inc qtybtn">+</span>
-                                                    </div>
-                                                </div>
-
-
-
-
-                                            </td>
-                                            <td>
-                                                <select class="form-select" aria-label="Default select example">
-                                                    <% for( let i = 0; i < item.itemId.sizes.length; i++ ) { %>
-                                                    <% if (item.itemId.sizes[i].name == item.size) { %>
-                                                    <option value="<%= item.size %>"  selected><%= item.size %> </option>
-                                                    <% } else if (item.itemId.sizes[i].quantity>0) { %>
-                                                    <option value="<%=item.itemId.sizes[i].name %>">
-                                                        <%= item.itemId.sizes[i].name %></option>
-                                                    <% } %>
-                                                    <% } %>
-
-                                                </select>
-
-                                            </td>
-                                            <td class="total-col">
-                                                <h4><%= item.quantity * item.itemId.price %></h4>
-                                            </td>
-                                        </tr>
-                                        <% }) %>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="total-cost">
-                                <h6>Total <span><% if (cart) { %>
-                                        <%= cart.total %>
-                                        <% } else {%> 0 <% } %> </span></h6>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-            <div class="row justify-content-end mt-2 mr-2">
-                <a href="/" class="site-btn sb-dark mr-4">Continue shopping</a>
-                <a href="/checkout" class="site-btn">Proceed to checkout</a>
-            </div>
-
-        </div>
-    </section> -->
     <section class="pt-5 pb-5">
 
         <div class="container">
@@ -166,14 +69,15 @@
                     <table id="shoppingCart" class="table table-condensed table-responsive ">
                         <thead>
                             <tr>
-                                <th style="width:2%"><input type="checkbox" name="checkbox-all" value="all"></th>
+                                <th style="width:2%"><input type="checkbox" id="select-all"></th>
                                 <th style="width:40%">Sản phẩm</th>
                                 <th style="width:10%">Size</th>
                                 <th style="width:16%">Số lượng</th>
                                 <th style="width:16%">Thành tiền</th>
 
                                 <th style="width:6%" class="text-right">
-                                    <button class="btn"><span><img src="/img/icons/trash.svg" alt="deleted"></span></th>
+                                    <button class="btn" id="delete-all-btn"><span><img src="/img/icons/trash.svg"
+                                                alt="deleted"></span></th>
                                 </button>
 
 
@@ -195,7 +99,8 @@
                                         <div class="col-md-9 text-left mt-sm-2">
                                             <h4><a href="/product/<%= item.itemId._id %>"><%= item.itemId.name %></a>
                                             </h4>
-                                            <p class="font-weight-light"><span><%= item.itemId.price %></span>đ</p>
+                                            <p class="font-weight-light"><span
+                                                    class="price-base"><%= item.itemId.price %></span>đ</p>
                                         </div>
                                     </div>
                                 </td>
@@ -246,11 +151,15 @@
                                     <span><%= item.quantity * item.itemId.price %></span>đ</td>
                                 <td class="actions" data-th="">
                                     <div class="text-right">
-                                        <form action="/cart/remove" method="post">
-                                            <input type="text" name="product" value="<%= item.itemId._id %>" hidden>
-                                            <button class="btn"><span><img src="/img/icons/trash.svg"
-                                                        alt="deleted"></span></th></button>
-                                        </form>
+                                        <!-- <form action="/cart/remove" method="post"> -->
+                                        <!-- <input type="text" name="product" value="<%= item.itemId._id %>" hidden> -->
+                                        <button class="btn btn-del-product" data-toggle="modal"
+                                            data-target="#delete-confirm" data-id="<%= item.itemId._id %>">
+                                            <span>
+
+                                                <img src="/img/icons/trash.svg" alt="deleted">
+                                            </span></button>
+                                        <!-- </form> -->
                                     </div>
                                 </td>
                             </tr>
@@ -285,8 +194,47 @@
     <!-- cart section end -->
 
 
+    <!-- Boostrap Modal start -->
+    <div class="modal fade" id="delete-confirm" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <b>Xác nhận</b>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Không</button>
+                    <button id="delete-confirm-btn" type="button" class="btn btn-danger">Xóa</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
+    <div class="modal fade" id="nofication-modal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <b>Thông báo</b>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Boostrap Modal end-->
 
     <!-- Related product section -->
     <%-include("../partial/carouselCard", {products:products,title:"SẢN PHẨM LIÊN QUAN"}) %>
@@ -334,22 +282,73 @@
                         window.location.replace(data.url);
                     }
                 })
+            } else {
+                $('#nofication-modal .modal-body').text("Bạn chưa chọn sản phẩm để mua");
+                $('#nofication-modal').modal('show');
             }
 
         });
 
         $('input[name="product-checkbox"]').change(function () {
-            var thanh_tien = $(this).closest('tr').find('.thanh_tien span').text();
-            if ($(this).is(":checked")) {
-                $('#total-price').text(function (i, c) {
-                    return parseInt(c) + parseInt(thanh_tien);
-                });
-            } else {
-                $('#total-price').text(function (i, c) {
-                    return parseInt(c) - parseInt(thanh_tien);
-                });
-            }
+            var total = 0;
+            $('input[name="product-checkbox"]').each(function () {
+                if ($(this).is(":checked")) {
+                    total += parseInt($(this).closest('tr').find('.thanh_tien span').text());
+                }
+            })
+            $('#total-price').text(total);
         });
+
+
+        $('#select-all').click(function () {
+            if (this.checked) {
+                $('input[name="product-checkbox"]').prop('checked', true).trigger("change");
+            } else {
+                $('input[name="product-checkbox"]').prop('checked', false).trigger("change");
+            }
+        })
+
+        $('#delete-all-btn').click(function () {
+            var items = []
+            $('input[name="product-checkbox"]').each(function () {
+                if (this.checked) {
+                    items.push({
+                        product: $(this).val()
+                    })
+                }
+            })
+            if (items.length > 0) {
+                $('#delete-confirm .modal-body').text("Bạn muốn xóa sản phẩm đang chọn");
+                $('#delete-confirm').modal('show');
+                $('#delete-confirm-btn').data('id', items);
+            } else {
+                $('#nofication-modal .modal-body').text("Bạn chưa chọn sản phẩm để xóa");
+                $('#nofication-modal').modal('show');
+            }
+        })
+
+        $('.btn-del-product').click(function () {
+            var ID = $(this).data('id');
+            $('#delete-confirm-btn').data('id', [{
+                product: ID
+            }]); //set the data attribute on the modal button
+            $('#delete-confirm .modal-body').text("Bạn muốn xóa sản phẩm này")
+        });
+
+        $('#delete-confirm-btn').on('click', function () {
+            var ID = $(this).data('id');
+            $.ajax({
+                url: "/cart/remove",
+                type: "post",
+                data: {
+                    data: ID
+                },
+                success: function (data) {
+                    $("#delete-confirm").modal('hide');
+                    location.reload();
+                }
+            });
+        })
     </script>
 </body>
 

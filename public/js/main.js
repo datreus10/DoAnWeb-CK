@@ -184,16 +184,11 @@ $(window).on('load', function () {
 		Quantity change
 	--------------------- */
 	var proQty = $('.pro-qty');
-	// proQty.prepend('<span class="dec qtybtn">-</span>');
-	// proQty.append('<span class="inc qtybtn">+</span>');
 	proQty.on('click', '.qtybtn', function () {
 		var $button = $(this);
 		var oldValue = $button.parent().find('input').val();
 
 		var maxQuantity = $(this).closest('.quantity').find('.tab-pane.active span').text();
-		var thanh_tien = $(this).closest('tr').find('.thanh_tien span');
-
-		//var thanh_tien_old = parseInt(thanh_tien.text());
 
 		if ($button.hasClass('inc')) {
 			var newVal = (parseFloat(oldValue) + 1) > maxQuantity ? parseFloat(oldValue) : parseFloat(oldValue) + 1;
@@ -206,29 +201,15 @@ $(window).on('load', function () {
 				newVal = 1;
 			}
 		}
-		$button.parent().find('input').val(newVal);
-		thanh_tien.text(function (index, context) {
-			return context / oldValue * newVal;
-		})
-		// if ($(this).closest('tr').find('input[name="product-checkbox"]').is(":checked")) {
-		// 	$('#total-price').text(function (i, c) {
-		// 		return parseInt(c) - thanh_tien_old + parseInt(thanh_tien.text());
-		// 	});
-		// }
-
+		$button.parent().find('input').val(newVal).trigger("change");
 	});
 
-	$('.thanh_tien span').on('DOMSubtreeModified', function () {
-		if ($(this).text()) {
-			$('#total-price').text("0");
-			$('.thanh_tien span').each(function () {
-				if ($(this).closest('tr').find('input[name="product-checkbox"]').is(":checked")) {
-					var m = parseInt($(this).text());
-					$('#total-price').text(function (i, c) {
-						return parseInt(c) + m;
-					});
-				}
-			})
+	$('.pro-qty input[type=text]').change(function () {
+		var price = $('.product-info span.price-base').text();
+		$(this).closest('tr').find('.thanh_tien span').text(price * $(this).val());
+		var checkbox = $(this).closest('tr').find('input[name="product-checkbox"]');
+		if (checkbox.is(":checked")) {
+			checkbox.trigger("change");
 		}
 	})
 
@@ -239,16 +220,13 @@ $(window).on('load', function () {
 		$(this).tab('show');
 		$(this).removeClass('active');
 		$('.pro-qty input[type=text]').val("1");
-	});
+	}); // trang product
 
 	$('select[name="size"]').on('change', function (e) {
 		var $optionSelected = $("option:selected", this);
 		$optionSelected.tab('show')
 		$optionSelected.removeClass('active');
-		$('.pro-qty input[type=text]').val("1");
-		$(this).closest('tr').find('.thanh_tien span').text(function (i, c) {
-			return $(this).closest('tr').find('.product-info .font-weight-light span').text();
-		})
+		$('.pro-qty input[type=text]').val("1").trigger('change');
 	});
 
 
