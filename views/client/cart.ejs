@@ -173,9 +173,8 @@
                                 <th style="width:16%">Thành tiền</th>
 
                                 <th style="width:6%" class="text-right">
-                                    <button class="btn"><span><img
-                                                src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/trash.svg"
-                                                alt="deleted"></span></th></button>
+                                    <button class="btn"><span><img src="/img/icons/trash.svg" alt="deleted"></span></th>
+                                </button>
 
 
                             </tr>
@@ -219,8 +218,9 @@
 
 
 
-                                    <div class="pro-qty"><span class="dec qtybtn">-</span><input type="text" value="1"
-                                            name="quantity"><span class="inc qtybtn">+</span>
+                                    <div class="pro-qty"><span class="dec qtybtn">-</span><input type="text"
+                                            value="<%= item.quantity %>" name="quantity"><span
+                                            class="inc qtybtn">+</span>
                                     </div>
                                     <div class="tab-content">
 
@@ -245,10 +245,11 @@
                                     <span><%= item.quantity * item.itemId.price %></span>đ</td>
                                 <td class="actions" data-th="">
                                     <div class="text-right">
-
-                                        <button class="btn"><span><img
-                                                    src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/trash.svg"
-                                                    alt="deleted"></span></th></button>
+                                        <form action="/cart/remove" method="post">
+                                            <input type="text" name="product" value="<%= item.itemId._id %>" hidden>
+                                            <button class="btn"><span><img src="/img/icons/trash.svg"
+                                                        alt="deleted"></span></th></button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>
@@ -323,14 +324,16 @@
                 });
                 if (!isEmpty) return obj;
             }).get();
-            console.log(JSON.stringify(data));
 
-
-
-            $.post('/checkout',{"data":JSON.stringify(data)} , function (data, status) {
-                console.log(data);
-                console.log(status);
-            })
+            if (data.length > 0) {
+                $.post('/checkout', {
+                    "data": JSON.stringify(data)
+                }, function (data, status) {
+                    if (data.result == "redirect") {
+                        window.location.replace(data.url);
+                    }
+                })
+            }
 
         });
 

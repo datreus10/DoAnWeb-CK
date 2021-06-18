@@ -3,7 +3,7 @@ const router = express.Router();
 const Product = require('../../model/product');
 const ProductType = require('../../model/productType');
 const User = require('../../model/user');
-const Cart = require('../../model/cart');
+const {Cart} = require('../../model/cart');
 const {
     auth
 } = require('../../middleware/auth')

@@ -23,6 +23,8 @@ itemSchema.virtual('total').get(function () {
     return this.quantity * this.itemId.price;
 });
 
+const cartItem = mongoose.model('CartItem', itemSchema, 'CartItem');
+
 const cartSchema = new mongoose.Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId,
@@ -30,7 +32,7 @@ const cartSchema = new mongoose.Schema({
         required: true
     },
     items: [itemSchema],
-    
+
 }, {
     timestamps: true
 });
@@ -39,4 +41,9 @@ cartSchema.virtual('total').get(function () {
     return this.items.reduce((total, item) => total + item.quantity * item.itemId.price, 0);
 });
 
-module.exports = mongoose.model('Cart', cartSchema, 'Cart');
+const cart = mongoose.model('Cart', cartSchema, 'Cart');
+
+module.exports = {
+    CartItem: cartItem,
+    Cart: cart
+}
