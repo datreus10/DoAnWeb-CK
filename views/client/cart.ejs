@@ -193,7 +193,8 @@
                                             <img src="<%= item.itemId.fileLinks[0] %>" height="100" width="100" alt="">
                                         </div>
                                         <div class="col-md-9 text-left mt-sm-2">
-                                            <h4><%= item.itemId.name %></h4>
+                                            <h4><a href="/product/<%= item.itemId._id %>"><%= item.itemId.name %></a>
+                                            </h4>
                                             <p class="font-weight-light"><span><%= item.itemId.price %></span>đ</p>
                                         </div>
                                     </div>

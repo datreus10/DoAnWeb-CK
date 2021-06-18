@@ -44,7 +44,11 @@ router.post("/product/:id", auth, async (req, res) => {
             });
             let index = cart.items.findIndex(element => element.itemId.equals(p._id))
             if (index > -1 && cart.items[index].size == req.body.size) {
-                cart.items[index].quantity = req.body.quantity > p.sizes[pSizeIndex].quantity ? p.sizes[pSizeIndex].quantity : req.body.quantity;
+                let newQuantity = req.body.quantity + p.sizes[pSizeIndex].quantity;
+                if(newQuantity > p.sizes[pSizeIndex].quantity)
+                    cart.items[index].quantity = p.sizes[pSizeIndex].quantity;
+                else
+                    cart.items[index].quantity = newQuantity;
             } else {
                 cart.items.push(await CartItem.create({
                     itemId: p._id,
