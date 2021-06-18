@@ -55,10 +55,11 @@
 
 
     <!-- cart section end -->
-    <section class="cart-section spad">
+    <!-- <section class="cart-section spad">
         <div class="container">
+
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <form action="/cart/remove" method="post">
                         <div class="cart-table">
                             <div style="display: flex; justify-content: space-between;align-items: center;">
@@ -100,12 +101,32 @@
                                                     <p><%= item.itemId.price %>đ</p>
                                                 </div>
                                             </td>
-                                            <td class="size-col">
-                                                <h4><%= item.quantity %></h4>
+                                            <td>
+                                                <div class="quantity">
+
+                                                    <div class="pro-qty"><span class="dec qtybtn">-</span><input
+                                                            type="text" value="1" name="quantity"><span
+                                                            class="inc qtybtn">+</span>
+                                                    </div>
+                                                </div>
+
+
+
 
                                             </td>
-                                            <td class="size-col">
-                                                <h4><%= item.size %></h4>
+                                            <td>
+                                                <select class="form-select" aria-label="Default select example">
+                                                    <% for( let i = 0; i < item.itemId.sizes.length; i++ ) { %>
+                                                    <% if (item.itemId.sizes[i].name == item.size) { %>
+                                                    <option value="<%= item.size %>"  selected><%= item.size %> </option>
+                                                    <% } else if (item.itemId.sizes[i].quantity>0) { %>
+                                                    <option value="<%=item.itemId.sizes[i].name %>">
+                                                        <%= item.itemId.sizes[i].name %></option>
+                                                    <% } %>
+                                                    <% } %>
+
+                                                </select>
+
                                             </td>
                                             <td class="total-col">
                                                 <h4><%= item.quantity * item.itemId.price %></h4>
@@ -124,15 +145,147 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-lg-4 card-right">
 
-                    <a href="/checkout" class="site-btn">Proceed to checkout</a>
-                    <a href="/" class="site-btn sb-dark">Continue shopping</a>
+            </div>
+            <div class="row justify-content-end mt-2 mr-2">
+                <a href="/" class="site-btn sb-dark mr-4">Continue shopping</a>
+                <a href="/checkout" class="site-btn">Proceed to checkout</a>
+            </div>
+
+        </div>
+    </section> -->
+    <section class="pt-5 pb-5">
+
+        <div class="container">
+            <div class="row w-100">
+                <div class="col-lg-12 col-md-12 col-12">
+                    <h3 class="display-5 mb-2 text-center">Giỏ Hàng</h3>
+                    <p class="mb-5 text-center">
+                        <i class="text-info font-weight-bold"><%=cart.items.length  %> </i> sản phẩm trong giỏ hàng
+                    </p>
+                    <table id="shoppingCart" class="table table-condensed table-responsive ">
+                        <thead>
+                            <tr>
+                                <th style="width:2%"><input type="checkbox" name="checkbox-all" value="all"></th>
+                                <th style="width:40%">Sản phẩm</th>
+                                <th style="width:10%">Size</th>
+                                <th style="width:16%">Số lượng</th>
+                                <th style="width:16%">Thành tiền</th>
+
+                                <th style="width:6%" class="text-right">
+                                    <button class="btn"><span><img src="/img/icons/trash.svg" alt="deleted"></span></th>
+                                </button>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <% !cart || cart.items.forEach(item => { %>
+
+                            <tr>
+                                <td>
+                                    <input type="checkbox" name="product-checkbox" value="<%= item.itemId._id %>">
+                                </td>
+                                <td class="product-info" data-th="Product">
+                                    <div class="row">
+                                        <div class="product-col">
+                                            <img src="<%= item.itemId.fileLinks[0] %>" height="100" width="100" alt="">
+                                        </div>
+                                        <div class="col-md-9 text-left mt-sm-2">
+                                            <h4><%= item.itemId.name %></h4>
+                                            <p class="font-weight-light"><span><%= item.itemId.price %></span>đ</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <select class="form-select" name="size" aria-label="Default select example">
+                                        <% for( let i = 0; i < item.itemId.sizes.length; i++ ) { %>
+                                        <% if (item.itemId.sizes[i].name == item.size) { %>
+                                        <option value="<%= item.size %>" data-target="#available-<%= item.size%>"
+                                            selected><%= item.size %> </option>
+                                        <% } else if (item.itemId.sizes[i].quantity>0) { %>
+                                        <option value="<%=item.itemId.sizes[i].name %>"
+                                            data-target="#available-<%= item.itemId.sizes[i].name%>">
+                                            <%= item.itemId.sizes[i].name %></option>
+                                        <% } %>
+                                        <% } %>
+
+                                    </select>
+
+                                </td>
+                                <td class="quantity " data-th="Quantity">
+
+
+
+                                    <div class="pro-qty"><span class="dec qtybtn">-</span><input type="text"
+                                            value="<%= item.quantity %>" name="quantity"><span
+                                            class="inc qtybtn">+</span>
+                                    </div>
+                                    <div class="tab-content">
+
+                                        <% for( let i = 0; i < item.itemId.sizes.length; i++ ) { %>
+                                        <% if (item.itemId.sizes[i].name == item.size) { %>
+                                        <div id="available-<%= item.size %>" class="tab-pane active">
+                                            <span><%=item.itemId.sizes[i].quantity%></span> sản phẩm sẵn có</div>
+
+                                        <% } else if (item.itemId.sizes[i].quantity>0) { %>
+
+                                        <div id="available-<%= item.itemId.sizes[i].name %>" class="tab-pane">
+                                            <span><%=item.itemId.sizes[i].quantity%></span> sản phẩm sẵn có</div>
+
+                                        <% } %>
+                                        <% } %>
+
+                                    </div>
+
+
+                                </td>
+                                <td class="thanh_tien" data-th="Price">
+                                    <span><%= item.quantity * item.itemId.price %></span>đ</td>
+                                <td class="actions" data-th="">
+                                    <div class="text-right">
+                                        <form action="/cart/remove" method="post">
+                                            <input type="text" name="product" value="<%= item.itemId._id %>" hidden>
+                                            <button class="btn"><span><img src="/img/icons/trash.svg"
+                                                        alt="deleted"></span></th></button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <% }) %>
+
+                        </tbody>
+                    </table>
+
+                    <div
+                        style="background: #f51167;margin: 0 -34px;text-align: right;padding: 22px 0;padding-right: 50px;">
+                        <h6 style="color:white;">Total<span id="total-price" style="margin-left: 1rem;">0</span>đ</h6>
+                    </div>
+                    <!-- <div class="float-right text-right">
+                        <h4>Subtotal:</h4>
+                        <h1>$99.00</h1>
+                    </div> -->
+                </div>
+            </div>
+            <div class="row mt-4 d-flex align-items-center">
+                <div class="col-sm-6 order-md-2 text-right">
+                    <span id="checkout" class="btn btn-primary mb-4 btn-lg pl-5 pr-5 site-btn">Checkout</span>
+                </div>
+                <div class="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
+                    <a href="/products">
+                        <i class="fas fa-arrow-left mr-2"></i> Continue Shopping</a>
                 </div>
             </div>
         </div>
+
     </section>
     <!-- cart section end -->
+
+
+
+
 
     <!-- Related product section -->
     <%-include("../partial/carouselCard", {products:products,title:"SẢN PHẨM LIÊN QUAN"}) %>
@@ -156,7 +309,47 @@
     <script src="/js/jquery-ui.min.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/custom/ejs.min.js"></script>
+    <script>
+        $(document).on('click', '#checkout', function (event) {
+            event.preventDefault();
+            var data = $('tr').map(function () {
+                var obj = {};
+                var isEmpty = true;
+                $(this).find('input, select').each(function () {
+                    if (!$(this).is(':checked') && $(this).is(':checkbox')) {
+                        return false;
+                    }
+                    obj[this.name] = $(this).val();
+                    isEmpty = false;
+                });
+                if (!isEmpty) return obj;
+            }).get();
 
+            if (data.length > 0) {
+                $.post('/checkout', {
+                    "data": JSON.stringify(data)
+                }, function (data, status) {
+                    if (data.result == "redirect") {
+                        window.location.replace(data.url);
+                    }
+                })
+            }
+
+        });
+
+        $('input[name="product-checkbox"]').change(function () {
+            var thanh_tien = $(this).closest('tr').find('.thanh_tien span').text();
+            if ($(this).is(":checked")) {
+                $('#total-price').text(function (i, c) {
+                    return parseInt(c) + parseInt(thanh_tien);
+                });
+            } else {
+                $('#total-price').text(function (i, c) {
+                    return parseInt(c) - parseInt(thanh_tien);
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

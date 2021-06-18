@@ -1,7 +1,7 @@
 const express = require('express');
 // const expressLayouts = require('express-ejs-layouts');
 const app = express();
-// const session = require('express-session');
+const session = require('express-session');
 const path = require('path');
 const dotenv = require('dotenv');
 const db = require('./db/dbConfig');
@@ -23,14 +23,14 @@ app.use(express.urlencoded({
     extended: true
 }));
 app.use(methodOverrride('_method'))
-// app.use(session({
-//     resave: true,
-//     saveUninitialized: true,
-//     secret: '1234567abc',
-//     cookie: {
-//         maxAge: 60000
-//     }
-// }));
+app.use(session({
+    resave: true,
+    saveUninitialized: true,
+    secret: '1234567abc',
+    cookie: {
+        maxAge: 60000
+    }
+}));
 
 const apiRouter = require('./route/api');
 const clientIndexRouter = require('./route/client/index');
