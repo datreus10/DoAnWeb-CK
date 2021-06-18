@@ -49,7 +49,7 @@
 	<section class="product-section">
 		<div class="container">
 			<div class="back-link">
-				<a href="./category.html"> &lt;&lt; Back to Category</a>
+				<a href="/cart" style="font-size: 15px;"> &lt;&lt; Xem các sản phẩm khác</a>
 			</div>
 			<div class="row">
 
@@ -78,7 +78,6 @@
 					<h2 class="p-title"><%= product.name %></h2>
 					</h2>
 					<h3 class="p-price"> <%= product.price %>đ</h3>
-					<h4 class="p-stock">Available: <span>In Stock</span></h4>
 					<div class="p-rating">
 						<i class="fa fa-star-o"></i>
 						<i class="fa fa-star-o"></i>
@@ -87,12 +86,12 @@
 						<i class="fa fa-star-o fa-fade"></i>
 					</div>
 					<div class="p-review">
-						<a href="">3 reviews</a>
+						<a href="">3 đánh giá</a>
 					</div>
 
 					<form action="/cart/product/<%= product._id %> " method="post">
 						<div class="fw-size-choose" role="tablist">
-							<p>Size</p>
+							<p>Kích cỡ</p>
 
 							<% for( let i = 0,f=true; i < product.sizes.length; i++ ) { %>
 
@@ -128,7 +127,7 @@
 						</div> -->
 
 						<div class="quantity">
-							<p>Quantity</p>
+							<p>Số lượng</p>
 
 							<div class="pro-qty"><span class="dec qtybtn">-</span><input type="text" value="1" name="quantity"><span
 									class="inc qtybtn">+</span></div>
@@ -151,14 +150,14 @@
 
 
 
-						<button type="submit" class="site-btn">ADD TO CART</button>
+						<button type="submit" class="site-btn">Thêm vào giỏ hàng</button>
 					</form>
 
 					<div id="accordion" class="accordion-area">
 						<div class="panel">
 							<div class="panel-header" id="headingOne">
 								<button class="panel-link active" data-toggle="collapse" data-target="#collapse1"
-									aria-expanded="true" aria-controls="collapse1">information</button>
+									aria-expanded="true" aria-controls="collapse1">Thông tin sản phẩm</button>
 							</div>
 							<div id="collapse1" class="collapse show" aria-labelledby="headingOne"
 								data-parent="#accordion">
@@ -170,42 +169,43 @@
 						<div class="panel">
 							<div class="panel-header" id="headingTwo">
 								<button class="panel-link" data-toggle="collapse" data-target="#collapse2"
-									aria-expanded="false" aria-controls="collapse2">care details </button>
+									aria-expanded="false" aria-controls="collapse2">Thông tin đổi trả </button>
 							</div>
 							<div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
 								<div class="panel-body">
-									<img src="/img/cards.png" alt="">
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so
-										dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te
-										mpus.
-										Ut consectetur lacus leo, non scelerisque nulla euismod nec.</p>
+									<p>
+										- Thời gian đổi trong vòng 3 ngày kể từ khi các bạn mua. Khách hàng mua online được tính từ ngày nhận hàng.<br>
+- Sản phẩm đổi phải còn nguyên tem, nhãn mác, chưa qua sử dụng, không mùi, dính bẩn, hay giặt qua một lần, và có toàn bộ bao bì và hóa đơn mua hàng kèm theo.<br>
+- Khách hàng được đổi sản phẩm theo yêu cầu kích cỡ ( Size ), do lỗi sản xuất.<br>
+- Không đổi sản phẩm bán trong các đợt cửa hàng Sale Off, hoặc hàng đã được đổi một lần trước đó, trừ trường hợp sản phẩm đó lại gặp lỗi kỹ thuật.<br>
+- Các bạn mua online, khi nhận hàng xong, các bạn vui lòng kiểm tra sản phẩm sau khi thanh toán cho nhân viên giao hàng, nếu có lỗi sản xuất xin báo ngay về cho chúng tôi, không nên mặc thử, hoặc sử dụng sản phẩm sau khi phát hiện lỗi .
+									</p>
 								</div>
 							</div>
 						</div>
 						<div class="panel">
 							<div class="panel-header" id="headingThree">
 								<button class="panel-link" data-toggle="collapse" data-target="#collapse3"
-									aria-expanded="false" aria-controls="collapse3">shipping & Returns</button>
+									aria-expanded="false" aria-controls="collapse3">Giao hàng</button>
 							</div>
 							<div id="collapse3" class="collapse" aria-labelledby="headingThree"
 								data-parent="#accordion">
 								<div class="panel-body">
-									<h4>7 Days Returns</h4>
-									<p>Cash on Delivery Available<br>Home Delivery <span>3 - 4 days</span></p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra tempor so
-										dales. Phasellus sagittis auctor gravida. Integer bibendum sodales arcu id te
-										mpus.
-										Ut consectetur lacus leo, non scelerisque nulla euismod nec.</p>
+									<h4>Trong vòng 7 ngày</h4>
+									<p>Chỉ nhận giao hàng COD<br>Giao hàng tận nơi từ <span>3 - 7 ngày</span></p>
+									<p>
+										TPHCM - Hà Nội: 3 - 4 ngày.<br>
+										Các nơi khác: 4 - 7 ngày.
+									</p>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="social-sharing">
-						<a href=""><i class="fa fa-google-plus"></i></a>
-						<a href=""><i class="fa fa-pinterest"></i></a>
-						<a href=""><i class="fa fa-facebook"></i></a>
-						<a href=""><i class="fa fa-twitter"></i></a>
-						<a href=""><i class="fa fa-youtube"></i></a>
+						<a href="https://www.instagram.com/" class="instagram"><i class="fa fa-instagram"></i></a>
+						<a href="https://www.facebook.com/" class="facebook"><i class="fa fa-facebook"></i></a>
+						<a href="https://twitter.com/" class="twitter"><i class="fa fa-twitter"></i></a>
+						<a href="https://www.youtube.com/" class="youtube"><i class="fa fa-youtube"></i></a>
 					</div>
 				</div>
 			</div>

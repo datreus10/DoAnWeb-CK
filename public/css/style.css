@@ -392,7 +392,7 @@ ol {
 }
 
 .user-panel .up-item:first-child {
-	margin-right: 29px;
+	margin-right: 10px;
 }
 
 .shopping-card {
@@ -899,8 +899,8 @@ ol {
 }
 
 .product-item .pi-links a.add-card:hover {
-	width: 148px;
-	padding: 8px 18px 0;
+	width: 190px;
+	padding: 8px 14px 0;
 	text-align: left;
 }
 
