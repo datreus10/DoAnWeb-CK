@@ -5,7 +5,7 @@
                 <div class="col-lg-2 text-center text-lg-left">
                     <!-- logo -->
                     <a href="/" class="site-logo">
-                        <img src="/img/logo.png" alt="">
+                        <img src="/img/logo.png" alt="logo-shopnam">
                     </a>
                 </div>
                 <div class="col-xl-6 col-lg-5">
@@ -19,21 +19,22 @@
                         <div class="up-item">
                             <i class="flaticon-profile"></i>
                             <% if (isLogin) { %>
-                            <a href="/myaccount">Hello <%= isLogin %></a>
+                            <a href="/myaccount">Chào <%= isLogin %></a>
                             <% } else {%>
-                            <a href="/signin">Log In</a> or <a href="/signup">Create Account</a>
+                            <a href="/signin">Đăng nhập</a> hoặc <a href="/signup">Tạo tài khoản</a>
                             <% } %>
                         </div>
                         <div class="up-item">
                             <div class="shopping-card">
                                 <i class="flaticon-bag"></i>
-                                <span>3</span>
+                                <!-- <span>3</span> -->
                             </div>
-                            <a href="/cart">Shopping Cart</a>
+                            <a href="/cart">Giỏ hàng</a>
                         </div>
                         <div class="up-item">
                             <% if (isLogin) { %>
-                                <a href="/logout" class="flaticon-logout"></a>
+                                <i class="flaticon-logout"></i>
+                                <a href="/logout">Thoát</a>
                                 <% }  %>
                         </div>
                     </div>

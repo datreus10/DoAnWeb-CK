@@ -1,5 +1,5 @@
 <head>
-    <title>Divisima | eCommerce Template</title>
+    <title>Shop nam</title>
     <meta charset="UTF-8">
     <meta name="description" content=" Divisima | eCommerce Template">
     <meta name="keywords" content="divisima, eCommerce, creative, html">
@@ -30,6 +30,76 @@
 
 <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css"/>
 <link rel="stylesheet" href="css/customer.css"/>
+<style>
+        .formdoimatkhau {
+      border: 3px solid #f1f1f1;
+      align-items: center;
+      margin: 20px auto;
+      padding: 20px;
+      width: 500px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+        .button {
+      background-color: #442fbd;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .button:hover {
+      opacity: 0.8;
+    }
+    .button2 {
+      background-color: #db3f3f;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .button2:hover {
+      opacity: 0.8;
+    }
+    .input[type=text],
+    .input[type=password] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    .closebtn {
+      margin-left: 15px;
+      color:white;
+      font-weight: bold;
+      float: right;
+      font-size: 22px;
+      line-height: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .closebtn:hover {
+      color: black;
+    }
+    .alert {
+      padding: 8px 12px;
+      background-color: #f44336;
+      color: white;
+      opacity: 1;
+      transition: opacity 0.6s;
+      width: 250px;
+    }
+
+    .alert.success {
+      background-color: #04AA6D;
+    }
+
+</style>
 </head>
 <body>
     <div id="preloder">
@@ -65,7 +135,7 @@
                                     <li class="nav-item">
                                         <a class="nav-link active" id="basicInfo-tab" data-toggle="tab" href="#basicInfo" role="tab" aria-controls="basicInfo" aria-selected="true">Thông tin</a>
                                     </li>
-                                    <li class="nav-item">
+                                    <li class="nav-item" onclick="CloseNotice()">
                                         <a class="nav-link" id="connectedServices-tab" data-toggle="tab" href="#connectedServices" role="tab" aria-controls="connectedServices" aria-selected="false">Lịch sử đơn hàng</a>
                                     </li>
                                 </ul>
@@ -93,44 +163,50 @@
                                         </div>
                                         <hr />
                                         
-                                        
                                         <div class="row">
                                             <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">Something</label>
+                                                <button onclick="Hienthiformdoimatkhau(),CloseNotice()" class="button" id="buttonchange">Đổi mật khẩu</button>
                                             </div>
-                                            <div class="col-md-8 col-6">
-                                                Something
+                                            <div class="col-md-8 col-6" style="display: block;" id="notice">
+                                            <% if (message !='') {%>
+                                                <div class='alert'>
+                                                  <span class="closebtn">&times;</span>
+                                                 <%=message%>
+                                                </div>
+                                                <% } %>
+                                                <%if(message_success !=''){ %>
+                                                    <div class='alert success'>
+                                                        <span class="closebtn">&times;</span>
+                                                        <%=message_success%>
+                                                    </div>
+                                                <% } %>
                                             </div>
-                                        </div>
-                                        <hr />
-                                        <div class="row">
-                                            <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">Something</label>
-                                            </div>
-                                            <div class="col-md-8 col-6">
-                                                Something
-                                            </div>
-                                        </div>
-                                        <hr />
-                                        <div class="row">
-                                            <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">Something</label>
-                                            </div>
-                                            <div class="col-md-8 col-6">
-                                                Something
-                                            </div>
+                                            <div class="col-md-8 col-6" id="myDIV" style="display: none;">
+                                                <form action="/myaccount" method="post" class="formdoimatkhau">
+                                                    <div class="container">
+                                                      <label for="oldpassword"><b>Mật khẩu cũ</b></label>
+                                                      <input class="input" type="password" placeholder="Nhập mật khẩu cũ" name="oldpassword" required>
                                             
+                                                      <label for="password"><b>Mật khẩu mới</b></label>
+                                                      <input class="input" type="password" placeholder="Nhập mật khẩu mới" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password phải gồm 8 kí tự (Thường, hoa và số)" required>
+                                                      <label for="psw-repeat"><b>Xác nhận mật khẩu</b></label>
+                                                      <input class="input" type="password" placeholder="Nhập lại mật khẩu mới" name="Confirmpassword" required>
+                                                      <button type="submit" class="button2">Đổi mật khẩu</button>
+                                                      <button class="button"  onclick="Hienthiformdoimatkhau()">Trở về</button>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
                                         <hr />
                                     </div>
                                     <div class="tab-pane fade" id="connectedServices" role="tabpanel" aria-labelledby="ConnectedServices-tab">
-                                        <% Bills.forEach(function(Bill) { %>
+                                        <% for (let i=Bills.length-1;i>=0;i--) { %>
                                             <div class="row">
                                                 <div class="col-sm-3 col-md-2 col-5">
                                                     <label style="font-weight:bold;">Đơn hàng</label>
                                                 </div>
                                                 <div class="col-md-8 col-6">
-                                                    <a href="/myaccount/<%=Bill._id%>"><%=Bill._id%></a>
+                                                    <a href="/myaccount/<%=Bills[i]._id%>"><%=Bills[i]._id%></a>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -138,11 +214,11 @@
                                                     <label style="font-weight:bold;">Tổng tiền</label>
                                                 </div>
                                                 <div class="col-md-8 col-6">
-                                                    <%=Bill.total%>
+                                                    <%=Bills[i].total%>
                                                 </div>
                                             </div>
                                             <hr />
-                                        <%})%>
+                                        <%}%>
                                     </div>
                                 </div>
                             </div>
@@ -160,7 +236,7 @@
         <%- include('../partial/clientFooter.ejs')%>
         <!-- Footer section end -->
     
-    
+
     
         <!--====== Javascripts & Jquery ======-->
         <script src="/js/jquery-3.2.1.min.js"></script>
@@ -172,4 +248,43 @@
         <script src="/js/jquery-ui.min.js"></script>
         <script src="/js/main.js"></script>
         <script src="/js/custom/ejs.min.js"></script>
+        <script>
+            function Hienthiformdoimatkhau() {
+                var x = document.getElementById("myDIV");
+                if (x.style.display === "none") {
+                  x.style.display = "block";
+                } else {
+                  x.style.display = "none";
+                }
+                var y = document.getElementById("buttonchange");
+                if (y.style.display === "none") {
+                  y.style.display = "block";
+                } else {
+                  y.style.display = "none";
+                }
+                var z = document.getElementById("notice");
+                if (z.style.display === "block") {
+                  z.style.display = "none";
+                }
+            }
+            function CloseNotice() {
+            var z = document.getElementById("notice");
+                if (z.style.display === "block") {
+                  z.style.display = "none";
+                }
+            }
+            </script>
+            <script>
+
+
+                var close = document.getElementsByClassName("closebtn");
+                var i;
+                for (i = 0; i < close.length; i++) {
+                    close[i].onclick = function () {
+                    var div = this.parentElement;
+                    div.style.opacity = "0";
+                    setTimeout(function () { div.style.display = "none"; }, 600);
+                    }
+                }
+                </script>
 </body>

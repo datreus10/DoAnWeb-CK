@@ -18,19 +18,23 @@ const signin = async (req, res) => {
         });
         if (!existingUser) return res.status(404).render('./auth/signin', {
             success: '',
-            message: 'Account not exist'
+            message: 'Tài khoản không tồn tại',
+            isAdmin: req.userRole=="admin"? "Admin": "",
+            isLogin: req.userName
         });
         const isPasswordCorrect = await bcrypt.compare(password, existingUser.password);
         if (!isPasswordCorrect) return res.status(400).render('./auth/signin', {
             success: '',
-            message: 'Password is invalid'
+            message: 'Sai mật khẩu',
+            isAdmin: req.userRole=="admin"? "Admin": "",
+            isLogin: req.userName
         });
         const token = jwt.sign({
             name: existingUser.name,
             id: existingUser._id,
             role: existingUser.role
         }, 'test', {
-            expiresIn: "24h"
+            expiresIn: "1h"
         });
         res.cookie("token", token);
         res.redirect('/');
@@ -53,10 +57,14 @@ const signup = async (req, res) => {
             email
         });
         if (existingUser) return res.status(400).render('./auth/signup', {
-            message: "Account exist"
+            message: "Tài khoản đã tồn tại",
+            isAdmin: req.userRole=="admin"? "Admin": "",
+            isLogin: req.userName
         });
         if (password !== Confirmpassword) return res.status(400).render('./auth/signup', {
-            message: "Password don't match"
+            message: "Nhập lại mật khẩu không đúng",
+            isAdmin: req.userRole=="admin"? "Admin": "",
+            isLogin: req.userName
         });
         const hashedPassword = await bcrypt.hash(password, 12);
         const result = new User({

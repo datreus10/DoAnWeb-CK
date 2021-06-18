@@ -106,11 +106,11 @@ router.delete('/:id', async (req,res)=>{
         res.redirect('/admin/product/type/index')
     }
     catch(err){
-       
+        console.log(err)
         if(type ==null){
             res.redirect('/admin')
         }else{
-            console.log(err)
+          
              res.redirect('/admin/product/type/index?msg='+err)
            
                
