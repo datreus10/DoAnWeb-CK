@@ -1,6 +1,14 @@
 const mongoose = require("mongoose")
 
 const userSchema = mongoose.Schema({
+    phone_number:{
+        type: String,
+        maxlength: 15
+    },
+    address:{
+        type: String,
+        maxlength: 100
+    },
     name: {
         type: String,
         maxlength: 50
