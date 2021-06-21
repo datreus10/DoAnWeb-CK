@@ -27,7 +27,13 @@ router.post("/",auth,async (req,res) =>{
     let query={};
     if(!req.body.search)
     {
-        query={productType: {"$in" : req.body.productType}};
+        const min=parseInt(req.body.minamount)
+        const max=parseInt(req.body.maxamount)
+        query={$and: [
+            { $and: [ { price: { $lt : max} }, { price : { $gt:  min} } ] },
+            {productType: {"$in" : req.body.productType}}
+        ]
+            } ;
     res.render("./client/category", {
         lastedProducts: await Product.find(query).sort({
             createAt: -1

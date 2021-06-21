@@ -15,7 +15,7 @@ router.get('/:id', auth, async (req, res) => {
         conHang: conHang,
         isAdmin: req.userRole == "admin" ? "Admin" : "",
         isLogin: req.userName
-    });
+    })
 
 })
 
