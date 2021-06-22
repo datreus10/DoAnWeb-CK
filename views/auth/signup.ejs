@@ -36,7 +36,18 @@
   border: none;
   background: #f1f1f1;
 }
-
+select{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+select:focus{
+  background-color: #ddd;
+  outline: none;
+}
 .input[type=text]:focus, .input[type=password]:focus {
   background-color: #ddd;
   outline: none;
@@ -148,7 +159,10 @@ hr {
     <input type="password" class="input" placeholder="Nhập lại mật khẩu" name="Confirmpassword" required>
     <label for="phone_number"><b>Số điện thoại</b></label>	
     <input type="text" placeholder="Nhập số điện thoại" name="phone_number" class="input" pattern="0[0-9\s.-]{9,13}" title="Số điện thoại không hợp lệ" required>
-    <label for="address"><b>Địa chỉ</b></label>	
+    <label for="address"><b>Địa chỉ</b></label>
+    <select name="ls_province"></select>
+    <select name="ls_district"></select>
+    <select name="ls_ward"></select>
     <input type="text" placeholder="Nhập địa chỉ" name="address" class="input" required>
     <div class="clearfix">
       <button type="submit" class="signupbtn">Đăng kí</button>
@@ -183,6 +197,14 @@ hr {
     <script src="/js/jquery-ui.min.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/custom/ejs.min.js"></script>
+    <script src="/js/vietnamlocalselector.min.js"></script>
+<script>
+	var localpicker = new LocalPicker({
+		province: "ls_province",
+		district: "ls_district",
+		ward: "ls_ward"
+    	});
+</script>
 </body>
 
 </html>
