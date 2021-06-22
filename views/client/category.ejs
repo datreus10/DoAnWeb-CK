@@ -68,11 +68,29 @@
 						<ul class="category-menu">
 							<% productTypes.forEach(function(productType) { %>
 							<li>
-								<input type="checkbox" id="aothun" name="productType" value="<%=productType._id%>">
-								<label for="aothun"><%=productType.name%></label><br>
+								<input type="checkbox" id="productType" name="productType" value="<%=productType._id%>">
+								<label for="productType"><%=productType.name%></label><br>
 							</li>
 							<%})%>
 						</ul>
+					</div>
+					<div class="filter-widget mb-0">
+						<div class="price-range-wrap">
+							<h4>Giá sản phẩm</h4>
+                            <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" data-min="100000" data-max="2000000">
+								<div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0%; width: 100%;"></div>
+								<span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;">
+								</span>
+								<span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 100%;">
+								</span>
+							</div>
+							<div class="range-slider">
+                                <div class="price-input">
+                                    <input type="text" id="minamount" name="minamount">
+                                    <input type="text" id="maxamount" name="maxamount">
+                                </div>
+                            </div>
+                        </div>
 					</div>
 					<button type="submit" class="site-btn sb-line sb-dark">Tìm kiếm</button>
 				</div>

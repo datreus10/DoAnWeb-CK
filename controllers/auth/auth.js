@@ -4,7 +4,7 @@ const {
 } = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../../model/user.js');
-const Cart = require('../../model/cart.js')
+const {Cart} = require('../../model/cart.js')
 const express = require('express');
 const bodyParser = require('body-parser');
 const signin = async (req, res) => {
@@ -50,7 +50,13 @@ const signup = async (req, res) => {
         name,
         email,
         password,
-        Confirmpassword
+        Confirmpassword,
+        address,
+        phone_number,
+        ls_province,
+        ls_district,
+        ls_ward,
+
     } = req.body;
     try {
         const existingUser = await User.findOne({
@@ -66,13 +72,17 @@ const signup = async (req, res) => {
             isAdmin: req.userRole=="admin"? "Admin": "",
             isLogin: req.userName
         });
+        const fulladdress=address+", "+ls_ward+", "+ls_district+", "+ls_province;
         const hashedPassword = await bcrypt.hash(password, 12);
         const result = new User({
             name,
             email,
             password: hashedPassword,
-            role: 'member'
+            address: fulladdress,
+            phone_number,
+            role: 'member',
         })
+        console.log(result)
         const token = jwt.sign({
             email: result.email,
             id: result._id,

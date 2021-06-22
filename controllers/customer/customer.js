@@ -6,16 +6,25 @@ const bcrypt = require('bcrypt');
 const getCustomer = async (req, res) => {
     try {
         const id=req.userID;
+        if(!id)
+        {
+            res.redirect('/signin');
+        }
+        else{
         query={userId: id};
         const ListBill= await Bill.find(query)
         if(id){
             const Userid = await User.findById(id);
             const Username = Userid.name;
             const email = Userid.email;
+            const address = Userid.address;
+            const phone_number=Userid.phone_number;
             return res.status(201).render('./customer/customer', 
             {
                 Username: Username, 
                 email: email,
+                address: address,
+                phone_number: phone_number,
                 message: '',
                 message_success: '',
                 isAdmin: req.userRole=="admin"? "Admin": "",
@@ -26,8 +35,8 @@ const getCustomer = async (req, res) => {
         else
         {
             return res.status(401).redirect('/');
-        }
-
+        }            
+    }
     } catch (error) {
         res.status(409).json({ message: error.message });
     }
