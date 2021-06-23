@@ -41,6 +41,7 @@ const clientCheckoutRouter = require('./route/client/checkout');
 const adminIndexRouter = require('./route/admin/index');
 const adminProductRouter = require('./route/admin/product');
 const adminProductTypeRouter = require('./route/admin/productType');
+const adminBillRouter = require('./route/admin/bill')
 const auth = require('./route/auth/auth');
 const customer = require('./route/Customer/Customer');
 const detailedbill = require('./route/Customer/detailedbill');
@@ -55,6 +56,7 @@ app.use('/checkout',clientCheckoutRouter);
 app.use('/admin', adminIndexRouter);
 app.use('/admin/product', adminProductRouter);
 app.use('/admin/product/type', adminProductTypeRouter);
+app.use('/admin/bill', adminBillRouter);
 app.use('/', auth);
 app.use('/', customer);
 app.use ('/',detailedbill);

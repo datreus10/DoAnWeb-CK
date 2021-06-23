@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Product = require('../../model/product');
-const Cart = require('../../model/cart');
+const {Cart} = require('../../model/cart');
 
 const ProductType = require('../../model/productType');
 const helper = require('../helper');
@@ -16,6 +16,7 @@ router.get('/add', async (req, res) => {
         productTypes: await ProductType.find(),
         msg: req.query.msg || '',
     });
+   
 })
 
 
@@ -191,8 +192,7 @@ router.delete('/delete/:id', async (req,res)=>{
             data.forEach(async cart=>{
                 cart.items.forEach(item=>{
                     if(item.itemId != req.params.id){
-                        updateitems.push(item)
-                        
+                        updateitems.push(item)        
                     }
                 })
                 cart.items=updateitems

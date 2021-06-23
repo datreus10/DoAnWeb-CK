@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta charset="UTF-8">
+<meta name="description" content=" Divisima | eCommerce Template">
+<meta name="keywords" content="divisima, eCommerce, creative, html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>Divisima | eCommerce Template</title>
+
+<!-- Favicon -->
+<link href="/img/favicon.ico" rel="shortcut icon" />
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
+
+
+<!-- Stylesheets -->
+<link rel="stylesheet" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/css/font-awesome.min.css" />
+<link rel="stylesheet" href="/css/flaticon.css" />
+<link rel="stylesheet" href="/css/slicknav.min.css" />
+<link rel="stylesheet" href="/css/jquery-ui.min.css" />
+<link rel="stylesheet" href="/css/owl.carousel.min.css" />
+<link rel="stylesheet" href="/css/animate.css" />
+<link rel="stylesheet" href="/css/style.css" />
+
+<style>
+  
+	.table-wrapper {
+		width: 900px;
+		margin: 30px auto;
+        background: #fff;
+        padding: 20px;	
+        box-shadow: 0 1px 1px rgba(0,0,0,.05);
+        font-size: 20px;
+        border: 1px solid black;
+    }
+    .table-title {
+        padding-bottom: 10px;
+        margin: 0 0 10px;
+    }
+    .table-title h2 {
+        margin: 6px 0 0;
+        font-size: 30px;
+    }
+    .table-title .add-new {
+        float: right;
+		height: 30px;
+		font-weight: bold;
+		font-size: 12px;
+		text-shadow: none;
+		min-width: 100px;
+		border-radius: 50px;
+		line-height: 13px;
+    }
+	.table-title .add-new i {
+		margin-right: 4px;
+	}
+    table.table {
+        table-layout: fixed;
+    }
+    table.table tr th, table.table tr td {
+        border-color: #e9e9e9;
+    }
+    table.table th i {
+        font-size: 19px ;
+        margin: 0 5px;
+        cursor: pointer;
+    }
+    table.table th:last-child {
+        width: 100px;
+    }
+    table.table td a {
+		cursor: pointer;
+        display: inline-block;
+        margin: 0 5px;
+		min-width: 24px;
+    }    
+	table.table td a.add {
+        color: #27C46B;
+    }
+    table.table td a.edit {
+        color: #FFC107;
+    }
+    table.table td a.delete {
+        color: #E34724;
+    }
+    table.table td i {
+        font-size: 19px;
+    }
+	table.table td a.add i {
+        font-size: 20px;
+    	margin-right: -1px;
+        position: relative;
+        top: 3px;
+    }    
+    table.table .form-control {
+        height: 32px;
+        line-height: 32px;
+        box-shadow: none;
+        border-radius: 2px;
+    }
+	table.table .form-control.error {
+		border-color: #f50000;
+	}
+	table.table td .add {
+		display: none;
+	}
+</style>
+
+
+</head>
+<body>
+     <!-- Header section -->
+     <%- include('../partial/adminHeader.ejs')%>
+     <!-- Header section end -->
+    <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8"><h2>Hóa đơn<b>: <%= bill.id%></b></h2></div>
+                    <div class="col-sm-4">
+                        <a href="/admin/bill/user/<%= bill.userId%>">
+                        <button type="button" class="btn btn-info add-new"> Trở vè</button>
+                        </a>
+                    </div>
+                </div>
+                <% if(msg !=''){%>
+                <div class="row">
+                   
+                    <div class="col-sm-4 " style="margin: 10px auto;">
+                    <div class="alert alert-success d-flex align-items-center" role="alert">
+                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                        <div>
+                         <%= msg%>
+            
+                        </div>
+                      </div>
+                    </div>              
+                </div>
+                <%}%>
+            </div>
+            <form method="POST" action='/admin/bill/user/editbill/<%= bill._id%>?_method=PUT' >
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-check form-check-inline" style="margin: 10px auto"  >
+           
+                            <input class="form-check-input" <%= bill.isPaid == 0 ? 'checked' : '' %> type="radio" name="status"  id="inlineRadio1" value="0">
+                            <label class="form-check-label" for="inlineRadio1">Đặt hàng thành công</label>
+                          </div>
+                    </div>
+                  
+                </div>
+                <div class="row" >
+                    <div class="col-sm-4">
+                    <div class="form-check form-check-inline" style="margin: 10px auto">
+                        <input class="form-check-input"  <%= bill.isPaid == 1 ? 'checked' : '' %>  type="radio" name="status" id="inlineRadio2" value="1">
+                        <label class="form-check-label" for="inlineRadio2">Đang vận chuyển</label>
+                      </div>
+                      </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                    <div class="form-check form-check-inline" style="margin: 10px auto">
+                        <input class="form-check-input"  <%= bill.isPaid == 2 ? 'checked' : '' %> type="radio" name="status" id="inlineRadio2" value="2">
+                        <label class="form-check-label" for="inlineRadio2">Đã thanh toán</label>
+                      </div>
+                      </div>
+                </div>
+            
+             
+            
+          
+
+             
+                <div class="row">
+                   
+                        <button type="submit" class="btn btn-primary " style="font-size: 15px; margin-top: 10px;margin: 10px auto;">Update</button>
+                  
+                </div>
+           
+            </form>
+            
+        </div>
+    </div>     
+      <!-- Footer section -->
+      <%- include('../partial/clientFooter.ejs')%>
+      <!-- Footer section end -->
+  
+</body>
+</html>

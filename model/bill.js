@@ -29,8 +29,8 @@ const billSchema = new mongoose.Schema({
         default: Date.now()
     },
     isPaid: {
-        type: Boolean,
-        default: false
+        type: Number,
+        default: 0,
     },
     total: {
         type: Number
