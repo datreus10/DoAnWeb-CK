@@ -12,19 +12,20 @@ const Bill = require("../../model/bill");
 const {
     auth
 } = require('../../middleware/auth')
+const User = require('../../model/user');
 
 router.get('/', auth, async (req, res) => {
-    if (req.user) {
+    if (req.user && req.session.cart && req.session.cart.length > 0) {
         const listItem = []
-        if(req.session.cart){
-            for(let item of req.session.cart){
-                listItem.push(await CartItem.create({
-                    itemId: mongoose.mongo.ObjectId(item.itemId),
-                    size: item.size,
-                    quantity: item.quantity
-                }))
-            }
+
+        for (let item of req.session.cart) {
+            listItem.push(await CartItem.create({
+                itemId: mongoose.mongo.ObjectId(item.itemId),
+                size: item.size,
+                quantity: item.quantity
+            }))
         }
+
 
         let c = await Cart.create({
             userId: req.userID,
@@ -36,14 +37,16 @@ router.get('/', auth, async (req, res) => {
             select: '_id name img price'
         }).execPopulate()
 
+        const user = await User.findById(req.userID)
+
         res.render('./client/checkout', {
             isAdmin: req.userRole == "admin" ? "Admin" : "",
             isLogin: req.userName,
+            user: user,
             cart: c,
-
         })
     } else {
-        res.redirect("/")
+        res.redirect("/cart")
     }
 
 });
@@ -58,7 +61,10 @@ router.post('/', auth, async (req, res) => {
     });
     req.session.cart = listItem;
     req.session.save();
-    res.status(200).send({result: 'redirect', url:'/checkout'})
+    res.status(200).send({
+        result: 'redirect',
+        url: '/checkout'
+    })
 });
 
 router.post('/thanh_toan', auth, async (req, res) => {
@@ -82,13 +88,26 @@ router.post('/thanh_toan', auth, async (req, res) => {
         await bill.save();
 
         // giam so luong san pham theo size
-        for(let item of cart.items) {
+        for (let item of cart.items) {
             // const y  = await Product.findOne({_id: item.itemId.id,'sizes.name':item.size});
-            await Product.updateOne({_id: item.itemId.id,'sizes.name':item.size},{$inc: {'sizes.$.quantity': -item.quantity}})
+            await Product.updateOne({
+                _id: item.itemId.id,
+                'sizes.name': item.size
+            }, {
+                $inc: {
+                    'sizes.$.quantity': -item.quantity
+                }
+            })
         }
 
-        await Cart.updateOne({_id: cart._id}, {$set: {"items": []}});
-        
+        await Cart.updateOne({
+            _id: cart._id
+        }, {
+            $set: {
+                "items": []
+            }
+        });
+
         res.redirect("/");
     } else {
         res.redirect("/");
