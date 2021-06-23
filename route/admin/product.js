@@ -1,13 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const Product = require('../../model/product');
-<<<<<<< HEAD
-const {Cart} = require('../../model/cart');
-=======
 const {
     Cart
 } = require('../../model/cart');
->>>>>>> 724b27bbf5311b8605775aa0b44fe208cf8aad1f
 
 const ProductType = require('../../model/productType');
 const helper = require('../helper');
@@ -180,22 +176,6 @@ router.put('/edit/:id', uploadMultiple, async (req, res) => {
     }
 })
 // xóa sản phẩm
-<<<<<<< HEAD
-router.delete('/delete/:id', async (req,res)=>{
-    let product 
-    try{
-        product= await Product.findById(req.params.id)
-        updateitems= []
-        data = await Cart.find(
-            {
-                "items.itemId": req.params.id
-            })
-        if(data){
-            data.forEach(async cart=>{
-                cart.items.forEach(item=>{
-                    if(item.itemId != req.params.id){
-                        updateitems.push(item)        
-=======
 router.delete('/delete/:id', async (req, res) => {
     let product
     try {
@@ -210,7 +190,6 @@ router.delete('/delete/:id', async (req, res) => {
                     if (item.itemId != req.params.id) {
                         updateitems.push(item)
 
->>>>>>> 724b27bbf5311b8605775aa0b44fe208cf8aad1f
                     }
                 })
                 cart.items = updateitems
