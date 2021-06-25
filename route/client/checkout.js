@@ -27,7 +27,7 @@ router.get('/', auth, async (req, res) => {
         }
 
 
-        let c = await Cart.create({
+        let c = new Cart({
             userId: req.userID,
             items: listItem
         })
