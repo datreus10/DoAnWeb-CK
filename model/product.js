@@ -41,6 +41,10 @@ const productSchema = new mongoose.Schema({
 productSchema.virtual('fileLinks').get(function () {
     return this.img.map(e => helper.getFileLink(e));
 });
+
+productSchema.virtual('priceFormat').get(function () {
+    return this.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " VNĐ";
+});
 // kiểm tra ràng buộc khi xóa sp với giỏ hàng và hóa đơn
 // productSchema.pre('remove',async function(next){
 //     try{

@@ -205,8 +205,8 @@ $(window).on('load', function () {
 	});
 
 	$('.pro-qty input[type=text]').change(function () {
-		var price = $('.product-info span.price-base').text();
-		$(this).closest('tr').find('.thanh_tien span').text(price * $(this).val());
+		var price = $(this).closest('tr').find('.product-info span.price-base').text();
+		$(this).closest('tr').find('.thanh_tien span').text(formatNumbertoPrice(extractNumberFromString(price)* $(this).val()));
 		var checkbox = $(this).closest('tr').find('input[name="product-checkbox"]');
 		if (checkbox.is(":checked")) {
 			checkbox.trigger("change");
@@ -226,8 +226,109 @@ $(window).on('load', function () {
 		var $optionSelected = $("option:selected", this);
 		$optionSelected.tab('show')
 		$optionSelected.removeClass('active');
-		$('.pro-qty input[type=text]').val("1").trigger('change');
+		$(this).closest('tr').find('.pro-qty input[type=text]').val("1").trigger('change');
 	});
+
+
+	function extractNumberFromString(str) {
+		return parseInt(str.replace(/[^0-9]/g,''));
+	}
+
+	function formatNumbertoPrice(num) {
+		return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " VNĐ";
+	}
+
+	$(document).on('click', '#checkout', function (event) {
+		event.preventDefault();
+		var data = $('tr').map(function () {
+			var obj = {};
+			var isEmpty = true;
+			$(this).find('input, select').each(function () {
+				if (!$(this).is(':checked') && $(this).is(':checkbox')) {
+					return false;
+				}
+				obj[this.name] = $(this).val();
+				isEmpty = false;
+			});
+			if (!isEmpty) return obj;
+		}).get();
+
+		if (data.length > 0) {
+			$.post('/checkout', {
+				"data": JSON.stringify(data)
+			}, function (data, status) {
+				if (data.result == "redirect") {
+					window.location.replace(data.url);
+				}
+			})
+		} else {
+			$('#nofication-modal .modal-body').text("Bạn chưa chọn sản phẩm để mua");
+			$('#nofication-modal').modal('show');
+		}
+
+	});
+
+	$('input[name="product-checkbox"]').change(function () {
+		var total = 0;
+		$('input[name="product-checkbox"]').each(function () {
+			if ($(this).is(":checked")) {
+				total += extractNumberFromString($(this).closest('tr').find('.thanh_tien span').text())
+			}
+		})
+		$('#total-price').text(formatNumbertoPrice(total))
+	});
+
+
+	$('#select-all').click(function () {
+		if (this.checked) {
+			$('input[name="product-checkbox"]').prop('checked', true).trigger("change");
+		} else {
+			$('input[name="product-checkbox"]').prop('checked', false).trigger("change");
+		}
+	})
+
+	$('#delete-all-btn').click(function () {
+		var items = []
+		$('input[name="product-checkbox"]').each(function () {
+			if (this.checked) {
+				items.push({
+					product: $(this).val()
+				})
+			}
+		})
+		if (items.length > 0) {
+			$('#delete-confirm .modal-body').text("Bạn muốn xóa sản phẩm đang chọn");
+			$('#delete-confirm').modal('show');
+			$('#delete-confirm-btn').data('id', items);
+		} else {
+			$('#nofication-modal .modal-body').text("Bạn chưa chọn sản phẩm để xóa");
+			$('#nofication-modal').modal('show');
+		}
+	})
+
+	$('.btn-del-product').click(function () {
+		var ID = $(this).data('id');
+		$('#delete-confirm-btn').data('id', [{
+			product: ID
+		}]); //set the data attribute on the modal button
+		$('#delete-confirm .modal-body').text("Bạn muốn xóa sản phẩm này")
+	});
+
+	$('#delete-confirm-btn').on('click', function () {
+		var ID = $(this).data('id');
+		$.ajax({
+			url: "/cart/remove",
+			type: "post",
+			data: {
+				data: ID
+			},
+			success: function (data) {
+				$("#delete-confirm").modal('hide');
+				location.reload();
+			}
+		});
+	})
+
 
 
 	/*------------------

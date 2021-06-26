@@ -2425,3 +2425,7 @@ ol {
 		display: none;
 	}
 }
+
+a{
+	cursor: pointer !important;
+}
