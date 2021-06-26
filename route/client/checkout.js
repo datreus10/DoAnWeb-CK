@@ -13,26 +13,14 @@ const {
     auth
 } = require('../../middleware/auth')
 const User = require('../../model/user');
+const {
+    cartFillter
+} = require("../../middleware/cart")
 
-router.get('/', auth, async (req, res) => {
-    if (req.user && req.session.cart && req.session.cart.length > 0) {
-        const listItem = []
+router.get('/', auth, cartFillter, async (req, res) => {
+    if (req.user && req.cart && req.cart.length > 0) {
 
-        for (let item of req.session.cart) {
-            listItem.push(await CartItem.create({
-                itemId: mongoose.mongo.ObjectId(item.itemId),
-                size: item.size,
-                quantity: item.quantity
-            }))
-        }
-
-
-        let c = new Cart({
-            userId: req.userID,
-            items: listItem
-        })
-
-        c = await c.populate({
+        const cart = await req.cart.populate({
             path: 'items.itemId',
             select: '_id name img price'
         }).execPopulate()
@@ -43,7 +31,7 @@ router.get('/', auth, async (req, res) => {
             isAdmin: req.userRole == "admin" ? "Admin" : "",
             isLogin: req.userName,
             user: user,
-            cart: c,
+            cart: cart,
         })
     } else {
         res.redirect("/cart")

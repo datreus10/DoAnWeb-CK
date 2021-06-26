@@ -60,7 +60,24 @@ const addItemToCart = async (req, res, next) => {
     next();
 }
 
+const removeItemFromCart = async function(req, res, next) {
+    const cart = req.cart;
+    for (let i = 0, j = 0; i < cart.items.length; i++) {
+        if (cart.items[i].itemId.toString() == req.body.data[j].product) {
+            cart.items.splice(i, 1);
+            i--;j++;
+        }
+    }
+    if (req.userID) {
+        await cart.save();
+    } else {
+        req.session.cart = cart;
+    }
+    next();
+}
+
 module.exports = {
     cartFillter,
-    addItemToCart
+    addItemToCart,
+    removeItemFromCart
 }

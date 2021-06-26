@@ -10,7 +10,7 @@ const {
     auth
 } = require("../../middleware/auth");
 const {
-    cartFillter,addItemToCart
+    cartFillter,addItemToCart,removeItemFromCart
 } = require("../../middleware/cart")
 
 
@@ -40,23 +40,7 @@ router.post("/product/:id", auth, cartFillter,addItemToCart, (req, res) => {
     res.redirect("/cart");
 });
 
-router.post("/remove", auth, async (req, res) => {
-    if (req.userID) {
-        const cart = await Cart.findOne({
-            userId: req.userID
-        });
-
-        for (let i = 0, j = 0; i < cart.items.length; i++) {
-            if (cart.items[i].itemId.toString() == req.body.data[j].product) {
-                cart.items.splice(i, 1);
-                i--;
-                j++;
-            }
-        }
-
-
-        await cart.save();
-    }
+router.post("/remove", auth,cartFillter,removeItemFromCart, (req, res) => {
     res.status(200).send('');
 });
 
