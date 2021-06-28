@@ -116,7 +116,7 @@ router.post('/thanh_toan', auth, async (req, res) => {
         content=content+ "<tr><td colspan='7' align='right'> Tổng tiền:" + bill.total + "</td></tr></table>";
         content=content+ "<p>Trong cuộc sống có muôn ngàn lựa chọn, cảm ơn bạn đã chọn Shop nam. </p>";
         content=content+ "<p> Đơn hàng sẽ giao đến bạn trong vòng 7 ngày! </p>";
-        // sendmail(userinfo.email,"Shop nam",content)
+        sendmail(userinfo.email,"Shop nam",content)
         setTimeout(function() {
             res.redirect("/");
           }, 3000)
