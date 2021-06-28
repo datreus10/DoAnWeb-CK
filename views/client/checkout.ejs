@@ -107,7 +107,7 @@
                             <li><input type="radio" name="payment" value="cash" checked> Thanh toán khi nhận hàng
                             </li>
                         </ul>
-                        <button class="site-btn submit-order-btn">Đặt hàng</button>
+                        <button class="site-btn submit-order-btn" id="submitorder">Đặt hàng</button>
                     </form>
                 </div>
                 <div class="col-lg-4 order-1 order-lg-2">
@@ -140,7 +140,24 @@
         </div>
     </section>
     <!-- checkout section end -->
-
+    <div class="modal fade" id="nofication-modal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <b>Thông báo</b>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Đặt hàng thành công
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer section -->
     <%- include('../partial/clientFooter.ejs')%>
@@ -158,7 +175,12 @@
     <script src="/js/jquery-ui.min.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/custom/ejs.min.js"></script>
-
+    <script>
+        $('#submitorder').click(function () {
+		$('#nofication-modal .modal-body').text("Bạn đã đặt hàng thành công")
+        $('#nofication-modal').modal('show');
+	});
+    </script>
 </body>
 
 </html>
