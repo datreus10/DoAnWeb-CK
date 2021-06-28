@@ -37,7 +37,15 @@ const signin = async (req, res) => {
             expiresIn: "1h"
         });
         res.cookie("token", token);
-        res.redirect('/');
+        if(req.session.urlcheckout=="checkout")
+            {
+                req.session.urlcheckout=null;
+                res.redirect('/checkout'); 
+            }
+            else
+            {
+                res.redirect('/');
+            }
     } catch (error) {
         res.status(500).send(error);
     }
@@ -135,7 +143,7 @@ const getsignin = (req, res) => {
                 isLogin: req.userName
             });
         } else {
-            res.redirect('/');
+            res.redirect("/")
         }
     } catch (error) {
         res.status(409).json({

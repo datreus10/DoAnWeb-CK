@@ -13,14 +13,13 @@ const {
     auth
 } = require('../../middleware/auth')
 const User = require('../../model/user');
-const {
-    cartFillter
-} = require("../../middleware/cart")
 
-router.get('/', auth, cartFillter, async (req, res) => {
-    if (req.user && req.cart && req.cart.length > 0) {
 
-        const cart = await req.cart.populate({
+router.get('/', auth, async (req, res) => {
+    if (req.user) {
+        userId=req.userID
+        const usercart = await Cart.findOne({userId: userId})
+        const cart= await usercart.populate({
             path: 'items.itemId',
             select: '_id name img price'
         }).execPopulate()
@@ -34,7 +33,7 @@ router.get('/', auth, cartFillter, async (req, res) => {
             cart: cart,
         })
     } else {
-        res.redirect("/cart")
+        res.redirect("/signin")
     }
 
 });
@@ -47,12 +46,12 @@ router.post('/', auth, async (req, res) => {
             size: e["size"]
         }
     });
-    req.session.cart = listItem;
-    req.session.save();
+    req.session.urlcheckout="checkout";
     res.status(200).send({
         result: 'redirect',
         url: '/checkout'
     })
+    
 });
 
 router.post('/thanh_toan', auth, async (req, res) => {

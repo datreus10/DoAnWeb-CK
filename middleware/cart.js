@@ -16,14 +16,16 @@ const cartFillter = async (req, res, next) => {
         // code sync add item
         if (req.session.cart) {
             const listItem = []
-
-            for (let item of req.session.cart.items) {
+            if(req.session.cart.items)
+            {
+                for (let item of req.session.cart.items) {
                 listItem.push(new CartItem({
                     itemId: mongoose.mongo.ObjectId(item.itemId),
                     size: item.size,
                     quantity: item.quantity
                 }))
             }
+        }
             // update neu trung
             req.cart.items = req.cart.items.concat(listItem);
             req.cart.items = removeDuplicates(req.cart.items);
