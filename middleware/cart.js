@@ -66,7 +66,7 @@ function removeDuplicates(inArray){
         //create the second cycle of the loop from element n+1
         for(var j=i+1; j<arr.length; ++j) { 
             //if the two elements are equal , then they are duplicate
-            if(arr[i] === arr[j]) {
+            if(arr[i].itemId.toString() === arr[j].itemId.toString()) {
                 arr.splice(j, 1); //remove the duplicated element 
             }
         }
