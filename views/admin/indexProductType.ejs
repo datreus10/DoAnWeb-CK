@@ -73,7 +73,7 @@
                                         </div>
                                         <div class="p-2 bd-highlight">
                                             <form method="POST" action="/admin/product/type/<%=type.id%>?_method=DELETE">
-                                                <button class="btn btn-danger"  type="submit">
+                                                <button class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa loại sản phẩm này')" type="submit">
                                                     Delete
                                                 </button>
                                             </form>

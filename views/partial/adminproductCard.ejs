@@ -1,19 +1,20 @@
-<div class="product-item" id="<%= product._id %>" onclick="location.href='/product/<%= product._id %>';"
-    style="cursor:pointer">
+<div class="product-item" id="<%= product._id %>">
     <div class="pi-pic">
+        <a href = '/product/<%= product._id %>'>
         <img src='<%= product.fileLinks[0] %>' height="410px" alt="">
+        </a>
         <div class="pi-links">
             <a href="/admin/product/edit/<%= product._id%>" class="add-card"><i class="far fa-edit"></i><span>Edit now</span></a>
             <form method="POST" action="/admin/product/delete/<%= product.id%>?_method=DELETE">
-                <button class="btn btn-danger btn-customize"  type="submit">
+                <button class="btn btn-danger btn-customize" onclick="return confirm('Bạn muốn xóa sp này ko')" type="submit">
                     <i class="fas fa-trash-alt"></i>
                 </button>
             </form>
-            <!-- <a href="/admin/product/delete/" class="wishlist-btn"><i class="fas fa-trash-alt"></i></a> -->
+            <!-- <a type='button'href="/admin/product/delete/" class="wishlist-btn"><i class="fas fa-trash-alt"></i></a> -->
         </div>
     </div>
     <div class="pi-text">
-        <h6><%= product.price %>vnđ</h6>
+        <h6><%= product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>vnđ</h6>
         <p><%= product.name %> </p>
     </div>
 </div>
