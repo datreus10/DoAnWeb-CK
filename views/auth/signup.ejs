@@ -122,11 +122,22 @@ hr {
       color: black;
     }
 /* Change styles for cancel button and signup button on extra small screens */
-@media screen and (max-width: 300px) {
-  .signupbtn {
-     width: 100%;
-  }
-}
+@media only screen and (max-width: 600px) {
+      span.psw {
+        display: block;
+        float: none;
+      }
+
+      .cancelbtn {
+        width: 100%;
+      }
+      .formsignup{
+        width: 70%;
+      }
+      body{
+        font-size: 12px;
+      }
+    }
 
 </style>
 </head>

@@ -106,7 +106,7 @@ router.post('/thanh_toan', auth, async (req, res) => {
         content=content+ "<p> Địa chỉ giao hàng: "+bill.address+"</p>";
         content=content+ "<p> Điện thoại: "+bill.phone+"</p>";
         content=content+ "<p> Email: "+userinfo.email+"</p>";
-        content=content+ "<table width='80%' cellspacing='0' cellpadding='2' border='1' align='center' align-item>";
+        content=content+ "<table width='80%' cellspacing='0' cellpadding='2' border='1' align='center'>";
         content=content+ "<tr><td width = '10%' >STT</td><td width='10%'> Tên sản phẩm </td><td width='30%> Tên Hoa </td> <td width='10%'> Số Lượng </td><td width = '15%'> Đơn giá </td><td> Thành tiền </td></tr>";
         var stt=1;
         cart.items.forEach(item => {
