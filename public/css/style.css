@@ -915,14 +915,15 @@ ol {
 .product-item .pi-text {
 	padding-top: 22px;
 	height: 87px;
+	text-align: center;
 }
 
 .product-item .pi-text h6 {
-	float: right;
-	padding-left: 40px;
+	/* float: left; */
+	/* padding-left: 40px; */
 	overflow: hidden;
 	font-weight: 700;
-	color: #111111;
+	color: #f51167;
 }
 
 .product-item .pi-text p {
@@ -2426,6 +2427,6 @@ ol {
 	}
 }
 
-a{
+a,button{
 	cursor: pointer !important;
 }

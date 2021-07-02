@@ -44,10 +44,10 @@
     <!-- Page info -->
     <div class="page-top-info">
         <div class="container">
-            <h4>Your cart</h4>
+            <h4>Giỏ hàng</h4>
             <div class="site-pagination">
-                <a href="">Home</a> /
-                <a href="">Your cart</a>
+                <a href="/">Trang chủ</a> /
+                <a href="/cart">Giỏ hàng</a>
             </div>
         </div>
     </div>
@@ -64,8 +64,12 @@
                 <div class="col-lg-12 col-md-12 col-12">
                     <h3 class="display-5 mb-2 text-center">Giỏ Hàng</h3>
                     <p class="mb-5 text-center">
-                        <i class="text-info font-weight-bold"><%=cart.items.length  %> </i> sản phẩm trong giỏ hàng
+                        <% if (cart.items.length) { %>
+                            <i class="text-info font-weight-bold"><%=cart.items.length  %> </i> sản phẩm trong giỏ hàng
+                        <% } %>
+                        
                     </p>
+                    <% if (cart.items.length) { %>
                     <table id="shoppingCart" class="table table-condensed table-responsive ">
                         <thead>
                             <tr>
@@ -171,23 +175,34 @@
 
                     <div
                         style="background: #f51167;margin: 0 -34px;text-align: right;padding: 22px 0;padding-right: 50px;">
-                        <h6 style="color:white;">Total<span id="total-price" style="margin-left: 1rem;">0 VNĐ</span></h6>
+                        <h6 style="color:white;">Tổng cộng<span id="total-price" style="margin-left: 1rem;">0 VNĐ</span>
+                        </h6>
                     </div>
-                    <!-- <div class="float-right text-right">
-                        <h4>Subtotal:</h4>
-                        <h1>$99.00</h1>
-                    </div> -->
+
+                    <% } else { %>
+                    <div class="col-sm-12 empty-cart-cls text-center"> <img src="/img/cart/empty_cart.png" 
+                            width="130" height="130" class="img-fluid mb-4 mr-3">
+                        <h3><strong>Your Cart is Empty</strong></h3>
+                        <h4>Add something to make me happy :)</h4> <a href="/products"
+                            class="btn btn-primary mt-4">Tiếp tục mua sắm</a>
+
+                            
+                    </div>
+                    <% } %>
                 </div>
             </div>
-            <div class="row mt-4 d-flex align-items-center">
-                <div class="col-sm-6 order-md-2 text-right">
-                    <span id="checkout" class="btn btn-primary mb-4 btn-lg pl-5 pr-5 site-btn">Checkout</span>
+            <% if (cart.items.length) { %>
+                <div class="row mt-4 d-flex align-items-center">
+                    <div class="col-sm-6 order-md-2 text-right">
+                        <span id="checkout" class="btn btn-primary mb-4 btn-lg pl-5 pr-5 site-btn">Đặt hàng</span>
+                    </div>
+                    <div class="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
+                        <a href="/products">
+                            <i class="fa fa-arrow-left mr-2"></i>Tiếp tục mua sắm</a>
+                    </div>
                 </div>
-                <div class="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
-                    <a href="/products">
-                        <i class="fas fa-arrow-left mr-2"></i> Continue Shopping</a>
-                </div>
-            </div>
+            <% } %>
+            
         </div>
 
     </section>
@@ -226,7 +241,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
@@ -259,7 +274,7 @@
     <script src="/js/main.js"></script>
     <script src="/js/custom/ejs.min.js"></script>
     <script>
-        
+
     </script>
 </body>
 

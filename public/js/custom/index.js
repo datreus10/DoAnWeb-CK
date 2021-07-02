@@ -8,8 +8,8 @@ style="cursor:pointer">
     </div>
 </div>
 <div class="pi-text">
-    <h6><%= product.priceFormat %></h6>
-    <p><%= product.name %> </p>
+    <p><%= product.name %></p>
+    <h6><%= product.priceFormat %></h6> 
 </div>
 </div>`;
 
