@@ -37,7 +37,7 @@ router.get("/:id", auth,cartFillter, async (req, res) => {
         cartQnt : req.cart.items.length
     });
 })
-router.post("/",auth,async (req,res) =>{
+router.post("/",auth,cartFillter,async (req,res) =>{
     let query={};
     if(!req.body.search)
     {
@@ -63,6 +63,7 @@ router.post("/",auth,async (req,res) =>{
         productTypes: await ProductType.find(),
         isAdmin: req.userRole=="admin"? "Admin": "",
         // isLogin: req.session.user ? req.session.user.name : false
+        cartQnt : req.cart.items.length,
         isLogin: req.userName
     });}
     else
@@ -76,6 +77,7 @@ router.post("/",auth,async (req,res) =>{
         productTypes: await ProductType.find(),
         // isLogin: req.session.user ? req.session.user.name : false
         isAdmin: req.userRole=="admin"? "Admin": "",
+        cartQnt : req.cart.items.length,
         isLogin: req.userName
     });}
 })
