@@ -8,9 +8,6 @@ const {
     auth
 } = require('../../middleware/auth')
 
-
-
-
 router.get("/", auth, async (req, res) => {
     res.render("./client/category", {
         lastedProducts: await Product.find().sort({
@@ -23,6 +20,19 @@ router.get("/", auth, async (req, res) => {
         isLogin: req.userName
     });
 });
+router.get("/:id", auth, async (req, res) => {
+    const id_productType = req.params.id
+    res.render("./client/category", {
+        lastedProducts: await Product.find().sort({
+            createAt: -1
+        }).limit(10),
+        products: await Product.find({productType:id_productType}).limit(8),
+        productTypes: await ProductType.find(),
+        // isLogin: req.session.user ? req.session.user.name : false
+        isAdmin: req.userRole=="admin"? "Admin": "",
+        isLogin: req.userName
+    });
+})
 router.post("/",auth,async (req,res) =>{
     let query={};
     if(!req.body.search)

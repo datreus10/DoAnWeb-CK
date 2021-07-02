@@ -14,7 +14,6 @@ dotenv.config();
 app.set('port', process.env.PORT || 3000);
 app.use(cookieParser());
 app.use(express.static(__dirname + '/public'));
-
 // reuse datbase connection for session
 // và lưu seesion trong database trong 3 tiếng 
 app.use(db.dbConnectAndCreateSession());

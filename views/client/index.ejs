@@ -89,7 +89,7 @@
             </div>
             <ul class="product-filter-menu" style="text-align:center;">
                 <% productTypes.forEach(e => { %>
-                    <li><a href="/products"> <%= e.name %>  </a></li>
+                    <li><a href="/products/<%= e.id%>"> <%= e.name %>  </a></li>
                 <% }) %>
             </ul>
             <div class="row" id="top-sell">
