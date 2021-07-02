@@ -30,6 +30,22 @@
 
 <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css"/>
 <link rel="stylesheet" href="css/customer.css"/>
+
+<style>
+    .button {
+  background-color: #442fbd;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+</style>
 </head>
 <body>
     <div id="preloder">
@@ -63,118 +79,105 @@
                             <div class="col-12">
                                 <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link " id="basicInfo-tab" data-toggle="tab" href="#basicInfo" role="tab" aria-controls="basicInfo" aria-selected="true">Thông tin</a>
-                                    </li>
-                                    <li class="nav-item">
                                         <a class="nav-link active" id="connectedServices-tab" data-toggle="tab" href="#connectedServices" role="tab" aria-controls="connectedServices" aria-selected="false">Lịch sử đơn hàng</a>
                                     </li>
                                 </ul>
-                                <div class="tab-content ml-1" id="myTabContent">
-                                    <div class="tab-pane fade " id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
-                                        
-
-                                        <div class="row">
-                                            <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">Email</label>
-                                            </div>
-                                            <div class="col-md-8 col-6">
-                                                <%= email%>
-                                            </div>
-                                        </div>
-                                        <hr />
-
-                                        <div class="row">
-                                            <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">Birth Date</label>
-                                            </div>
-                                            <div class="col-md-8 col-6">
-                                                March 22, 1994.
-                                            </div>
-                                        </div>
-                                        <hr />
-                                        
-                                        
-                                        <div class="row">
-                                            <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">Something</label>
-                                            </div>
-                                            <div class="col-md-8 col-6">
-                                                Something
-                                            </div>
-                                        </div>
-                                        <hr />
-                                        <div class="row">
-                                            <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">Something</label>
-                                            </div>
-                                            <div class="col-md-8 col-6">
-                                                Something
-                                            </div>
-                                        </div>
-                                        <hr />
-                                        <div class="row">
-                                            <div class="col-sm-3 col-md-2 col-5">
-                                                <label style="font-weight:bold;">Something</label>
-                                            </div>
-                                            <div class="col-md-8 col-6">
-                                                Something
-                                            </div>
-                                            
-                                        </div>
-                                        <hr />
-                                    </div>
                                     <div class="tab-pane fade show active" id="connectedServices" role="tabpanel" aria-labelledby="ConnectedServices-tab">
-                                        <% Bills.forEach(function(Bill) { %>
-                                            <% Bill.items.forEach(function(Billitems) { %>
+                                        <% Bills.forEach(function(Bill) {%>
+                                            <% Bill.items.forEach(function(Billitems) {  
+                                                var i=1
+                                            %>
                                                 
                                               <%  Items.forEach(function(Item) { %>
-                                                <% if(!Item) {%>
+                                                <% if(!Item) { if(i==1) { i=0%>
+                                        <table style="width: 100%;">
+                                        <tr>
+                                        <td colspan="2">
                                                 <div class="row">
                                                 <div class="col-md-8 col-6">
                                                     <label style="font-weight:bold;">Sản phẩm này không còn bán nữa</label>
                                                    </div> 
                                                 </div>
-                                                 
-                                            <%}else{ %>
-                                                    
-                                                <%      if(Item.id==Billitems.itemId) { %>
-                                                   
-                                            <div class="row">
-                                                <div class="col-sm-3 col-md-2 col-5">
+                                        
+                                        </td>
+                                        </tr>
+                                            <%}}else{ %>  
+                                                <%      if(Item.id==Billitems.itemId && i==1) { i=0%>
+                                            <table style="width: 100%;">
+                                        <tr>
+                                        <td style="width: 60%;">
+                                                <div class="row">
+                                                <div class="col-sm-6 col-md-4 col-6">
                                                     <label style="font-weight:bold;">Sản phẩm</label>
                                                 </div>
-                                                <div class="col-md-8 col-6">
+                                                <div class="col-md-8 col-6 col-sm-6">
                                                     <a href="/product/<%=Item._id%>"><%=Item.name%></a>
-                                                    <img src="<%=Item.fileLinks[0]%>" alt="img" width="50px" height="50px" style="float: left; margin: 0px 10px 10px 10px;">
                                                 </div>
                                             </div>
-                                            <%}}})%>
-                                            
+                                        </td>
+                                            <td rowspan="4" style="width: 40% ;">
                                             <div class="row">
-                                                <div class="col-sm-3 col-md-2 col-5">
+                                                <img src="<%=Item.fileLinks[0]%>" alt="img" width="150px" height="150px" style="display: flex; margin: 0px 10px 10px 10px;"> 
+                                            </div> 
+                                        </td> 
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 60%;">
+                                           
+                                            <div class="row">
+                                                <div class="col-sm-6 col-md-4 col-6">
+                                                    <label style="font-weight:bold;">Đơn giá</label>
+                                                </div>
+                                                <div class="col-sm-6 col-md-8 col-6">
+                                                    <%=Item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> VNĐ
+                                                </div>
+                                            </div>
+                                        </td>
+                                        </tr>
+                                            <%}}})%>
+                                            <tr>
+                                                <td style="width: 60%;">
+                                            <div class="row">
+                                                <div class="col-sm-6 col-md-4 col-6">
                                                     <label style="font-weight:bold;">Số lượng</label>
                                                 </div>
-                                                <div class="col-md-8 col-6">
+                                                <div class="col-sm-6 col-md-8 col-6">
                                                     <%=Billitems.quantity%>
                                                 </div>
                                             </div>
+                                        </td></tr>
+                                        <tr>
+                                                <td style="width: 60%;">
+                                            <div class="row">
+                                                <div class="col-sm-6 col-md-4 col-6">
+                                                    <label style="font-weight:bold;">Size</label>
+                                                </div>
+                                                <div class="col-sm-6 col-md-8 col-6">
+                                                    <%=Billitems.size%>
+                                                </div>
+                                            </div>
+                                        </td></tr>
+                                        </table> 
                                             <hr />
                                             <%})%>
                                             
-                                        
+                                            <table style="width: 100%;">
                                         <div class="row">
-                                            <div class="col-sm-3 col-md-2 col-5">
+                                            
+                                                <td style="width: 60%;">
                                                 <label style="font-weight:bold;">Tổng tiền</label>
-                                            </div>
-                                            <div class="col-md-8 col-6">
-                                                <%=Bill.total%>
-                                            </div>
+                                        </td>
+                                            <td style="width: 40%;">
+                                                <label style="font-weight:bold;"><%=Bill.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> VNĐ</label>
+                                        </td>
                                         </div>
-                                        <hr />
+                                    
+                                    </table>
                                         <%})%>
+                                        <hr/>
                                         <div class="row">
-                                            <div class="col-sm-3 col-md-2 col-5">
-                                                <a href="/myaccount">Trở lại</a>
+                                            <div class="col-sm-6 col-md-4 col-6">
+                                                <a href="/myaccount" class="site-btn">Trở lại</a>
                                             </div>
                                     </div>
                                 </div>

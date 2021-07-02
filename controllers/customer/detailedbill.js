@@ -11,7 +11,6 @@ const getdetailedBill = async (req, res) => {
         if(id){
             const Userid = await User.findById(id);
             const Username = Userid.name;
-            const email = Userid.email;
             DetailedBills= await Bill.find({$and: [{_id: req.params.id},{userId: id}]})
             if(!DetailedBills && DetailedBills=="")
             {
@@ -35,7 +34,6 @@ const getdetailedBill = async (req, res) => {
             return res.status(201).render('./customer/detailedbill', 
             {
                 Username: Username, 
-                email: email,
                 isAdmin: req.userRole=="admin"? "Admin": "",
                 isLogin: req.userName,
                 Bills: DetailedBills,
@@ -53,4 +51,5 @@ const getdetailedBill = async (req, res) => {
         res.status(409).json({ message: error.message });
     }
 }
+
 module.exports = {getdetailedBill}

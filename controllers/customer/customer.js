@@ -53,6 +53,8 @@ const changepassword = async (req, res) => {
         const ListBill= await Bill.find(query)
         const Username = user.name;
         const email = user.email;
+        const address = Userid.address;
+        const phone_number=Userid.phone_number;
         const isPasswordCorrect = await bcrypt.compare(oldpassword, user.password);
         if(!isPasswordCorrect)
         {
@@ -65,6 +67,8 @@ const changepassword = async (req, res) => {
             isLogin: req.userName,
             Username: Username, 
             email: email,
+            address: address,
+            phone_number: phone_number,
             Bills: ListBill
         });
         if (password !== Confirmpassword) return res.status(400).render('./customer/customer', {

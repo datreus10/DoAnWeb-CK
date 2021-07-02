@@ -109,7 +109,7 @@
 									</div>
 								</div>
 								<div class="pi-text">
-									<h6><%=product.price%></h6>
+									<h6><%=product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> VNĐ</h6>
 									<p><%=product.name%></p>
 								</div>
 							</div>
