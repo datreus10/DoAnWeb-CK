@@ -112,6 +112,20 @@
 	table.table td .add {
 		display: none;
 	}
+    @media (max-width: 850px) {
+
+        .table-title h2 {
+            margin: 3px 0 0;
+            font-size: 18px;
+        }
+        table.table th  {
+            font-size: 15px ; 
+        }
+        table.table td  {
+            font-size: 15px;
+        }
+
+        }
 </style>
 <script>
 // $(document).ready(function(){
@@ -172,7 +186,7 @@
      <!-- Header section -->
      <%- include('../partial/adminHeader.ejs')%>
      <!-- Header section end -->
-    <div class="container">
+    <div class="container"  style="overflow-x:auto;">
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
@@ -238,6 +252,13 @@
       <!-- Footer section -->
       <%- include('../partial/clientFooter.ejs')%>
       <!-- Footer section end -->
-  
+      <script src="/js/jquery-3.2.1.min.js"></script>
+      <script src="/js/bootstrap.min.js"></script>
+      <script src="/js/jquery.slicknav.min.js"></script>
+      <script src="/js/owl.carousel.min.js"></script>
+      <script src="/js/jquery.nicescroll.min.js"></script>
+      <script src="/js/jquery.zoom.min.js"></script>
+      <script src="/js/jquery-ui.min.js"></script>
+      <script src="/js/main.js"></script>
 </body>
 </html>
