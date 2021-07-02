@@ -32,7 +32,7 @@ app.use(express.urlencoded({
 app.use(methodOverrride('_method'))
 
 
-
+const apiRouter = require('./route/api');
 const clientIndexRouter = require('./route/client/index');
 const clientProductRouter = require('./route/client/product');
 const clientCategoryRouter = require('./route/client/category');
@@ -47,7 +47,7 @@ const customer = require('./route/Customer/Customer');
 const detailedbill = require('./route/Customer/detailedbill');
 const contact = require('./route/client/contact');
 
-
+app.use('/api', apiRouter);
 app.use('/', clientIndexRouter);
 app.use('/product', clientProductRouter);
 app.use('/products', clientCategoryRouter);

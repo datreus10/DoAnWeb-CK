@@ -97,7 +97,7 @@
 			</form>
 
 				<div class="col-lg-9  order-1 order-lg-2 mb-5 mb-lg-0">
-					<div class="row">
+					<div class="row" id="top-sell">
 						<% products.forEach(function(product) { %>
 						<div class="col-lg-4 col-sm-6">
 							<div class="product-item" id="<%= product._id %>" onclick="location.href='/product/<%= product._id %>';"style="cursor:pointer">
@@ -117,8 +117,11 @@
 						</div>
 						<% }); %>
 						<div class="text-center w-100 pt-3">
-							<!-- <button class="site-btn sb-line sb-dark">LOAD MORE</button> -->
+							<button type="button" class="site-btn sb-line sb-dark" id="loadMore">Xem thêm</button>
 						</div>
+						<!-- <div class="text-center pt-5">
+							<button type="button" class="site-btn sb-line sb-dark" id="loadMore">Xem thêm</button>
+						</div> -->
 					</div>
 				</div>
 			</div>
@@ -126,6 +129,7 @@
 	</section>
 	<!-- Category section end -->
 
+	<script src="/js/custom/category.js"></script>
 
 	<!-- Footer section -->
 	<%- include('../partial/clientFooter.ejs')%>
@@ -140,7 +144,7 @@
 	<script src="js/jquery.nicescroll.min.js"></script>
 	<script src="js/jquery.zoom.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/main.js"></script>
-
+	<script src="/js/main.js"></script>
+    <script src="/js/custom/ejs.min.js"></script>
 	</body>
 </html>

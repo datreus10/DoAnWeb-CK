@@ -35,7 +35,9 @@ const productSchema = new mongoose.Schema({
     },
 }, {
     timestamps: true,
-    getters: true
+    getters: true,
+    toObject: { virtuals: true },
+    toJSON: { virtuals: true }
 });
 
 productSchema.virtual('fileLinks').get(function () {

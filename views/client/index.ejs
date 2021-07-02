@@ -87,15 +87,10 @@
             <div class="section-title">
                 <h2>Sản phẩm bán chạy nhất</h2>
             </div>
-            <ul class="product-filter-menu">
-                <li><a href="#">TOPS</a></li>
-                <li><a href="#">JUMPSUITS</a></li>
-                <li><a href="#">LINGERIE</a></li>
-                <li><a href="#">JEANS</a></li>
-                <li><a href="#">DRESSES</a></li>
-                <li><a href="#">COATS</a></li>
-                <li><a href="#">JUMPERS</a></li>
-                <li><a href="#">LEGGINGS</a></li>
+            <ul class="product-filter-menu" style="text-align:center;">
+                <% productTypes.forEach(e => { %>
+                    <li><a href="/products"> <%= e.name %>  </a></li>
+                <% }) %>
             </ul>
             <div class="row" id="top-sell">
 

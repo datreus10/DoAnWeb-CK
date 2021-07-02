@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Product = require('../../model/product');
+const ProductType = require('../../model/productType');
 const User = require('../../model/user');
 const {
     Cart
@@ -22,6 +23,7 @@ router.get("/", auth, cartFillter, async (req, res) => {
             createAt: -1
         }).limit(10),
         products: await Product.find().limit(8),
+        productTypes: await ProductType.find(),
         // isLogin: req.session.user ? req.session.user.name : false
         isAdmin: req.userRole == "admin" ? "Admin" : "",
         isLogin: req.userName

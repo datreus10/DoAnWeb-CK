@@ -27,17 +27,18 @@ loadMoreButton.addEventListener("click", async (event) => {
 
     products['products'].forEach(product => {
         let div = document.createElement('div');
-        div.className = "col-lg-3 col-sm-6";
+        div.className = "col-lg-4 col-sm-6";
         div.innerHTML = ejs.render(produtEjs, {
             product: product
         });
+        
         document.querySelector('#top-sell').appendChild(div);
     });
 
     if (products['products'].length == limit)
         offset += 1;
     else
-        loadMoreButton.style.visibility = "hidden";
+        loadMoreButton.parentElement.style.display="none";
 
 });
 
