@@ -2,13 +2,15 @@ const express = require("express");
 const router = express.Router();
 const Product = require('../../model/product');
 const ProductType = require('../../model/productType');
-const User = require('../../model/user');
-const {Cart} = require('../../model/cart');
+
 const {
     auth
 } = require('../../middleware/auth')
+const {
+    cartFillter
+} = require("../../middleware/cart")
 
-router.get("/", auth, async (req, res) => {
+router.get("/", auth,cartFillter, async (req, res) => {
     res.render("./client/category", {
         lastedProducts: await Product.find().sort({
             createAt: -1
@@ -17,10 +19,11 @@ router.get("/", auth, async (req, res) => {
         productTypes: await ProductType.find(),
         // isLogin: req.session.user ? req.session.user.name : false
         isAdmin: req.userRole=="admin"? "Admin": "",
-        isLogin: req.userName
+        isLogin: req.userName,
+        cartQnt : req.cart.items.length
     });
 });
-router.get("/:id", auth, async (req, res) => {
+router.get("/:id", auth,cartFillter, async (req, res) => {
     const id_productType = req.params.id
     res.render("./client/category", {
         lastedProducts: await Product.find().sort({
@@ -30,7 +33,8 @@ router.get("/:id", auth, async (req, res) => {
         productTypes: await ProductType.find(),
         // isLogin: req.session.user ? req.session.user.name : false
         isAdmin: req.userRole=="admin"? "Admin": "",
-        isLogin: req.userName
+        isLogin: req.userName,
+        cartQnt : req.cart.items.length
     });
 })
 router.post("/",auth,async (req,res) =>{

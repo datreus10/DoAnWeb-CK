@@ -29,7 +29,8 @@ const getCustomer = async (req, res) => {
                 message_success: '',
                 isAdmin: req.userRole=="admin"? "Admin": "",
                 isLogin: req.userName,
-                Bills: ListBill
+                Bills: ListBill,
+                cartQnt : req.cart.items.length
             });
         }
         else

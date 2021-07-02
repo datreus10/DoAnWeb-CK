@@ -26,7 +26,8 @@ router.get("/", auth, cartFillter, async (req, res) => {
         productTypes: await ProductType.find(),
         // isLogin: req.session.user ? req.session.user.name : false
         isAdmin: req.userRole == "admin" ? "Admin" : "",
-        isLogin: req.userName
+        isLogin: req.userName,
+        cartQnt : req.cart.items.length
     });
 });
 

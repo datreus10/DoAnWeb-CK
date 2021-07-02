@@ -124,7 +124,8 @@ const getsignup = (req, res) => {
         res.status(201).render('./auth/signup', {
             message: '',
             isAdmin: req.userRole=="admin"? "Admin": "",
-            isLogin: req.userName
+            isLogin: req.userName,
+            cartQnt : req.cart.items.length
         });
     } catch (error) {
         res.status(409).json({
@@ -140,7 +141,8 @@ const getsignin = (req, res) => {
                 success: '',
                 message: '',
                 isAdmin: req.userRole=="admin"? "Admin": "",
-                isLogin: req.userName
+                isLogin: req.userName,
+                cartQnt : req.cart.items.length
             });
         } else {
             res.redirect("/")

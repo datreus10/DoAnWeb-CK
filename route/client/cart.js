@@ -1,11 +1,7 @@
 const express = require("express");
 const router = express.Router();
-//const mongoose = require("mongoose");
+
 const Product = require("../../model/product");
-const {
-    Cart,
-    CartItem
-} = require("../../model/cart");
 const {
     auth
 } = require("../../middleware/auth");
@@ -29,6 +25,7 @@ router.get("/", auth, cartFillter, async (req, res) => {
         isLogin: req.user ? req.userName : false,
         isAdmin: req.userRole == "admin" ? "Admin" : "",
         products: await Product.find().limit(8),
+        cartQnt : req.cart.items.length
     });
 
 });
