@@ -8,7 +8,7 @@ style="cursor:pointer">
     </div>
 </div>
 <div class="pi-text">
-    <h6><%= product.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> VNĐ</h6>
+    <h6><%= product.priceFormat %></h6>
     <p><%= product.name %> </p>
 </div>
 </div>`;
@@ -22,7 +22,6 @@ let limit = 8;
 
 loadMoreButton.addEventListener("click", async (event) => {
     const response = await fetch(`http://localhost:8080/api/loadMore?offset=${offset}&&limit=${limit}`);
-    event.preventDefault();
     const products = await response.json();
 
     products['products'].forEach(product => {

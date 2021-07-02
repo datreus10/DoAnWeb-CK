@@ -130,9 +130,9 @@
                             <% }); %>
                         </ul>
                         <ul class="price-list">
-                            <li>Tổng cộng<span><%= cart.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>đ </span></li>
+                            <li>Tổng cộng<span><%= cart.totalFormat %></span></li>
                             <li>Phí vận chuyển<span>Miễn phí</span></li>
-                            <li class="total">Tổng cộng<span><%= cart.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>đ</span></li>
+                            <li class="total">Tổng cộng<span><%= cart.totalFormat %></span></li>
                         </ul>
                     </div>
                 </div>
