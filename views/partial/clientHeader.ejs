@@ -8,14 +8,14 @@
                         <img src="/img/logo.png" alt="logo-shopnam">
                     </a>
                 </div>
-                <div class="col-xl-5 col-lg-5">
+                <div class="col-xl-6 col-lg-5">
                     <form class="header-search-form" action="/products" method="POST">
                         <input type="text" id="search" name="search" placeholder="Nhập tên sản phẩm ...">
                         <button type="submit"><i class="flaticon-search"></i></button>
                     </form>
                 </div>
-                <div class="col-xl-5 col-lg-5">
-                    <div class="user-panel">
+                <div class="col-xl-4 col-lg-5">
+                    <div class="user-panel d-flex justify-content-around">
                         <div class="up-item">
                             <i class="flaticon-profile"></i>
                             <% if (isLogin) { %>
@@ -27,7 +27,10 @@
                         <div class="up-item">
                             <div class="shopping-card">
                                 <i class="flaticon-bag"></i>
-                                <span> <%= cartQnt %>  </span>
+                                <% if (cartQnt) { %>
+                                    <span> <%= cartQnt %>  </span>
+                                <% } %>
+                                
                             </div>
                             <a href="/cart">Giỏ hàng</a>
                         </div>

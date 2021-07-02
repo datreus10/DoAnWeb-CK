@@ -37,7 +37,8 @@ const getdetailedBill = async (req, res) => {
                 isAdmin: req.userRole=="admin"? "Admin": "",
                 isLogin: req.userName,
                 Bills: DetailedBills,
-                Items: item
+                Items: item,
+                cartQnt : req.cart.items.length
             });
 
 }  
