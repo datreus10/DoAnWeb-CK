@@ -86,7 +86,7 @@ const addItemToCart = async (req, res, next) => {
             else
                 cart.items[index].quantity = newQuantity;
         } else {
-            cart.items.push(await CartItem.create({
+            cart.items.push(new CartItem({
                 itemId: p._id,
                 quantity: req.body.quantity > p.sizes[pSizeIndex].quantity ? p.sizes[pSizeIndex].quantity : req.body.quantity,
                 size: req.body.size
