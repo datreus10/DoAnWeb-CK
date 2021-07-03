@@ -28,6 +28,8 @@ router.get("/", auth,cartFillter, async (req, res) => {
 });
 router.get("/:id", auth,cartFillter, async (req, res) => {
     const id_productType = req.params.id
+    res.cookie("query", {productType: id_productType});
+    product= await Product.find({productType:id_productType});
     res.render("./client/category", {
         lastedProducts: await Product.find().sort({
             createAt: -1
@@ -37,6 +39,7 @@ router.get("/:id", auth,cartFillter, async (req, res) => {
         // isLogin: req.session.user ? req.session.user.name : false
         isAdmin: req.userRole=="admin"? "Admin": "",
         isLogin: req.userName,
+        amountproduct: product.length,
         cartQnt : req.cart.items.length
     });
 })
