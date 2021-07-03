@@ -11,6 +11,8 @@ const {
 } = require("../../middleware/cart")
 
 router.get("/", auth,cartFillter, async (req, res) => {
+    res.cookie("query", "");
+    product= await Product.find();
     res.render("./client/category", {
         lastedProducts: await Product.find().sort({
             createAt: -1
@@ -20,6 +22,7 @@ router.get("/", auth,cartFillter, async (req, res) => {
         // isLogin: req.session.user ? req.session.user.name : false
         isAdmin: req.userRole=="admin"? "Admin": "",
         isLogin: req.userName,
+        amountproduct: product.length,
         cartQnt : req.cart.items.length
     });
 });
@@ -39,6 +42,7 @@ router.get("/:id", auth,cartFillter, async (req, res) => {
 })
 router.post("/",auth,cartFillter,async (req,res) =>{
     let query={};
+    
     if(!req.body.search)
     {
         const min=parseInt(req.body.minamount)
@@ -54,7 +58,8 @@ router.post("/",auth,cartFillter,async (req,res) =>{
         {
             query={ $and: [ { price: { $lt : max} }, { price : { $gt:  min} } ] } ;
         }
-
+        product=await Product.find(query);
+        res.cookie("query", query);
     res.render("./client/category", {
         lastedProducts: await Product.find(query).sort({
             createAt: -1
@@ -64,11 +69,14 @@ router.post("/",auth,cartFillter,async (req,res) =>{
         isAdmin: req.userRole=="admin"? "Admin": "",
         // isLogin: req.session.user ? req.session.user.name : false
         cartQnt : req.cart.items.length,
+        amountproduct: product.length,
         isLogin: req.userName
     });}
     else
     {
         query= {$or:[{name: new RegExp(req.body.search,'i')},{description: new RegExp(req.body.search,'i')}]};
+        product=await Product.find(query)
+        res.cookie("query", query);
     res.render("./client/category", {
         lastedProducts: await Product.find(query).sort({
             createAt: -1
@@ -78,6 +86,7 @@ router.post("/",auth,cartFillter,async (req,res) =>{
         // isLogin: req.session.user ? req.session.user.name : false
         isAdmin: req.userRole=="admin"? "Admin": "",
         cartQnt : req.cart.items.length,
+        amountproduct: product.length,
         isLogin: req.userName
     });}
 })

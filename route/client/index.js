@@ -18,6 +18,8 @@ const {
 
 
 router.get("/", auth, cartFillter, async (req, res) => {
+    res.cookie("query", "");
+    product= await Product.find()
     res.render("./client/index", {
         lastedProducts: await Product.find().sort({
             createAt: -1
@@ -27,6 +29,7 @@ router.get("/", auth, cartFillter, async (req, res) => {
         // isLogin: req.session.user ? req.session.user.name : false
         isAdmin: req.userRole == "admin" ? "Admin" : "",
         isLogin: req.userName,
+        amountproduct: product.length,
         cartQnt : req.cart.items.length
     });
 });
