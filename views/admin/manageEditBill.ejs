@@ -34,10 +34,10 @@
 <style>
   
 	.table-wrapper {
-		width: 900px;
+		width: 500px;
 		margin: 30px auto;
         background: #fff;
-        padding: 20px;	
+        padding: 10px;	
         box-shadow: 0 1px 1px rgba(0,0,0,.05);
         font-size: 20px;
         border: 1px solid black;
@@ -48,7 +48,7 @@
     }
     .table-title h2 {
         margin: 6px 0 0;
-        font-size: 30px;
+        font-size: 25px;
     }
     .table-title .add-new {
         float: right;
@@ -114,16 +114,26 @@
 		display: none;
 	}
     @media (max-width: 850px) {
-
+    .table-wrapper {
+		width: 300px;
+		margin: 10px auto;
+        background: #fff;
+        padding: 5px;	
+        box-shadow: 0 1px 1px rgba(0,0,0,.05);
+        font-size: 13px;
+        border: 1px solid black;
+    }
     .table-title h2 {
         margin: 3px 0 0;
-        font-size: 18px;
+        font-size: 13px;
     }
-    table.table th  {
-        font-size: 15px ; 
+    .btn{
+        /* width: 70px; */
+        font-size: 13px !important;
     }
-    table.table td  {
-        font-size: 15px;
+    .btn-primary{
+        width: 70px;
+        font-size: 13px !important;
     }
 
 }
@@ -140,11 +150,7 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-8"><h2>Hóa đơn<b>: <%= bill.id%></b></h2></div>
-                    <div class="col-sm-4">
-                        <a href="/admin/bill/user/<%= bill.userId%>">
-                        <button type="button" class="btn btn-info add-new"> Trở vè</button>
-                        </a>
-                    </div>
+                   
                 </div>
                 <% if(msg !=''){%>
                 <div class="row">
@@ -163,17 +169,16 @@
             </div>
             <form method="POST" action='/admin/bill/user/editbill/<%= bill._id%>?_method=PUT' >
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-8">
                         <div class="form-check form-check-inline" style="margin: 10px auto"  >
            
                             <input class="form-check-input" <%= bill.isPaid == 0 ? 'checked' : '' %> type="radio" name="status"  id="inlineRadio1" value="0">
                             <label class="form-check-label" for="inlineRadio1">Đặt hàng thành công</label>
                           </div>
                     </div>
-                  
                 </div>
                 <div class="row" >
-                    <div class="col-sm-4">
+                    <div class="col-sm-8">
                     <div class="form-check form-check-inline" style="margin: 10px auto">
                         <input class="form-check-input"  <%= bill.isPaid == 1 ? 'checked' : '' %>  type="radio" name="status" id="inlineRadio2" value="1">
                         <label class="form-check-label" for="inlineRadio2">Đang vận chuyển</label>
@@ -181,27 +186,25 @@
                       </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-8">
                     <div class="form-check form-check-inline" style="margin: 10px auto">
                         <input class="form-check-input"  <%= bill.isPaid == 2 ? 'checked' : '' %> type="radio" name="status" id="inlineRadio2" value="2">
                         <label class="form-check-label" for="inlineRadio2">Đã thanh toán</label>
                       </div>
                       </div>
-                </div>
-            
-             
-            
-          
+                </div> 
+                <div class="row">   
+                    <div class="col-sm-8">
+                       </div> 
+                        <div class="col-sm-8">
+                            <a href="/admin/bill/user/<%= bill.userId%>">
+                            <button type="button" class="btn btn-info add-new"> Trở vè</button>
+                            </a>
+                            <button type="submit" class="btn btn-primary " style="font-size: 15px; margin-top: 10px;margin: 10px auto;">Update</button> 
 
-             
-                <div class="row">
-                   
-                        <button type="submit" class="btn btn-primary " style="font-size: 15px; margin-top: 10px;margin: 10px auto;">Update</button>
-                  
+                        </div>
                 </div>
-           
-            </form>
-            
+            </form>   
         </div>
     </div>     
       <!-- Footer section -->

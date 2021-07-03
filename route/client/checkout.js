@@ -37,6 +37,7 @@ router.get('/', auth, async (req, res) => {
             isLogin: req.userName,
             user: user,
             cart: cart,
+            cartQnt : cart.items.length,
         })
     } else {
         res.redirect("/signin")
