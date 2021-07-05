@@ -22,9 +22,11 @@ const User = require('../../model/user');
 
 
 router.get('/', auth, async (req, res) => {
-    if (req.user) {
-        userId=req.userID
-        const usercart = await Cart.findOne({userId: userId})
+    if (req.user && req.session.checkoutItem.length) {
+        const usercart = new Cart({
+            userId : req.userID,
+            items: req.session.checkoutItem
+        })
         const cart= await usercart.populate({
             path: 'items.itemId',
             select: '_id name img price'
@@ -53,6 +55,7 @@ router.post('/', auth, async (req, res) => {
             size: e["size"]
         }
     });
+    req.session.checkoutItem = listItem;
     req.session.urlcheckout="checkout";
     res.status(200).send({
         result: 'redirect',
