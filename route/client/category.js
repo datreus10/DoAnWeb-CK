@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Product = require('../../model/product');
 const ProductType = require('../../model/productType');
+const mongoose = require('mongoose');
 
 const {
     auth
@@ -10,87 +11,108 @@ const {
     cartFillter
 } = require("../../middleware/cart")
 
-router.get("/", auth,cartFillter, async (req, res) => {
-    res.cookie("query", "");
-    product= await Product.find();
+
+const extractNumberFromString = str => {
+    return parseInt(str.replace(/[^0-9]/g, ''));
+}
+
+const render = async (req, res) => {
+    let query = {}
+    if (req.searchWord) {
+        const searchWords = req.searchWord.split(" ").map(e => new RegExp(e, 'i'))
+        query = searchWords.length > 0 ? {
+            $or: [{
+                name: {
+                    "$all": searchWords
+                }
+            }, {
+                description: {
+                    "$all": searchWords
+                }
+            }]
+        } : {};
+    }
+    const products = await Product.find(query).limit(7)
     res.render("./client/category", {
-        lastedProducts: await Product.find().sort({
-            createAt: -1
-        }).limit(10),
-        products: await Product.find().limit(8),
+        products: products.length >= 7 ? products.slice(0, 6) : products,
+        loadMore: products.length >= 7,
         productTypes: await ProductType.find(),
-        // isLogin: req.session.user ? req.session.user.name : false
-        isAdmin: req.userRole=="admin"? "Admin": "",
+        isAdmin: req.userRole == "admin" ? "Admin" : "",
         isLogin: req.userName,
-        amountproduct: product.length,
-        cartQnt : req.cart.items.length
+        cartQnt: req.cart.items.length,
+        searchWord: req.searchWord
     });
-});
-router.get("/:id", auth,cartFillter, async (req, res) => {
-    const id_productType = req.params.id
-    res.cookie("query", {productType: id_productType});
-    product= await Product.find({productType:id_productType});
-    res.render("./client/category", {
-        lastedProducts: await Product.find().sort({
-            createAt: -1
-        }).limit(10),
-        products: await Product.find({productType:id_productType}).limit(8),
-        productTypes: await ProductType.find(),
-        // isLogin: req.session.user ? req.session.user.name : false
-        isAdmin: req.userRole=="admin"? "Admin": "",
-        isLogin: req.userName,
-        amountproduct: product.length,
-        cartQnt : req.cart.items.length
-    });
+}
+
+router.get("/", auth, cartFillter, render);
+
+router.post("/", auth, cartFillter, async (req, res) => {
+    const conditions = JSON.parse(req.body["data"]);
+    //req.session.searchWord = conditions["text-search"]
+    const searchWords = req.session.searchWord.split(" ").map(e => new RegExp(e, 'i'))
+    const queryName = searchWords.length > 0 ? {
+        $or: [{
+            name: {
+                "$all": searchWords
+            }
+        }, {
+            description: {
+                "$all": searchWords
+            }
+        }]
+    } : {};
+
+    // fillter
+    let products;
+    if (!conditions["productType"].length)
+        products = await Product.find({
+            $and: [queryName, {
+                "price": {
+                    $gte: extractNumberFromString(conditions["minamount"])
+                }
+            }, {
+                "price": {
+                    $lte: extractNumberFromString(conditions["maxamount"])
+                }
+            }]
+        }).skip(parseInt(conditions["offset"])).limit(7)
+    else {
+        products = await Product.find({
+            $and: [queryName, {
+                $and: [{
+                    "price": {
+                        $gte: extractNumberFromString(conditions["minamount"])
+                    }
+                }, {
+                    "price": {
+                        $lte: extractNumberFromString(conditions["maxamount"])
+                    }
+                }]
+            }, {
+                productType: {
+                    $in: conditions["productType"].map(e => mongoose.mongo.ObjectId(e))
+                }
+            }]
+        }).skip(parseInt(conditions["offset"])).limit(7)
+    }
+    if (products.length >= 7) {
+        res.status(200).send({
+            products: products.slice(0, 6),
+            searchWord: req.body.search,
+            more: true
+        })
+    } else {
+        res.status(200).send({
+            products: products,
+            searchWord: req.body.search,
+            more: false
+        })
+    }
 })
-router.post("/",auth,cartFillter,async (req,res) =>{
-    let query={};
-    
-    if(!req.body.search)
-    {
-        const min=parseInt(req.body.minamount)
-        const max=parseInt(req.body.maxamount)
-        if(req.body.productType){
-            query={$and: [
-                { $and: [ { price: { $lt : max} }, { price : { $gt:  min} } ] },
-                {productType: {"$in" : req.body.productType}}
-            ]
-            } ;
-        }
-        else
-        {
-            query={ $and: [ { price: { $lt : max} }, { price : { $gt:  min} } ] } ;
-        }
-        product=await Product.find(query);
-        res.cookie("query", query);
-    res.render("./client/category", {
-        lastedProducts: await Product.find(query).sort({
-            createAt: -1
-        }).limit(10),
-        products: await Product.find(query).limit(8),
-        productTypes: await ProductType.find(),
-        isAdmin: req.userRole=="admin"? "Admin": "",
-        // isLogin: req.session.user ? req.session.user.name : false
-        cartQnt : req.cart.items.length,
-        amountproduct: product.length,
-        isLogin: req.userName
-    });}
-    else
-    {
-        query= {$or:[{name: new RegExp(req.body.search,'i')},{description: new RegExp(req.body.search,'i')}]};
-        product=await Product.find(query)
-        res.cookie("query", query);
-    res.render("./client/category", {
-        lastedProducts: await Product.find(query).sort({
-            createAt: -1
-        }).limit(10),
-        products: await Product.find(query).limit(8),
-        productTypes: await ProductType.find(),
-        // isLogin: req.session.user ? req.session.user.name : false
-        isAdmin: req.userRole=="admin"? "Admin": "",
-        cartQnt : req.cart.items.length,
-        amountproduct: product.length,
-        isLogin: req.userName
-    });}
-})
+
+router.post("/search", auth, cartFillter, (req, res, next) => {
+    req.searchWord = req.body.search
+    req.session.searchWord = req.body.search
+    next()
+}, render)
 module.exports = router;

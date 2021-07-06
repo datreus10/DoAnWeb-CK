@@ -70,11 +70,15 @@
                         </div>
                         <div class="row address-inputs">
                             <div class="col-md-12 d-flex justify-content-between">
-                                <input type="text" name="address" placeholder="Address" value="<%= user.address %>" style="width:85%">
-                                <button type="button" class="btn btn-outline-danger " style="height: 44px;">Thay đổi</button>
+                                <input type="text" name="address" placeholder="Address" value="<%= user.address %>"
+                                    style="width:85%">
+                                <button type="button" class="btn btn-outline-danger" id="change-address"
+                                    style="height: 44px;">Thay
+                                    đổi</button>
                             </div>
                             <div class="col-md-12">
-                                <input type="text" name="phone" placeholder="Phone number" value="<%= user.phone_number %>">
+                                <input type="text" name="phone" placeholder="Phone number"
+                                    value="<%= user.phone_number %>">
                             </div>
                         </div>
                         <div class="cf-title">Giao hàng</div>
@@ -114,7 +118,7 @@
                 <div class="col-lg-4 order-1 order-lg-2">
                     <div class="checkout-cart">
                         <h3>Đơn hàng</h3>
-                        
+
                         <ul class="product-list">
 
                             <% cart.items.forEach(function(item) { %>
@@ -126,7 +130,9 @@
                                 <p>Giá : <%= item.itemId.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> đ</p>
                                 <p><span>SL:<%= item.quantity %></span><span style="margin-left: 20px;">Size:
                                         <%= item.size %> </span></p>
-                                <p>Thành tiền: <%= (item.itemId.price*item.quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> đ</p>
+                                <p>Thành tiền:
+                                    <%= (item.itemId.price*item.quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
+                                    đ</p>
                             </li>
                             <% }); %>
                         </ul>
@@ -151,10 +157,55 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="change-address-modal" tabindex="-1" role="dialog" aria-hidden="true"
+        style="display: none;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <b>Thay đổi địa chỉ</b>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table>
+                        <tr>
+                            <td colspan="2">Địa chỉ</td>
+                        </tr>
+                        <tr>
+                            <td>Tỉnh/thành phố</td>
+                            <td><select name="ls_province"></select></td>
+                        </tr>
+                        <tr>
+                            <td>Quận/huyện:</td>
+                            <td><select name="ls_district"></select></td>
+                        </tr>
+                        <tr>
+                            <td>Phường/xã:</td>
+                            <td><select name="ls_ward"></select></td>
+                        </tr>
+                        <tr>
+                            <td>Số nhà:</td>
+                            <td><input type="text" placeholder="Số nhà, tên đường" required></td>
+                        </tr>
+                    </table>
+                    <!-- <label for="address"><b>Địa chỉ</b></label></br>
+                <label>Tỉnh/thành phổ: <select name="ls_province"></select></label> </br>
+                <label>Quận/huyện: <select name="ls_district"></select></label> </br>
+                <label>Phường/xã: <select name="ls_ward"></select></label> </br> -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                    <button id="change-confirm-btn" type="button" class="btn btn-danger">OK</button>
                 </div>
             </div>
         </div>
@@ -176,11 +227,25 @@
     <script src="/js/jquery-ui.min.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/custom/ejs.min.js"></script>
+    <script src="/js/vietnamlocalselector.min.js"></script>
     <script>
+        var localpicker = new LocalPicker({
+            province: "ls_province",
+            district: "ls_district",
+            ward: "ls_ward"
+        });
         $('#submitorder').click(function () {
-		$('#nofication-modal .modal-body').text("Bạn đã đặt hàng thành công")
-        $('#nofication-modal').modal('show');
-	});
+            $('#nofication-modal .modal-body').text("Bạn đã đặt hàng thành công")
+            $('#nofication-modal').modal('show');
+        });
+        $("#change-address").click(function () {
+            $('#change-address-modal').modal('show');
+        })
+        $("#change-confirm-btn").click(function () {
+            $("#change-address-modal .modal-body").find('input, select').each(function () {
+                console.log($(this))
+            })
+        })
     </script>
 </body>
 

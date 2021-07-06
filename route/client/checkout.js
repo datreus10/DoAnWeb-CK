@@ -19,9 +19,11 @@ const {
     auth
 } = require('../../middleware/auth')
 const User = require('../../model/user');
+const {
+    cartFillter
+} = require("../../middleware/cart")
 
-
-router.get('/', auth, async (req, res) => {
+router.get('/', auth,cartFillter, async (req, res) => {
     if (req.user && req.session.checkoutItem.length) {
         const usercart = new Cart({
             userId : req.userID,
@@ -39,7 +41,7 @@ router.get('/', auth, async (req, res) => {
             isLogin: req.userName,
             user: user,
             cart: cart,
-            cartQnt : cart.items.length,
+            cartQnt : req.cart.items.length,
         })
     } else {
         res.redirect("/signin")

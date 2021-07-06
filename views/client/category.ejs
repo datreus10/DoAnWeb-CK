@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zxx">
+
 <head>
 	<title>Shop nam</title>
 	<meta charset="UTF-8">
@@ -7,21 +8,21 @@
 	<meta name="keywords" content="divisima, eCommerce, creative, html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Favicon -->
-	<link href="img/favicon.ico" rel="shortcut icon"/>
+	<link href="img/favicon.ico" rel="shortcut icon" />
 
 	<!-- Google Font -->
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
 
 
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="/css/font-awesome.min.css"/>
-	<link rel="stylesheet" href="/css/flaticon.css"/>
-	<link rel="stylesheet" href="/css/slicknav.min.css"/>
-	<link rel="stylesheet" href="/css/jquery-ui.min.css"/>
-	<link rel="stylesheet" href="/css/owl.carousel.min.css"/>
-	<link rel="stylesheet" href="/css/animate.css"/>
-	<link rel="stylesheet" href="/css/style.css"/>
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="/css/flaticon.css" />
+	<link rel="stylesheet" href="/css/slicknav.min.css" />
+	<link rel="stylesheet" href="/css/jquery-ui.min.css" />
+	<link rel="stylesheet" href="/css/owl.carousel.min.css" />
+	<link rel="stylesheet" href="/css/animate.css" />
+	<link rel="stylesheet" href="/css/style.css" />
 
 
 	<!--[if lt IE 9]>
@@ -30,6 +31,7 @@
 	<![endif]-->
 
 </head>
+
 <body>
 	<!-- Page Preloder -->
 	<div id="preloder">
@@ -38,9 +40,9 @@
 
 
 
-    <!-- Header section -->
-    <%- include('../partial/clientHeader.ejs')%>
-    <!-- Header section end -->
+	<!-- Header section -->
+	<%- include('../partial/clientHeader.ejs')%>
+	<!-- Header section end -->
 
 
 
@@ -60,59 +62,84 @@
 	<!-- Category section -->
 	<section class="category-section spad">
 		<div class="container">
-			<form action="/products" method="POST">
+
 			<div class="row">
-				<div class="col-lg-3 order-2 order-lg-1">
+				<div id="select-category" class="col-lg-3 order-2 order-lg-1">
+					<!-- <div class="filter-widget">
+						<h2 class="fw-title">Tìm kiếm</h2>
+						<ul class="category-menu">
+
+							<li>
+								<label>Tên: <input type="text" name="text-search"
+										value="<%=searchWord%>"></label>
+							</li>
+
+						</ul>
+					</div> -->
 					<div class="filter-widget">
 						<h2 class="fw-title">Danh mục sản phẩm</h2>
 						<ul class="category-menu">
 							<% productTypes.forEach(function(productType) { %>
 							<li>
-								<input type="checkbox" id="productType" name="productType" value="<%=productType._id%>">
-								<label for="productType"><%=productType.name%></label><br>
+								<label><input type="checkbox" id="productType" name="productType"
+										value="<%=productType._id%>"> <%=productType.name%></label>
+								</br>
 							</li>
 							<%})%>
 						</ul>
 					</div>
+
+
+					
+
 					<div class="filter-widget mb-0">
 						<div class="price-range-wrap">
 							<h4>Giá sản phẩm</h4>
-                            <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" data-min="100000" data-max="2000000">
-								<div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0%; width: 100%;"></div>
-								<span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;">
+							<div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
+								data-min="100000" data-max="2000000">
+								<div class="ui-slider-range ui-corner-all ui-widget-header"
+									style="left: 0%; width: 100%;"></div>
+								<span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"
+									style="left: 0%;">
 								</span>
-								<span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 100%;">
+								<span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"
+									style="left: 100%;">
 								</span>
 							</div>
 							<div class="range-slider">
-                                <div class="price-input">
-                                    <input type="text" id="minamount" name="minamount">
-                                    <input type="text" id="maxamount" name="maxamount">
-                                </div>
-                            </div>
-                        </div>
+								<div class="price-input">
+									<input type="text" id="minamount" name="minamount">
+									<input type="text" id="maxamount" name="maxamount">
+								</div>
+							</div>
+						</div>
 					</div>
-					<button type="submit" class="site-btn sb-line sb-dark">Tìm kiếm</button>
+					<button type="button" class="site-btn sb-line sb-dark" id="findBtn">Tìm kiếm</button>
 				</div>
-			</form>
+
 
 				<div class="col-lg-9  order-1 order-lg-2 mb-5 mb-lg-0">
+
+					<% if (searchWord) { %>
+					<h2> Kết quả tìm kiếm: <%= searchWord %></h2>
+					<% } %>
+
 					<div class="row" id="top-sell">
 						<% products.forEach(function(product) { %>
 						<div class="col-lg-4 col-sm-6">
-							
+
 							<%-include("../partial/productCard", {product:product}) %>
-							
+
 						</div>
 						<% }); %>
-						<%if(amountproduct>8){%>
 						<div class="text-center w-100 pt-3">
+							<% if (loadMore) { %>
 							<button type="button" class="site-btn sb-line sb-dark" id="loadMore">Xem thêm</button>
+							<% } %>
 						</div>
-						<%}%>
-						<!-- <div class="text-center pt-5">
-							<button type="button" class="site-btn sb-line sb-dark" id="loadMore">Xem thêm</button>
-						</div> -->
+						
+						
+
 					</div>
 				</div>
 			</div>
@@ -120,7 +147,7 @@
 	</section>
 	<!-- Category section end -->
 
-	<script src="/js/custom/category.js"></script>
+
 
 	<!-- Footer section -->
 	<%- include('../partial/clientFooter.ejs')%>
@@ -136,6 +163,8 @@
 	<script src="/js/jquery.zoom.min.js"></script>
 	<script src="/js/jquery-ui.min.js"></script>
 	<script src="/js/main.js"></script>
-    <script src="/js/custom/ejs.min.js"></script>
-	</body>
+	<script src="/js/custom/ejs.min.js"></script>
+	<script src="/js/custom/category.js"></script>
+</body>
+
 </html>

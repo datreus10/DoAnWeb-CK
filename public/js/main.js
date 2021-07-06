@@ -171,13 +171,14 @@ $(window).on('load', function () {
 		min: minPrice,
 		max: maxPrice,
 		values: [minPrice, maxPrice],
+		step: 10000,
 		slide: function (event, ui) {
-			minamount.val(ui.values[0]);
-			maxamount.val(ui.values[1]);
+			minamount.val(formatNumbertoPrice(ui.values[0]));
+			maxamount.val(formatNumbertoPrice(ui.values[1]));
 		}
 	});
-	minamount.val(rangeSlider.slider("values", 0));
-	maxamount.val(rangeSlider.slider("values", 1));
+	minamount.val(formatNumbertoPrice(rangeSlider.slider("values", 0)));
+	maxamount.val(formatNumbertoPrice(rangeSlider.slider("values", 1)));
 
 
 	/*-------------------
