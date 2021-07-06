@@ -50,6 +50,7 @@ router.get('/', auth, async (req, res) => {
 router.post('/', auth, async (req, res) => {
     const listItem = JSON.parse(req.body["data"]).map(e => {
         return {
+            _id : e["_id"],
             itemId: e["product-checkbox"],
             quantity: e["quantity"],
             size: e["size"]
@@ -66,13 +67,23 @@ router.post('/', auth, async (req, res) => {
 
 router.post('/thanh_toan', auth, async (req, res) => {
     if (req.user) {
-        console.log("Hello");
-        const cart = await Cart.findOne({
-            userId: req.userID
-        }).populate({
+        
+        let cart = new Cart({
+            userId : req.userID,
+            items: req.session.checkoutItem
+        })
+
+
+        const usercart = await Cart.findOne({userId:req.userID});
+        const listId = req.session.checkoutItem.map(e=>e._id)
+        const remainItem = usercart.items.filter(e=> listId.indexOf(e._id.toString())<0)
+
+        cart= await cart.populate({
             path: 'items.itemId',
-            select: '_id name price'
-        });
+            select: '_id name img price'
+        }).execPopulate()
+
+        
 
         // tao bill
         const bill = new Bill({
@@ -97,10 +108,10 @@ router.post('/thanh_toan', auth, async (req, res) => {
         }
 
         await Cart.updateOne({
-            _id: cart._id
+            _id: usercart._id
         }, {
             $set: {
-                "items": []
+                "items": remainItem
             }
         });
         const userinfo = await User.findById(bill.userId)
