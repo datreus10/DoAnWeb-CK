@@ -49,7 +49,7 @@ router.get("/", auth, cartFillter, render);
 router.post("/", auth, cartFillter, async (req, res) => {
     const conditions = JSON.parse(req.body["data"]);
     //req.session.searchWord = conditions["text-search"]
-    const searchWords = req.session.searchWord.split(" ").map(e => new RegExp(e, 'i'))
+    const searchWords = req.session.searchWord ? req.session.searchWord.split(" ").map(e => new RegExp(e, 'i')) : []
     const queryName = searchWords.length > 0 ? {
         $or: [{
             name: {

@@ -70,7 +70,7 @@
                         </div>
                         <div class="row address-inputs">
                             <div class="col-md-12 d-flex justify-content-between">
-                                <input type="text" name="address" placeholder="Address" value="<%= user.address %>"
+                                <input type="text" name="address" id="address-text" placeholder="Address" value="<%= user.address %>"
                                     style="width:85%">
                                 <button type="button" class="btn btn-outline-danger" id="change-address"
                                     style="height: 44px;">Thay
@@ -205,7 +205,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-                    <button id="change-confirm-btn" type="button" class="btn btn-danger">OK</button>
+                    <button id="change-confirm-btn" type="button" data-dismiss="modal" class="btn btn-danger">OK</button>
                 </div>
             </div>
         </div>
@@ -242,9 +242,15 @@
             $('#change-address-modal').modal('show');
         })
         $("#change-confirm-btn").click(function () {
+            const address =[]
             $("#change-address-modal .modal-body").find('input, select').each(function () {
-                console.log($(this))
+                if ($(this).is('select')) {
+					address.push($(this).find('option:selected').text())
+				}else{
+                    address.push($(this).val())
+                }
             })
+            $("#address-text").val(address.reverse().join(", "))
         })
     </script>
 </body>
