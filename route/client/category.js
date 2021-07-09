@@ -48,7 +48,7 @@ router.get("/", auth, cartFillter, render);
 
 router.post("/", auth, cartFillter, async (req, res) => {
     const conditions = JSON.parse(req.body["data"]);
-    //req.session.searchWord = conditions["text-search"]
+    // req.session.searchWord = conditions["text-search"]
     const searchWords = req.session.searchWord ? req.session.searchWord.split(" ").map(e => new RegExp(e, 'i')) : []
     const queryName = searchWords.length > 0 ? {
         $or: [{
@@ -110,6 +110,13 @@ router.post("/", auth, cartFillter, async (req, res) => {
     }
 })
 
+router.get("/clearsearchword", (req,res) =>{
+    req.session.searchWord="";
+    res.redirect('/products');
+})
+router.get("/search", (req,res) =>{
+    res.redirect('/products');
+})
 router.post("/search", auth, cartFillter, (req, res, next) => {
     req.searchWord = req.body.search
     req.session.searchWord = req.body.search

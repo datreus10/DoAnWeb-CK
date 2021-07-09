@@ -4,9 +4,9 @@
         <img src='<%= product.fileLinks[0] %>' height="410px" alt="">
         </a>
         <div class="pi-links">
-            <a href="/admin/product/edit/<%= product._id%>" class="add-card"><i class="far fa-edit"></i><span>Edit now</span></a>
+            <a href="/admin/product/edit/<%= product._id%>" class="add-card"><i class="far fa-edit"></i><span>Sửa sản phẩm</span></a>
             <form method="POST" action="/admin/product/delete/<%= product.id%>?_method=DELETE">
-                <button class="btn btn-danger btn-customize" onclick="return confirm('Bạn muốn xóa sp này ko')" type="submit">
+                <button class="btn btn-danger btn-customize" onclick="return confirm('Bạn muốn xóa sản phẩm:  <%=product.name%> ? ')" type="submit">
                     <i class="fas fa-trash-alt"></i>
                 </button>
             </form>

@@ -89,7 +89,7 @@
             </div>
             <ul class="product-filter-menu" style="text-align:center;">
                 <% productTypes.forEach(e => { %>
-                    <li><a href="/products/<%= e.id%>"> <%= e.name %>  </a></li>
+                    <li><a href="/products"> <%= e.name %>  </a></li>
                 <% }) %>
             </ul>
             <div class="row" id="top-sell">
@@ -114,10 +114,10 @@
     <section class="banner-section">
         <div class="container">
             <div class="banner set-bg" data-setbg="img/banner-bg.jpg">
-                <div class="tag-new">Mới</div>
-                <span>Sản phẩm mới</span>
+                <div class="tag-new" >Mới</div>
+                <span style="color:white;">Sản phẩm mới</span>
                 <h2>Áo sơ mi</h2>
-                <a href="/cart" class="site-btn">Mua ngay</a>
+                <a href="/products" class="site-btn">Mua ngay</a>
             </div>
         </div>
     </section>

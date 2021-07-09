@@ -29,14 +29,12 @@ const uploadMultiple = helper.upload.fields([{
 
 
 router.post('/add', uploadMultiple, async (req, res, next) => {
-    console.log(req.body)
     let msg = '';
     const listFileName = [];
     for (let file of req.files.product_img) {
         listFileName.push(file.filename);
         const result = await helper.uploadFile(file)
         await unlinkFile(file.path)
-        // console.log(result)
     }
     try {
         const newProduct = new Product({
@@ -131,7 +129,6 @@ router.put('/edit/:id', uploadMultiple, async (req, res) => {
                 listFileName.push(file.filename);
                 const result = await helper.uploadFile(file)
                 await unlinkFile(file.path)
-                console.log(result)
             }
             product.img = listFileName
         }

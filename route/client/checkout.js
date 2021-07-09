@@ -51,12 +51,15 @@ router.get('/', auth,cartFillter, async (req, res) => {
 
 router.post('/', auth, async (req, res) => {
     const listItem = JSON.parse(req.body["data"]).map(e => {
-        return {
-            _id : e["_id"],
-            itemId: e["product-checkbox"],
-            quantity: e["quantity"],
-            size: e["size"]
-        }
+
+            return {
+                _id : e["_id"],
+                itemId: e["product-checkbox"],
+                quantity: e["quantity"],
+                size: e["size"]
+            }
+        
+        
     });
     req.session.checkoutItem = listItem;
     req.session.urlcheckout="checkout";
@@ -117,7 +120,6 @@ router.post('/thanh_toan', auth, async (req, res) => {
             }
         });
         const userinfo = await User.findById(bill.userId)
-        console.log(userinfo);
         content="<h1 align='center'> Thông tin đơn hàng </h1>"
         content=content+"<p> Họ Tên: " + userinfo.name + "</p>";
         content=content+ "<p> Địa chỉ giao hàng: "+bill.address+"</p>";

@@ -60,7 +60,9 @@ app.use('/', auth);
 app.use('/', customer);
 app.use('/', detailedbill);
 app.use('/', contact);
-
+app.use((req,res,next) => {
+    res.status(404).render('404')
+})
 app.listen(app.get('port'), () => {
     console.log('Server has started and listening on port ' + app.get('port'));
 });

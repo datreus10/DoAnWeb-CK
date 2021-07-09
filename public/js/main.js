@@ -244,7 +244,7 @@ $(window).on('load', function () {
 		var data = $('tr').map(function () {
 			var obj = {};
 			var isEmpty = true;
-			$(this).find('input, select').each(function () {
+			$(this).find('input:not(#select-all), select').each(function () {
 				if (!$(this).is(':checked') && $(this).is(':checkbox')) {
 					return false;
 				}

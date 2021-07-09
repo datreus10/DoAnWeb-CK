@@ -83,20 +83,28 @@ style="cursor:pointer">
             "data": JSON.stringify(data)
         }, function (_data, status) {
             const products = _data["products"]
-
-            products.forEach(product => {
-                let div = document.createElement('div');
-                div.className = "col-lg-4 col-sm-6";
-                div.innerHTML = ejs.render(produtEjs, {
-                    product: product
+            if(products.length!=0)
+            {
+                products.forEach(product => {
+                    let div = document.createElement('div');
+                    div.className = "col-lg-4 col-sm-6";
+                    div.innerHTML = ejs.render(produtEjs, {
+                        product: product
+                    });
+                    $(div).insertBefore("#top-sell .text-center.w-100.pt-3");
                 });
-                $(div).insertBefore("#top-sell .text-center.w-100.pt-3");
-            });
-            if (!_data['more'])
+                if (!_data['more'])
                 $("#loadMore").closest("div").css("display", "none");
-            else {
+                else {
                 $("#loadMore").closest("div").css("display", "block");
             }
+            }
+            else
+            {
+                document.getElementById("top-sell").innerHTML= "<h2>Không có sản phẩm nào</h2>"
+            }
+
+
 
         })
     }
