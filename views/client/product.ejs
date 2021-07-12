@@ -95,7 +95,7 @@
 
 							<% for( let i = 0,f=true; i < product.sizes.length; i++ ) { %>
 
-							<% if (product.sizes[i].quantity==0) { %>
+							<% if (product.sizes[i].quantity<0) { %>
 							<div class="sc-item disable">
 								<input type="radio" name="size" value="<%= product.sizes[i].name %>"
 									id="size-<%= product.sizes[i].name %>" disabled>
@@ -135,7 +135,7 @@
 
 								<% for( let i = 0,f=true; i < product.sizes.length; i++ ) { %>
 
-								<% if (product.sizes[i].quantity!=0) { %>
+								<% if (product.sizes[i].quantity>0) { %>
 
 								<% if (f) { %>
 								<div id="available-<%= product.sizes[i].name %>" class="tab-pane active">
