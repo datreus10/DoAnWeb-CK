@@ -231,6 +231,18 @@
                                                     <label style="font-weight:bold;"><%=Bills[i].total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> VNĐ</label>
                                                 </div>
                                             </div>
+                                            <div class="row">
+                                                <div class="col-sm-3 col-md-2 col-5">
+                                                    <label style="font-weight:bold;">Trạng thái</label>
+                                                </div>
+                                                <div class="col-md-8 col-6">
+                                                        <%if(Bills[i].isPaid == 1){ %>
+                                                        <label style="font-weight:bold;">Đã thanh toán</label>
+                                                        <%}else{%>
+                                                        <label style="font-weight:bold;">Chưa thanh toán</label>
+                                                        <%}%>  
+                                                </div>
+                                            </div>
                                             <hr />
                                         <%}%>
                                     </div>
