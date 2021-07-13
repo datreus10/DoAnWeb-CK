@@ -18,7 +18,7 @@ router.get('/add', async (req, res) => {
         productTypes: await ProductType.find(),
         msg: req.query.msg || '',
     });
-   
+
 })
 
 
@@ -80,18 +80,19 @@ router.get('/', async (req, res) => {
     })
 })
 router.post('/', async (req, res) => {
+    
     res.render("./admin/product", {
         products: await Product.find({
             name: {
                 $regex: req.body.name.trim(),
                 $options: 'i'
             },
-            createAt: {
+            createdAt: {
                 $lte: req.body.dayAfter,
                 $gte: req.body.dayBefore
             }
         }).sort({
-            createAt: -1
+            createdAt: -1
         }),
     })
 })
