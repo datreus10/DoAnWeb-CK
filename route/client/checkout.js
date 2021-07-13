@@ -236,11 +236,11 @@ function vnpay(req, res, cart) {
         encode: true
     });
 
-    res.redirect(vnpUrl)
-    // res.status(200).json({
-    //     code: '00',
-    //     data: vnpUrl
-    // })
+    
+    res.status(200).json({
+        code: '00',
+        data: vnpUrl
+    })
     //res.redirect(vnpUrl)
 }
 
