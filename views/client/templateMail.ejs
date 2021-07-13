@@ -1,0 +1,32 @@
+<h1 align='center'> Thông tin đơn hàng </h1>
+<p> Họ Tên: <%= userinfo.name %></p>
+<p> Địa chỉ giao hàng: <%= bill.address %></p>
+<p> Điện thoại: <%= bill.phone %></p>
+<p> Email: <%= userinfo.email %></p>
+<table width='80%' cellspacing='0' cellpadding='2' border='1' align='center'>
+    <tr>
+        <td width='10%'>STT</td>
+        <td width='40%'> Tên sản phẩm </td>
+        <td width=' 10%'> Số Lượng </td>
+        <td width='15%'> Đơn giá </td>
+        <td> Thành tiền </td>
+    </tr>
+
+    <% let tong_tien =0; %>
+    <% items.forEach((e,i) => { %>
+    <tr>
+        <td><%= (i+1) %></td>
+        <td><%= e.itemId.name %></td>
+        <td><%= e.quantity %></td>
+        <td><%= e.itemId.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> VNĐ</td>
+        <td><%= (e.quantity * e.itemId.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> VNĐ</td>
+        <% tong_tien+=(e.quantity * e.itemId.price) %>
+    </tr>
+    <% }) %>
+
+    <tr>
+        <td colspan='7' align='right'> Tổng tiền: <%= tong_tien.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> VNĐ</td>
+    </tr>
+</table>
+<p>Trong cuộc sống có muôn ngàn lựa chọn, cảm ơn bạn đã chọn Shop nam. </p>
+<p> Đơn hàng sẽ giao đến bạn trong vòng 7 ngày! </p>

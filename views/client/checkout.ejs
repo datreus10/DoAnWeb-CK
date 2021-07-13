@@ -60,7 +60,7 @@
         <div class="container" style="max-width: 1300px;">
             <div class="row">
                 <div class="col-lg-8 order-2 order-lg-1">
-                    <form class="checkout-form" method="POST" action="/checkout/thanh_toan">
+                    <form class="checkout-form" method="post" action="/checkout/thanh_toan">
                         <div class="cf-title">Địa chỉ thanh toán</div>
                         <div class="row">
                             <div class="col-md-7">
@@ -70,8 +70,8 @@
                         </div>
                         <div class="row address-inputs">
                             <div class="col-md-12 d-flex justify-content-between">
-                                <input type="text" name="address" id="address-text" placeholder="Address" value="<%= user.address %>"
-                                    style="width:85%">
+                                <input type="text" name="address" id="address-text" placeholder="Address"
+                                    value="<%= user.address %>" style="width:85%">
                                 <button type="button" class="btn btn-outline-danger" id="change-address"
                                     style="height: 44px;">Thay
                                     đổi</button>
@@ -108,9 +108,10 @@
                         </div>
                         <div class="cf-title">Thanh toán</div>
                         <ul class="payment-list">
-
-                            <li><input type="radio" name="payment" value="cash" checked> Thanh toán khi nhận hàng
-                            </li>
+                            <li><label><input type="radio" name="payment" value="cash" checked> Thanh toán khi nhận hàng
+                                </label></li>
+                            <li><label><input type="radio" name="payment" value="card"> Thanh toán qua VNPAY
+                                </label></li>
                         </ul>
                         <button class="site-btn submit-order-btn" id="submitorder">Đặt hàng</button>
                     </form>
@@ -206,7 +207,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-                    <button id="change-confirm-btn" type="button" data-dismiss="modal" class="btn btn-danger">OK</button>
+                    <button id="change-confirm-btn" type="button" data-dismiss="modal"
+                        class="btn btn-danger">OK</button>
                 </div>
             </div>
         </div>
@@ -229,25 +231,73 @@
     <script src="/js/main.js"></script>
     <script src="/js/custom/ejs.min.js"></script>
     <script src="/js/vietnamlocalselector.min.js"></script>
+    <script src="https://pay.vnpay.vn/lib/vnpay/vnpay.js"></script>
     <script>
         var localpicker = new LocalPicker({
             province: "ls_province",
             district: "ls_district",
             ward: "ls_ward"
         });
-        $('#submitorder').click(function () {
-            $('#nofication-modal .modal-body').text("Bạn đã đặt hàng thành công")
-            $('#nofication-modal').modal('show');
+        // $('#submitorder').click(function () {
+        //     var data = $('form').serialize();
+        //     $.post('/checkout/thanh_toan', data, function (data, status) {
+        //         console.log(data);
+        //         console.log(status);
+        //         $('#nofication-modal .modal-body').text("Bạn đã đặt hàng thành công")
+        //         $('#nofication-modal').modal('show');
+        //     })
+
+
+        // });
+
+        $('form').submit(function (event) {
+            $.ajax({
+                method: $(this).attr('method'),
+                url: $(this).attr('action'),
+                data: $(this).serialize(),
+                async: false,
+                statusCode: {
+                    302: function (reponse) {
+                        $('#nofication-modal .modal-body').text("Bạn đã đặt hàng thành công")
+                        $('#nofication-modal').modal('show');
+                        //window.location.replace(reponse.responseText);
+                    },
+                    200: function (reponse) {
+                        if (reponse.code === '00') {
+                            if (window.vnpay) {
+                                vnpay.open({
+                                    width: 768,
+                                    height: 600,
+                                    url: reponse.data
+                                });
+                            } else {
+                                location.href = reponse.data;
+                            }
+                            return false;
+
+                        } else {
+                            alert(reponse.Message);
+                        }
+                    }
+                },
+
+            });
+            event.preventDefault(); // <- avoid reloading
         });
+
+        $("#nofication-modal .modal-footer button").click(function () {
+            window.location.replace("/");
+        })
+
         $("#change-address").click(function () {
             $('#change-address-modal').modal('show');
         })
         $("#change-confirm-btn").click(function () {
-            const address =[]
+            const address = []
             $("#change-address-modal .modal-body").find('input, select').each(function () {
                 if ($(this).is('select')) {
-					address.push($(this).find('option:selected').text())
-				}else{
+                    address.push($(this).find('option:selected').text())
+                } else {
                     address.push($(this).val())
                 }
             })
