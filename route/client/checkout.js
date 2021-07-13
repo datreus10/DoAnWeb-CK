@@ -124,7 +124,8 @@ async function createBill(req, res) {
         items: cart.items,
         total: cart.total,
         address: req.session.checkoutUserInfo.address,
-        phone: req.session.checkoutUserInfo.phone
+        phone: req.session.checkoutUserInfo.phone,
+        isPaid: req.isPaid || 0
     });
     await bill.save();
     // giam so luong san pham theo size
@@ -236,7 +237,7 @@ function vnpay(req, res, cart) {
         encode: true
     });
 
-    
+
     res.status(200).json({
         code: '00',
         data: vnpUrl
@@ -270,6 +271,7 @@ router.get('/vnpay_return', function (req, res, next) {
 
     if (secureHash === checkSum) {
         //Kiem tra xem du lieu trong db co hop le hay khong va thong bao ket qua
+        req.isPaid = 1
         createBill(req, res)
         res.render('./client/payment', {
             msg: "GD thành công"

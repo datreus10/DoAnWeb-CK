@@ -235,13 +235,22 @@
 
                         <td><%= bill._id%></td>
                         <td><%= bill.dateOrder.toDateString()%></td>
-                        <% if(bill.isPaid == 0){%>
+
+                        
+                        <!-- <% if(bill.isPaid == 0){%>
                          <td>Đặt hàng thành công</td>
                         <%}else if(bill.isPaid == 1){%>
                          <td>Đang vận chuyển</td>
                         <%}else{%>
                          <td>Đã thanh toán</td>
-                        <%}%>
+                        <%}%> -->
+
+                        <% if (bill.isPaid) { %>
+                            <td>Đã thanh toán</td>
+                        <% } else { %>
+                            <td>Chưa thanh toán</td>
+                        <% } %>
+
                         <td>
 							
                             <a href="/admin/bill/user/editbill/<%= bill.id%>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>

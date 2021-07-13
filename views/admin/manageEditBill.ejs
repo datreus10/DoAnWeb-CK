@@ -182,7 +182,7 @@
                         <div class="form-check form-check-inline" style="margin: 10px auto"  >
            
                             <input class="form-check-input" <%= bill.isPaid == 0 ? 'checked' : '' %> type="radio" name="status"  id="inlineRadio1" value="0">
-                            <label class="form-check-label" for="inlineRadio1">Đặt hàng thành công</label>
+                            <label class="form-check-label" for="inlineRadio1">Chưa thanh toán</label>
                           </div>
                     </div>
                 </div>
@@ -190,18 +190,18 @@
                     <div class="col-sm-8">
                     <div class="form-check form-check-inline" style="margin: 10px auto">
                         <input class="form-check-input"  <%= bill.isPaid == 1 ? 'checked' : '' %>  type="radio" name="status" id="inlineRadio2" value="1">
-                        <label class="form-check-label" for="inlineRadio2">Đang vận chuyển</label>
+                        <label class="form-check-label" for="inlineRadio2">Đã thanh toán</label>
                       </div>
                       </div>
                 </div>
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-sm-8">
                     <div class="form-check form-check-inline" style="margin: 10px auto">
                         <input class="form-check-input"  <%= bill.isPaid == 2 ? 'checked' : '' %> type="radio" name="status" id="inlineRadio2" value="2">
                         <label class="form-check-label" for="inlineRadio2">Đã thanh toán</label>
                       </div>
                       </div>
-                </div> 
+                </div>  -->
                 <div class="row">   
                     <div class="col-sm-8">
                        </div> 
