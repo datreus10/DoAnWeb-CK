@@ -85,6 +85,7 @@ style="cursor:pointer">
             const products = _data["products"]
             if(products.length!=0)
             {
+                $("#filter").empty()
                 products.forEach(product => {
                     let div = document.createElement('div');
                     div.className = "col-lg-4 col-sm-6";
@@ -101,7 +102,8 @@ style="cursor:pointer">
             }
             else
             {
-                document.getElementById("top-sell").innerHTML= "<h2>Không có sản phẩm nào</h2>"
+                $("#filter").text("Không có sản phẩm nào")
+                $("#loadMore").closest("div").css("display", "none");
             }
 
 

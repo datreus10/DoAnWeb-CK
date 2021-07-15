@@ -9,8 +9,8 @@ const {
 
 router.get('/signin',auth ,cartFillter, getsignin) 
 router.get('/signup',auth,cartFillter, getsignup)
-router.post('/signin',auth, signin) 
-router.post('/signup',auth, signup)
+router.post('/signin',auth,cartFillter, signin) 
+router.post('/signup',auth,cartFillter, signup)
 router.get('/logout',getlogout) 
 
 

@@ -4,6 +4,7 @@ const Product = require('../../model/product.js')
 const mongoose= require('mongoose');
 
 const getdetailedBill = async (req, res) => {
+    req.session.searchWord="";
     try {
         
         const id=req.userID;

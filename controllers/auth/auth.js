@@ -20,14 +20,16 @@ const signin = async (req, res) => {
             success: '',
             message: 'Tài khoản không tồn tại',
             isAdmin: req.userRole=="admin"? "Admin": "",
-            isLogin: req.userName
+            isLogin: req.userName,
+            cartQnt : req.cart.items.length
         });
         const isPasswordCorrect = await bcrypt.compare(password, existingUser.password);
         if (!isPasswordCorrect) return res.status(400).render('./auth/signin', {
             success: '',
             message: 'Sai mật khẩu',
             isAdmin: req.userRole=="admin"? "Admin": "",
-            isLogin: req.userName
+            isLogin: req.userName,
+            cartQnt : req.cart.items.length
         });
         const token = jwt.sign({
             name: existingUser.name,
@@ -73,12 +75,14 @@ const signup = async (req, res) => {
         if (existingUser) return res.status(400).render('./auth/signup', {
             message: "Tài khoản đã tồn tại",
             isAdmin: req.userRole=="admin"? "Admin": "",
-            isLogin: req.userName
+            isLogin: req.userName,
+            cartQnt : req.cart.items.length
         });
         if (password !== Confirmpassword) return res.status(400).render('./auth/signup', {
             message: "Nhập lại mật khẩu không đúng",
             isAdmin: req.userRole=="admin"? "Admin": "",
-            isLogin: req.userName
+            isLogin: req.userName,
+            cartQnt : req.cart.items.length
         });
         const fulladdress=address+", "+ls_ward+", "+ls_district+", "+ls_province;
         const hashedPassword = await bcrypt.hash(password, 12);
@@ -108,7 +112,8 @@ const signup = async (req, res) => {
             success: result.name,
             message: '',
             isAdmin: req.userRole=="admin"? "Admin": "",
-            isLogin: req.userName
+            isLogin: req.userName,
+            cartQnt : req.cart.items.length
         });
     } catch (error) {
         res.status(409).json({
@@ -119,7 +124,7 @@ const signup = async (req, res) => {
 
 
 const getsignup = (req, res) => {
-
+    req.session.searchWord="";
     try {
         res.status(201).render('./auth/signup', {
             message: '',
@@ -135,6 +140,7 @@ const getsignup = (req, res) => {
 }
 
 const getsignin = (req, res) => {
+    req.session.searchWord="";
     try {
         if (!req.cookies.token) {
             res.status(201).render('./auth/signin', {
@@ -156,6 +162,8 @@ const getsignin = (req, res) => {
 
 
 const getlogout = (req, res) => {
+    req.session.searchWord="";
+    req.session.destroy();
     try {
         res.clearCookie("token");
         res.clearCookie("userName");

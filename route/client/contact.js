@@ -7,6 +7,7 @@ const {
 } = require("../../middleware/cart")
 
 router.get('/contact', auth,cartFillter, async (req, res) => {
+    req.session.searchWord="";
     res.render("./client/contact", {
         isLogin: req.user ? req.userName : false,
         isAdmin: req.userRole=="admin"? "Admin": "",

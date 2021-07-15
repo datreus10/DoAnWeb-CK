@@ -18,6 +18,7 @@ const {
 
 
 router.get("/", auth, cartFillter, async (req, res) => {
+    req.session.searchWord="";
     res.render("./client/index", {
         lastedProducts: await Product.find().sort({
             createAt: -1

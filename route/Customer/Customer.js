@@ -8,6 +8,6 @@ const {
 } = require("../../middleware/cart")
 
 router.get('/myaccount',auth,cartFillter, getCustomer) ;
-router.post('/myaccount',auth,changepassword) ;
+router.post('/myaccount',auth,cartFillter,changepassword) ;
 
 module.exports = router

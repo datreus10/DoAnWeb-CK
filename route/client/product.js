@@ -11,6 +11,7 @@ const {
 
 
 router.get('/:id', auth,cartFillter, async (req, res) => {
+    req.session.searchWord="";
     const p = await Product.findById(req.params.id);
     const conHang = p.sizes.find(element => element.quantity > 0); // còn hàng trong kho
     res.render("./client/product", {

@@ -24,6 +24,7 @@ const ejs = require('ejs')
 
 
 router.get('/', auth, cartFillter, async (req, res) => {
+    req.session.searchWord="";
     if (req.user && req.session.checkoutItem.length) {
         const usercart = new Cart({
             userId: req.userID,

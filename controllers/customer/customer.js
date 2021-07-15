@@ -4,6 +4,7 @@ const mongoose= require('mongoose');
 const bcrypt = require('bcrypt');
 
 const getCustomer = async (req, res) => {
+    req.session.searchWord="";
     try {
         const id=req.userID;
         if(!id)
@@ -54,13 +55,9 @@ const changepassword = async (req, res) => {
         const ListBill= await Bill.find(query)
         const Username = user.name;
         const email = user.email;
-        const address = Userid.address;
-        const phone_number=Userid.phone_number;
+        const address =user.address;
+        const phone_number=user.phone_number;
         const isPasswordCorrect = await bcrypt.compare(oldpassword, user.password);
-        if(!isPasswordCorrect)
-        {
-            console.log('sai mật khảu')
-        }
         if (!isPasswordCorrect) return res.status(400).render('./customer/customer', {
             message: 'Sai mật khẩu',
             message_success: '',
@@ -70,7 +67,8 @@ const changepassword = async (req, res) => {
             email: email,
             address: address,
             phone_number: phone_number,
-            Bills: ListBill
+            Bills: ListBill,
+            cartQnt : req.cart.items.length
         });
         if (password !== Confirmpassword) return res.status(400).render('./customer/customer', {
             message: 'Nhập lại mật khẩu không đúng',
@@ -78,8 +76,11 @@ const changepassword = async (req, res) => {
             isAdmin: req.userRole=="admin"? "Admin": "",
             isLogin: req.userName,
             Username: Username, 
+            phone_number: phone_number,
+            address: address,
             email: email,
-            Bills: ListBill
+            Bills: ListBill,
+            cartQnt : req.cart.items.length
         });
         const hashedPassword = await bcrypt.hash(password, 12);
         user.password=hashedPassword;
@@ -91,8 +92,11 @@ const changepassword = async (req, res) => {
             isAdmin: req.userRole=="admin"? "Admin": "",
             isLogin: req.userName,
             Username: Username, 
+            phone_number: phone_number,
+            address: address,
             email: email,
-            Bills: ListBill
+            Bills: ListBill,
+            cartQnt : req.cart.items.length
         });
     } catch (error) {
         res.status(500).send(error);

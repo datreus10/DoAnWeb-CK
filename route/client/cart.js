@@ -13,7 +13,7 @@ const {
 
 
 router.get("/", auth, cartFillter, async (req, res) => {
-
+    req.session.searchWord="";
     let cart = req.cart;
     cart = await cart.populate({
         path: 'items.itemId',
