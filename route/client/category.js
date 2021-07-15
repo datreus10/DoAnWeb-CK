@@ -9,7 +9,9 @@ const {
 } = require('../../middleware/auth')
 const {
     cartFillter
-} = require("../../middleware/cart")
+} = require("../../middleware/cart");
+const product = require("../../model/product");
+const productType = require("../../model/productType");
 
 
 const extractNumberFromString = str => {
@@ -20,17 +22,45 @@ const render = async (req, res) => {
     let query = {}
     if (req.searchWord) {
         const searchWords = req.searchWord.split(" ").map(e => new RegExp(e, 'i'))
-        query = searchWords.length > 0 ? {
-            $or: [{
-                name: {
-                    "$all": searchWords
-                }
-            }, {
-                description: {
-                    "$all": searchWords
-                }
-            }]
-        } : {};
+        productTypes = await ProductType.find()
+        let idsearch="empty";
+        productTypes.forEach(productType => {
+            if(req.searchWord.toLowerCase()==productType.name.toLowerCase())
+            {
+                idsearch=productType.id
+                idsearch.toString();
+            }  
+        });
+        if(idsearch!="empty")
+        {
+            query = searchWords.length > 0 ? {
+                $or: [{
+                    name: {
+                        "$all": searchWords
+                    }
+                }, {
+                    description: {
+                        "$all": searchWords
+                    }
+                },{
+                    productType: idsearch
+                }]
+            } : {};
+        }
+        else
+        {
+            query = searchWords.length > 0 ? {
+                $or: [{
+                    name: {
+                        "$all": searchWords
+                    }
+                }, {
+                    description: {
+                        "$all": searchWords
+                    }
+                }]
+            } : {};
+        }
     }
     const products = await Product.find(query).limit(7)
     res.render("./client/category", {
@@ -50,17 +80,45 @@ router.post("/", auth, cartFillter, async (req, res) => {
     const conditions = JSON.parse(req.body["data"]);
     // req.session.searchWord = conditions["text-search"]
     const searchWords = req.session.searchWord ? req.session.searchWord.split(" ").map(e => new RegExp(e, 'i')) : []
-    const queryName = searchWords.length > 0 ? {
-        $or: [{
-            name: {
-                "$all": searchWords
-            }
-        }, {
-            description: {
-                "$all": searchWords
-            }
-        }]
-    } : {};
+    productTypes = await ProductType.find()
+        let idsearch="empty";
+        productTypes.forEach(productType => {
+            if(req.session.searchWord.toLowerCase()==productType.name.toLowerCase())
+            {
+                idsearch=productType.id
+                idsearch.toString();
+            }  
+        });
+        if(idsearch!="empty")
+        {
+            queryName = searchWords.length > 0 ? {
+                $or: [{
+                    name: {
+                        "$all": searchWords
+                    }
+                }, {
+                    description: {
+                        "$all": searchWords
+                    }
+                },{
+                    productType: idsearch
+                }]
+            } : {};
+        }
+        else
+        {
+            queryName = searchWords.length > 0 ? {
+                $or: [{
+                    name: {
+                        "$all": searchWords
+                    }
+                }, {
+                    description: {
+                        "$all": searchWords
+                    }
+                }]
+            } : {};
+        }
 
     // fillter
     let products;
