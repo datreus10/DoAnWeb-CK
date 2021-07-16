@@ -15,7 +15,8 @@
             <h3 class="text-muted">VNPAY DEMO</h3>
         </div>
         <p style="text-align: center"> <%= msg %> </p>
-        <p style="text-align: center">Bạn sẽ được chuyển về trang chủ sau <strong>3s</strong>. Nếu không tự động chuyển, nhấn vào nút dưới đây
+        <p style="text-align: center">Bạn sẽ được chuyển về trang chủ sau <strong>3s</strong>. Nếu không tự động chuyển,
+            nhấn vào nút dưới đây
         </p>
         <p style="text-align: center"><a href="/" class="btn btn-outline-dark">Về giỏ hàng</a></p>
         <footer class="footer">
@@ -25,7 +26,7 @@
 
     <script>
         window.setTimeout(function () {
-            window.location.href = '/';
+            window.location.replace('/');
         }, 3000);
     </script>
 

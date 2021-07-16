@@ -24,7 +24,7 @@ const ejs = require('ejs')
 
 
 router.get('/', auth, cartFillter, async (req, res) => {
-    req.session.searchWord="";
+    req.session.searchWord = "";
     if (req.user && req.session.checkoutItem.length) {
         const usercart = new Cart({
             userId: req.userID,
@@ -111,9 +111,20 @@ async function createBill(req, res) {
     const usercart = await Cart.findOne({
         userId: req.session.checkoutUserInfo.userId
     });
-    const listId = req.session.checkoutItem.map(e => e._id)
-    const remainItem = usercart.items.filter(e => listId.indexOf(e._id.toString()) < 0)
-
+    // const listId = req.session.checkoutItem.map(e => e._id)
+    // const remainItem = usercart.items.filter(e => listId.indexOf(e._id.toString()) < 0)
+    const remainItem = []
+    for (let i of usercart.items) {
+        let isFound = false;
+        for (let j of req.session.checkoutItem) {
+            if (i.itemId.toString() == j.itemId && i.size == j.size && i.quantity == j.quantity) {
+                isFound = true;
+            }
+        }
+        if (!isFound)
+            remainItem.push(i)
+    }
+    req.session.cart = remainItem
     cart = await cart.populate({
         path: 'items.itemId',
         select: '_id name img price'
