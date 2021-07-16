@@ -95,6 +95,7 @@
                                 <td>
                                     <input type="checkbox" name="product-checkbox" value="<%= item._id %>">
                                     <input type="text" name="_id" value="<%= item._id %>" hidden>
+                                    <input type="text" name="product-checkbox-id" value="<%= item.itemId._id %>" hidden>
                                 </td>
                                 <td class="product-info" data-th="Product">
                                     <div class="row">
@@ -159,7 +160,7 @@
                                         <!-- <form action="/cart/remove" method="post"> -->
                                         <!-- <input type="text" name="product" value="<%= item.itemId._id %>" hidden> -->
                                         <button class="btn btn-del-product" data-toggle="modal"
-                                            data-target="#delete-confirm" data-id="<%= item.itemId._id %>">
+                                            data-target="#delete-confirm" data-id="<%= item._id %>">
                                             <span>
 
                                                 <img src="/img/icons/trash.svg" alt="deleted">

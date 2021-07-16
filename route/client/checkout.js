@@ -30,11 +30,11 @@ router.get('/', auth, cartFillter, async (req, res) => {
             userId: req.userID,
             items: req.session.checkoutItem
         })
+        console.log(req.session.checkoutItem)
         const cart = await usercart.populate({
             path: 'items.itemId',
             select: '_id name img price'
         }).execPopulate()
-
         const user = await User.findById(req.userID)
 
         res.render('./client/checkout', {
@@ -55,7 +55,7 @@ router.post('/', auth, async (req, res) => {
 
         return {
             _id: e["_id"],
-            itemId: e["product-checkbox"],
+            itemId: e["product-checkbox-id"],
             quantity: e["quantity"],
             size: e["size"]
         }

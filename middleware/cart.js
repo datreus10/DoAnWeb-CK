@@ -38,10 +38,10 @@ const cartFillter = async (req, res, next) => {
         }
     } else {
         if (req.session.cart) {
-            const listItem = []
-
+            const listItem = []  
             for (let item of req.session.cart.items) {
                 listItem.push(new CartItem({
+                    _id: mongoose.mongo.ObjectId(item._id),
                     itemId: mongoose.mongo.ObjectId(item.itemId),
                     size: item.size,
                     quantity: item.quantity
@@ -49,6 +49,7 @@ const cartFillter = async (req, res, next) => {
             }
 
             req.cart = new Cart({
+                
                 items: listItem
             })
         } else
@@ -64,7 +65,7 @@ function removeDuplicates(inArray) {
         //create the second cycle of the loop from element n+1
         for (var j = i + 1; j < arr.length; ++j) {
             //if the two elements are equal , then they are duplicate
-            if (arr[i].itemId.toString() === arr[j].itemId.toString()) {
+            if (arr[i].itemId.toString() === arr[j].itemId.toString() && arr[i].size.toString() === arr[j].size.toString()) {
                 arr.splice(j, 1); //remove the duplicated element 
             }
         }
@@ -78,7 +79,15 @@ const addItemToCart = async (req, res, next) => {
 
     if (pSizeIndex > -1) {
         const cart = req.cart
-        let index = cart.items.findIndex(element => element.itemId.equals(p._id))
+        console.log(cart)
+        let index = -1;
+
+        cart.items.forEach((element,a) => {
+            if(element.itemId.toString()==p._id){
+                index=a;
+            }
+        });
+
         if (index > -1 && cart.items[index].size == req.body.size) {
             let newQuantity = parseInt(req.body.quantity) + cart.items[index].quantity;
             if (newQuantity > p.sizes[pSizeIndex].quantity)
@@ -105,16 +114,16 @@ const removeItemFromCart = async function (req, res, next) {
     const cart = req.cart;
 
 
-
     for (let i = 0; i < cart.items.length; i++) {
         for (let j = 0; j < req.body.data.length; j++) {
             if (cart.items[i]._id.toString() == req.body.data[j].product) {
+                
                 cart.items.splice(i, 1);
             }
         }
-
-
     }
+   
+    
     if (req.userID) {
         await cart.save();
     } else {
