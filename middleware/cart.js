@@ -108,7 +108,7 @@ const removeItemFromCart = async function (req, res, next) {
 
     for (let i = 0; i < cart.items.length; i++) {
         for (let j = 0; j < req.body.data.length; j++) {
-            if (cart.items[i].itemId.toString() == req.body.data[j].product) {
+            if (cart.items[i]._id.toString() == req.body.data[j].product) {
                 cart.items.splice(i, 1);
             }
         }
