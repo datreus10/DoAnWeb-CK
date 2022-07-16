@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Divisima | eCommerce Template</title>
+	<title>Shop nam - Giỏ hàng</title>
 	<meta charset="UTF-8">
 	<meta name="description" content=" Divisima | eCommerce Template">
 	<meta name="keywords" content="divisima, eCommerce, creative, html">
@@ -90,62 +90,17 @@
 					</div>
 					<% if (conHang) { %>
 					<form action="/cart/product/<%= product._id %> " method="post">
-						<div class="fw-size-choose" role="tablist">
-							<p>Kích cỡ</p>
 
-							<% for( let i = 0,f=true; i < product.sizes.length; i++ ) { %>
-
-							<% if (product.sizes[i].quantity<0) { %>
-							<div class="sc-item disable">
-								<input type="radio" name="size" value="<%= product.sizes[i].name %>"
-									id="size-<%= product.sizes[i].name %>" disabled>
-								<label for="size-<%= product.sizes[i].name %>"><%= product.sizes[i].name %></label>
-							</div>
-
-							<% } else { %>
-
-							<% if (f) { %>
-							<div class="sc-item">
-								<input type="radio" name="size" id="size-<%= product.sizes[i].name %>"
-									value="<%= product.sizes[i].name %>"
-									data-target="#available-<%= product.sizes[i].name %>" checked>
-								<label for="size-<%= product.sizes[i].name %>"><%= product.sizes[i].name %></label>
-							</div>
-							<% f=false %>
-							<% } else { %>
-							<input type="radio" name="size" id="size-<%= product.sizes[i].name %>"
-								value="<%= product.sizes[i].name %>"
-								data-target="#available-<%= product.sizes[i].name %>">
-							<label for="size-<%= product.sizes[i].name %>"><%= product.sizes[i].name %></label>
-							<% }}} %>
-
-						</div>
-						<!-- <div class="quantity">
-								<p>Quantity</p>
-								<div class="pro-qty"><span class="dec qtybtn">-</span><input type="text" value="1"><span
-										class="inc qtybtn">+</span></div>
-							</div> -->
 
 						<div class="quantity">
 							<p>Số lượng</p>
 
-							<div class="pro-qty"><span class="dec qtybtn">-</span><input type="text" value="1"
-									name="quantity"><span class="inc qtybtn">+</span></div>
-							<div class="tab-content" style="margin-left: 1rem;">
-
-								<% for( let i = 0,f=true; i < product.sizes.length; i++ ) { %>
-
-								<% if (product.sizes[i].quantity>0) { %>
-
-								<% if (f) { %>
-								<div id="available-<%= product.sizes[i].name %>" class="tab-pane active">
-									<span><%=product.sizes[i].quantity%></span> sản phẩm sẵn có</div>
-								<% f=false %>
-								<% } else { %>
-								<div id="available-<%= product.sizes[i].name %>" class="tab-pane">
-									<span><%=product.sizes[i].quantity%></span> sản phẩm sẵn có</div>
-								<% }}} %>
+							<div class="pro-qty">
+								<span class="dec qtybtn">-</span>
+								<input type="text" value="1" name="quantity">
+								<span class="inc qtybtn">+</span>
 							</div>
+							<p>Chỉ còn lại: <span id="maxQuantity"><%= product.quantity%></span> sản phẩm</p>
 						</div>
 
 
@@ -166,7 +121,9 @@
 							<div id="collapse1" class="collapse show" aria-labelledby="headingOne"
 								data-parent="#accordion">
 								<div class="panel-body">
-									<p><%= product.description %> </p>
+									<% product.description.forEach(function(e){ %>
+									<div><span><%= e.key %></span><span><%= e.value %></span></div>
+									<% }); %>
 								</div>
 							</div>
 						</div>

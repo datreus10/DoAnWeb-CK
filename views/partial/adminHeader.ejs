@@ -1,20 +1,49 @@
 <header class="header-section">
     <nav class="main-navbar">
         <div class="container d-flex">
-            <div style="flex: 1" class="pt-2 nav-logo-container" >
+            <div style="flex: 0.5" class="pt-2 nav-logo-container">
                 <a href="/" class="site-logo"><img src="/img/logo-light.png" alt="" width="150px"></a>
             </div>
 
             <div class="mobile-nav-padding"></div>
 
-            <ul class="main-menu">
+            <div class="dropdown">
+                <button class="dropbtn"><a href="/admin">Home</a></button>
+                
+            </div>
+
+           
+
+            <div class="dropdown">
+                <button class="dropbtn"><a href="/admin/bill">Hóa đơn</a></button>
+                
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn">Sản phẩm</button>
+                <div class="dropdown-content">
+                    <a href="/admin/product">Quản lý sản phẩm</a>
+                    <a href="/admin/product/add">Thêm sản phẩm</a>
+                    
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Loại sản phẩm</button>
+                <div class="dropdown-content">
+                    <a href="/admin/product/type/index">Quản lý loại sản phẩm</a>
+                    <a href="/admin/product/type/add">Thêm loại sản phẩm</a>
+                    
+                </div>
+            </div>
+
+            <!-- <ul class="main-menu">
                 <li><a href="/admin">Home</a></li>
                 <li><a href="/admin/bill">QL Hóa đơn</a></li>
                 <li><a href="/admin/product">Sản phẩm</a></li>
                 <li><a href="/admin/product/add">Thêm sản phẩm</a></li>
                 <li><a href="/admin/product/type/index">Loại sản phẩm</a></li>
                 <li><a href="/admin/product/type/add">Thêm loại sản phẩm</a></li>
-            </ul>
+            </ul> -->
         </div>
     </nav>
 </header>

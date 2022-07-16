@@ -75,11 +75,10 @@ function removeDuplicates(inArray) {
 
 const addItemToCart = async (req, res, next) => {
     const p = await Product.findById(req.params.id);
-    const pSizeIndex = p.sizes.findIndex(element => element.name == req.body.size && element.quantity > 0)
+    
 
-    if (pSizeIndex > -1) {
+    if (p) {
         const cart = req.cart
-        console.log(cart)
         let index = -1;
 
         cart.items.forEach((element,a) => {
@@ -88,17 +87,16 @@ const addItemToCart = async (req, res, next) => {
             }
         });
 
-        if (index > -1 && cart.items[index].size == req.body.size) {
+        if (index > -1) {
             let newQuantity = parseInt(req.body.quantity) + cart.items[index].quantity;
-            if (newQuantity > p.sizes[pSizeIndex].quantity)
-                cart.items[index].quantity = p.sizes[pSizeIndex].quantity;
+            if (newQuantity > p.quantity)
+                cart.items[index].quantity = p.quantity;
             else
                 cart.items[index].quantity = newQuantity;
         } else {
             cart.items.push(new CartItem({
                 itemId: p._id,
-                quantity: req.body.quantity > p.sizes[pSizeIndex].quantity ? p.sizes[pSizeIndex].quantity : req.body.quantity,
-                size: req.body.size
+                quantity: req.body.quantity > p.quantity ? p.quantity : req.body.quantity,
             }));
         }
         if (req.userID) {

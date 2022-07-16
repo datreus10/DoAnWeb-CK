@@ -10,9 +10,6 @@ const itemSchema = mongoose.Schema({
         type: Number,
         default: 1
     },
-    size: {
-        type: String
-    },
     date: {
         type: Date,
         default: Date.now()

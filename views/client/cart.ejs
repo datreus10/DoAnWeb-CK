@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Divisima | eCommerce Template</title>
+    <title>Shop nam - Giỏ hàng</title>
     <meta charset="UTF-8">
     <meta name="description" content=" Divisima | eCommerce Template">
     <meta name="keywords" content="divisima, eCommerce, creative, html">
@@ -65,9 +65,9 @@
                     <h3 class="display-5 mb-2 text-center">Giỏ Hàng</h3>
                     <p class="mb-5 text-center">
                         <% if (cart.items.length) { %>
-                            <i class="text-info font-weight-bold"><%=cart.items.length  %> </i> sản phẩm trong giỏ hàng
+                        <i class="text-info font-weight-bold"><%=cart.items.length  %> </i> sản phẩm trong giỏ hàng
                         <% } %>
-                        
+
                     </p>
                     <% if (cart.items.length) { %>
                     <table id="shoppingCart" class="table table-condensed table-responsive ">
@@ -75,7 +75,7 @@
                             <tr>
                                 <th style="width:2%"><input type="checkbox" id="select-all"></th>
                                 <th style="width:40%">Sản phẩm</th>
-                                <th style="width:10%">Size</th>
+
                                 <th style="width:16%">Số lượng</th>
                                 <th style="width:16%">Thành tiền</th>
 
@@ -110,22 +110,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td>
-                                    <select class="form-select" name="size" aria-label="Default select example">
-                                        <% for( let i = 0; i < item.itemId.sizes.length; i++ ) { %>
-                                        <% if (item.itemId.sizes[i].name == item.size) { %>
-                                        <option value="<%= item.size %>" data-target="#available-<%= item.size%>"
-                                            selected><%= item.size %> </option>
-                                        <% } else if (item.itemId.sizes[i].quantity>0) { %>
-                                        <option value="<%=item.itemId.sizes[i].name %>"
-                                            data-target="#available-<%= item.itemId.sizes[i].name%>">
-                                            <%= item.itemId.sizes[i].name %></option>
-                                        <% } %>
-                                        <% } %>
 
-                                    </select>
-
-                                </td>
                                 <td class="quantity " data-th="Quantity">
 
 
@@ -134,21 +119,9 @@
                                             value="<%= item.quantity %>" name="quantity"><span
                                             class="inc qtybtn">+</span>
                                     </div>
-                                    <div class="tab-content">
-
-                                        <% for( let i = 0; i < item.itemId.sizes.length; i++ ) { %>
-                                        <% if (item.itemId.sizes[i].name == item.size) { %>
-                                        <div id="available-<%= item.size %>" class="tab-pane active">
-                                            <span><%=item.itemId.sizes[i].quantity%></span> sản phẩm sẵn có</div>
-
-                                        <% } else if (item.itemId.sizes[i].quantity>0) { %>
-
-                                        <div id="available-<%= item.itemId.sizes[i].name %>" class="tab-pane">
-                                            <span><%=item.itemId.sizes[i].quantity%></span> sản phẩm sẵn có</div>
-
-                                        <% } %>
-                                        <% } %>
-
+                                    
+                                    <div>
+                                        Max sản phẩm: <span id="maxQuantity"><%= item.itemId.quantity %> </span>
                                     </div>
 
 
@@ -182,29 +155,29 @@
                     </div>
 
                     <% } else { %>
-                    <div class="col-sm-12 empty-cart-cls text-center"> <img src="/img/cart/empty_cart.png" 
-                            width="130" height="130" class="img-fluid mb-4 mr-3">
+                    <div class="col-sm-12 empty-cart-cls text-center"> <img src="/img/cart/empty_cart.png" width="130"
+                            height="130" class="img-fluid mb-4 mr-3">
                         <h3><strong>Giỏ hàng trống</strong></h3>
-                        <h4>Hãy mua một vài sản phẩm nào :)</h4> 
+                        <h4>Hãy mua một vài sản phẩm nào :)</h4>
                         <a href="/products" class="btn btn-primary mt-4">Tiếp tục mua sắm</a>
 
-                            
+
                     </div>
                     <% } %>
                 </div>
             </div>
             <% if (cart.items.length) { %>
-                <div class="row mt-4 d-flex align-items-center">
-                    <div class="col-sm-6 order-md-2 text-right">
-                        <span id="checkout" class="btn btn-primary mb-4 btn-lg pl-5 pr-5 site-btn">Đặt hàng</span>
-                    </div>
-                    <div class="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
-                        <a href="/products">
-                            <i class="fa fa-arrow-left mr-2"></i>Tiếp tục mua sắm</a>
-                    </div>
+            <div class="row mt-4 d-flex align-items-center">
+                <div class="col-sm-6 order-md-2 text-right">
+                    <span id="checkout" class="btn btn-primary mb-4 btn-lg pl-5 pr-5 site-btn">Đặt hàng</span>
                 </div>
+                <div class="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
+                    <a href="/products">
+                        <i class="fa fa-arrow-left mr-2"></i>Tiếp tục mua sắm</a>
+                </div>
+            </div>
             <% } %>
-            
+
         </div>
 
     </section>

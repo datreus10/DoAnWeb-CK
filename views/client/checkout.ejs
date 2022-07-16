@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Divisima | eCommerce Template</title>
+    <title>Shop nam - Thanh toán</title>
     <meta charset="UTF-8">
     <meta name="description" content=" Divisima | eCommerce Template">
     <meta name="keywords" content="divisima, eCommerce, creative, html">
@@ -128,9 +128,10 @@
                                 <div class="pl-thumb"><img src="<%= item.itemId.fileLinks[0] %>" height="100px"
                                         width="100px" alt=""></div>
                                 <h5 style="padding-top:0"><%= item.itemId.name %> </h5>
-                                <p>Giá : <%= item.itemId.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> đ</p>
-                                <p><span>SL:<%= item.quantity %></span><span style="margin-left: 20px;">Size:
-                                        <%= item.size %> </span></p>
+                                <p>SL:<%= item.quantity %></p>
+                                <p>Giá : <%= item.itemId.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %> đ
+                                </p>
+
                                 <p>Thành tiền:
                                     <%= (item.itemId.price*item.quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") %>
                                     đ</p>

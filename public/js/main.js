@@ -189,7 +189,7 @@ $(window).on('load', function () {
 		var $button = $(this);
 		var oldValue = $button.parent().find('input').val();
 
-		var maxQuantity = $(this).closest('.quantity').find('.tab-pane.active span').text();
+		var maxQuantity = $("#maxQuantity").text();
 
 		if ($button.hasClass('inc')) {
 			var newVal = (parseFloat(oldValue) + 1) > maxQuantity ? parseFloat(oldValue) : parseFloat(oldValue) + 1;

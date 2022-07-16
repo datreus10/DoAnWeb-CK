@@ -13,11 +13,11 @@ const {
 router.get('/:id', auth,cartFillter, async (req, res) => {
     req.session.searchWord="";
     const p = await Product.findById(req.params.id);
-    const conHang = p.sizes.find(element => element.quantity > 0); // còn hàng trong kho
+
     res.render("./client/product", {
         product: await Product.findById(req.params.id),
         products: await Product.find().limit(8),
-        conHang: conHang,
+        conHang : p.quantity>0,
         isAdmin: req.userRole == "admin" ? "Admin" : "",
         isLogin: req.userName,
         cartQnt : req.cart.items.length

@@ -1,0 +1,31 @@
+[{
+  "_id": {
+    "$oid": "60de6bb1b7e29d3ad0986dfa"
+  },
+  "name": "Áo khoác",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60de6bcab7e29d3ad0986dfb"
+  },
+  "name": "Áo thun",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60de6bd3b7e29d3ad0986dfc"
+  },
+  "name": "Áo sơ mi",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60de6bddb7e29d3ad0986dfd"
+  },
+  "name": "Quần Jean",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60de6beeb7e29d3ad0986dfe"
+  },
+  "name": "Quần short",
+  "__v": 0
+}]

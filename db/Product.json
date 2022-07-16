@@ -1,0 +1,659 @@
+[{
+  "_id": {
+    "$oid": "60de6cbfb7e29d3ad0986dff"
+  },
+  "img": [
+    "1625189566202-527836303.jpeg",
+    "1625189566223-586626063.jpeg",
+    "1625189566225-425096690.jpeg",
+    "1625189566246-851607219.jpeg"
+  ],
+  "name": "Break the law T-shirt",
+  "description": "                        Thành phần vải: 90% cotton và 10% elastane. Form áo được làm theo form box tee, được dùng kỹ thuật in screen printing. Vải áo được xử lý thêm 3 bước giặt lạnh, hấp khô và giặt thơm.\r\n                    ",
+  "price": 320000,
+  "sizes": [
+    {
+      "_id": {
+        "$oid": "60de7093444f8734e474984e"
+      },
+      "name": "XL",
+      "quantity": -1
+    },
+    {
+      "_id": {
+        "$oid": "60de7093444f8734e474984f"
+      },
+      "name": "L",
+      "quantity": 0
+    },
+    {
+      "_id": {
+        "$oid": "60de7093444f8734e4749850"
+      },
+      "name": "M",
+      "quantity": 1
+    },
+    {
+      "_id": {
+        "$oid": "60de7093444f8734e4749851"
+      },
+      "name": "S",
+      "quantity": 4
+    },
+    {
+      "_id": {
+        "$oid": "60de7093444f8734e4749852"
+      },
+      "name": "XS",
+      "quantity": 6
+    }
+  ],
+  "productType": {
+    "$oid": "60de6bcab7e29d3ad0986dfb"
+  },
+  "createdAt": {
+    "$date": "2021-07-02T01:32:47.164Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-16T10:33:57.045Z"
+  },
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "60de6e80b7e29d3ad0986e10"
+  },
+  "img": [
+    "1625190016249-812033122.jpeg",
+    "1625190016254-437533090.jpeg",
+    "1625190016256-175354192.jpeg",
+    "1625190016262-823666758.jpeg"
+  ],
+  "name": "I exist as I am",
+  "description": " Thành phần vải: 90% cotton 10% elastane. Hình in được dùng kỹ thuật in dtg hiện đại nhất hiện nay, cho ra hình in sắc nét và bền màu. Áo có form oversize, vải áo thấm hút mồ hôi rất nhanh tạo sự thoáng mát khi mặt. Vải áo được xử lý thêm 3 bước giặt lạnh, hấp khô và giặt thơm\r\n                    \r\n                    ",
+  "price": 350000,
+  "sizes": [
+    {
+      "_id": {
+        "$oid": "60f12c956eceda4250c74604"
+      },
+      "name": "XL",
+      "quantity": 1
+    },
+    {
+      "_id": {
+        "$oid": "60f12c956eceda4250c74605"
+      },
+      "name": "L",
+      "quantity": 0
+    },
+    {
+      "_id": {
+        "$oid": "60f12c956eceda4250c74606"
+      },
+      "name": "M",
+      "quantity": 5
+    },
+    {
+      "_id": {
+        "$oid": "60f12c956eceda4250c74607"
+      },
+      "name": "S",
+      "quantity": 8
+    },
+    {
+      "_id": {
+        "$oid": "60f12c956eceda4250c74608"
+      },
+      "name": "XS",
+      "quantity": 6
+    }
+  ],
+  "productType": {
+    "$oid": "60de6bcab7e29d3ad0986dfb"
+  },
+  "createdAt": {
+    "$date": "2021-07-02T01:40:16.812Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-16T11:41:56.061Z"
+  },
+  "__v": 3
+},{
+  "_id": {
+    "$oid": "60de6ea6b7e29d3ad0986e16"
+  },
+  "img": [
+    "1625190150530-91001487.jpeg",
+    "1625190150535-495964722.jpeg",
+    "1625190150588-610322947.jpeg",
+    "1625190150596-144926283.jpeg"
+  ],
+  "name": "Basic tee",
+  "description": "                                                                        Thành phần vải: 90% cotton 10% spandex. Chất liệu co giãn 4 chiều đem lại sự thoải mái suốt ngày dài, mềm mại, không nhão, không xù lông. Vải áo được xử lý thêm 3 bước giặt lạnh, hấp khô và giặt thơm.\r\n                    \r\n                    \r\n                    ",
+  "price": 250000,
+  "sizes": [
+    {
+      "_id": {
+        "$oid": "60f1546bce03d70f847860ed"
+      },
+      "name": "XL",
+      "quantity": 8
+    },
+    {
+      "_id": {
+        "$oid": "60f1546bce03d70f847860ee"
+      },
+      "name": "L",
+      "quantity": 9
+    },
+    {
+      "_id": {
+        "$oid": "60f1546bce03d70f847860ef"
+      },
+      "name": "M",
+      "quantity": 10
+    },
+    {
+      "_id": {
+        "$oid": "60f1546bce03d70f847860f0"
+      },
+      "name": "S",
+      "quantity": 12
+    },
+    {
+      "_id": {
+        "$oid": "60f1546bce03d70f847860f1"
+      },
+      "name": "XS",
+      "quantity": 15
+    }
+  ],
+  "productType": {
+    "$oid": "60de6bcab7e29d3ad0986dfb"
+  },
+  "createdAt": {
+    "$date": "2021-07-02T01:40:54.977Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-16T10:45:08.007Z"
+  },
+  "__v": 5
+},{
+  "_id": {
+    "$oid": "60de706d444f8734e4749848"
+  },
+  "img": [
+    "1625190509399-613450939.jpeg",
+    "1625190509469-270854225.jpeg",
+    "1625190509472-895786552.jpeg",
+    "1625190509486-510053889.jpeg"
+  ],
+  "name": "Áo khoác dù",
+  "description": "Áo khoác dù nam với chất liệu vải dù cao cấp, thiết kế đơn giản nhưng năng động, thoải mái, dễ phối đồ",
+  "price": 230000,
+  "sizes": [
+    {
+      "_id": {
+        "$oid": "60de706d444f8734e4749849"
+      },
+      "name": "XL",
+      "quantity": 0
+    },
+    {
+      "_id": {
+        "$oid": "60de706d444f8734e474984a"
+      },
+      "name": "L",
+      "quantity": 8
+    },
+    {
+      "_id": {
+        "$oid": "60de706d444f8734e474984b"
+      },
+      "name": "M",
+      "quantity": 9
+    },
+    {
+      "_id": {
+        "$oid": "60de706d444f8734e474984c"
+      },
+      "name": "S",
+      "quantity": 9
+    },
+    {
+      "_id": {
+        "$oid": "60de706d444f8734e474984d"
+      },
+      "name": "XS",
+      "quantity": 9
+    }
+  ],
+  "productType": {
+    "$oid": "60de6bb1b7e29d3ad0986dfa"
+  },
+  "createdAt": {
+    "$date": "2021-07-02T01:48:29.966Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-16T10:30:12.070Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60de70d8444f8734e4749853"
+  },
+  "img": [
+    "1625190616082-813814432.jpeg",
+    "1625190616099-280805127.jpeg",
+    "1625190616123-361682152.jpeg",
+    "1625190616146-357360154.jpeg"
+  ],
+  "name": "Áo khoác hoodie",
+  "description": "Áo khoác hoodie với thiết kế cách điệu đơn giản, tạo cảm giác thời thường với chất liệu vải cotton bông tạo cảm giác ấm áp đặc biệt vào mùa đông giá lạnh, hoặc phù hợp với người có trái tim cô đơn cần tìm nơi sưởi ấm.",
+  "price": 250000,
+  "sizes": [
+    {
+      "_id": {
+        "$oid": "60de70d8444f8734e4749854"
+      },
+      "name": "XL",
+      "quantity": 8
+    },
+    {
+      "_id": {
+        "$oid": "60de70d8444f8734e4749855"
+      },
+      "name": "L",
+      "quantity": 10
+    },
+    {
+      "_id": {
+        "$oid": "60de70d8444f8734e4749856"
+      },
+      "name": "M",
+      "quantity": 10
+    },
+    {
+      "_id": {
+        "$oid": "60de70d8444f8734e4749857"
+      },
+      "name": "S",
+      "quantity": 10
+    },
+    {
+      "_id": {
+        "$oid": "60de70d8444f8734e4749858"
+      },
+      "name": "XS",
+      "quantity": 10
+    }
+  ],
+  "productType": {
+    "$oid": "60de6bb1b7e29d3ad0986dfa"
+  },
+  "createdAt": {
+    "$date": "2021-07-02T01:50:16.742Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-13T09:40:46.253Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60de7102444f8734e4749859"
+  },
+  "img": [
+    "1625190657187-512805942.jpeg",
+    "1625190657192-789089533.jpeg",
+    "1625190657207-737890477.jpeg",
+    "1625190657235-321557062.jpeg"
+  ],
+  "name": "Áo khoác Jean nam",
+  "description": "Áo khoac jean với chất liệu cao cấp, đơn giản, thời thượng, cá tính, năng động, dễ mix mọi trang phục, đậm chất bụi phủi",
+  "price": 300000,
+  "sizes": [
+    {
+      "_id": {
+        "$oid": "60de7102444f8734e474985a"
+      },
+      "name": "XL",
+      "quantity": 5
+    },
+    {
+      "_id": {
+        "$oid": "60de7102444f8734e474985b"
+      },
+      "name": "L",
+      "quantity": 9
+    },
+    {
+      "_id": {
+        "$oid": "60de7102444f8734e474985c"
+      },
+      "name": "M",
+      "quantity": 10
+    },
+    {
+      "_id": {
+        "$oid": "60de7102444f8734e474985d"
+      },
+      "name": "S",
+      "quantity": 9
+    },
+    {
+      "_id": {
+        "$oid": "60de7102444f8734e474985e"
+      },
+      "name": "XS",
+      "quantity": 10
+    }
+  ],
+  "productType": {
+    "$oid": "60de6bb1b7e29d3ad0986dfa"
+  },
+  "createdAt": {
+    "$date": "2021-07-02T01:50:58.128Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-16T10:45:07.964Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60de726e444f8734e474985f"
+  },
+  "img": [
+    "1625191020637-520926422.jpeg",
+    "1625191020725-407150196.jpeg",
+    "1625191020777-757812282.jpeg",
+    "1625191020798-325611470.jpeg"
+  ],
+  "name": "Áo sơ mi nam dài tay Bamboo",
+  "description": "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu bamboo (vải tre) Ex-Soft này, sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo bamboo này có gì đặc biệt nhé!",
+  "price": 480000,
+  "sizes": [
+    {
+      "_id": {
+        "$oid": "60f0ec733e35d43ca8fc6869"
+      },
+      "name": "XL",
+      "quantity": 13
+    },
+    {
+      "_id": {
+        "$oid": "60f0ec733e35d43ca8fc686a"
+      },
+      "name": "L",
+      "quantity": 10
+    },
+    {
+      "_id": {
+        "$oid": "60f0ec733e35d43ca8fc686b"
+      },
+      "name": "M",
+      "quantity": 10
+    },
+    {
+      "_id": {
+        "$oid": "60f0ec733e35d43ca8fc686c"
+      },
+      "name": "S",
+      "quantity": 10
+    },
+    {
+      "_id": {
+        "$oid": "60f0ec733e35d43ca8fc686d"
+      },
+      "name": "XS",
+      "quantity": 10
+    }
+  ],
+  "productType": {
+    "$oid": "60de6bd3b7e29d3ad0986dfc"
+  },
+  "createdAt": {
+    "$date": "2021-07-02T01:57:02.517Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-16T04:08:11.805Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "60de7399444f8734e4749865"
+  },
+  "img": [
+    "1625191320169-359357133.jpeg",
+    "1625191320171-945114710.jpeg",
+    "1625191320178-602939032.jpeg",
+    "1625191320510-426933053.jpeg"
+  ],
+  "name": "Áo sơ mi nam ngắn tay",
+  "description": "Áo sơ mi là một trong những sản phẩm tối quan trọng không thể thiếu trong tủ đồ của các chàng trai, Shop nam hiểu bạn cần một chiếc áo sơ mi basic đủ tốt được dùng trong những dịp quan trọng để mình trông lịch sự hơn, mặc sơ mi khi đi làm, áo sơ mi cũng dành cho những buổi đi chơi với nửa còn lại,... Sau 3 tháng nghiên cứu và phát triển sản phẩm, Shop nam cuối cùng đã cho ra mắt chiếc áo sơ mi đơn giản phù hợp với mọi dịp mà đạt đến độ chỉn chu từ những chi tiết nhỏ nhất.",
+  "price": 510000,
+  "sizes": [
+    {
+      "_id": {
+        "$oid": "60efac2d72937010dce58dca"
+      },
+      "name": "XL",
+      "quantity": 10
+    },
+    {
+      "_id": {
+        "$oid": "60efac2d72937010dce58dcb"
+      },
+      "name": "L",
+      "quantity": 15
+    },
+    {
+      "_id": {
+        "$oid": "60efac2d72937010dce58dcc"
+      },
+      "name": "M",
+      "quantity": 10
+    },
+    {
+      "_id": {
+        "$oid": "60efac2d72937010dce58dcd"
+      },
+      "name": "S",
+      "quantity": 10
+    },
+    {
+      "_id": {
+        "$oid": "60efac2d72937010dce58dce"
+      },
+      "name": "XS",
+      "quantity": 10
+    }
+  ],
+  "productType": {
+    "$oid": "60de6bd3b7e29d3ad0986dfc"
+  },
+  "createdAt": {
+    "$date": "2021-07-02T02:02:01.842Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-16T04:11:37.913Z"
+  },
+  "__v": 3
+},{
+  "_id": {
+    "$oid": "60de75b6444f8734e4749871"
+  },
+  "img": [
+    "1625191860572-767393161.jpeg",
+    "1625191860572-457415483.jpeg",
+    "1625191860573-199253143.jpeg"
+  ],
+  "name": "Quần Dài Jean Skinny",
+  "description": "                        Đặc tính: Thanh lịch, hiện đại. Thể loại: Trang phục  công sở. Màu sắc: Đen - Kem. Chất liệu: Bố chéo (Không nhăn, không ra màu, thấm hút mồ hôi tốt).\r\n                    ",
+  "price": 380000,
+  "sizes": [
+    {
+      "_id": {
+        "$oid": "60de86ebe9873311449e41f4"
+      },
+      "name": "XL",
+      "quantity": 10
+    },
+    {
+      "_id": {
+        "$oid": "60de86ebe9873311449e41f5"
+      },
+      "name": "L",
+      "quantity": 10
+    },
+    {
+      "_id": {
+        "$oid": "60de86ebe9873311449e41f6"
+      },
+      "name": "M",
+      "quantity": 10
+    },
+    {
+      "_id": {
+        "$oid": "60de86ebe9873311449e41f7"
+      },
+      "name": "S",
+      "quantity": 10
+    },
+    {
+      "_id": {
+        "$oid": "60de86ebe9873311449e41f8"
+      },
+      "name": "XS",
+      "quantity": 10
+    }
+  ],
+  "productType": {
+    "$oid": "60de6bddb7e29d3ad0986dfd"
+  },
+  "createdAt": {
+    "$date": "2021-07-02T02:11:02.864Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-02T03:24:27.640Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "60de768e444f8734e4749877"
+  },
+  "img": [
+    "1625192106444-79480034.jpeg",
+    "1625192106445-816266203.jpeg",
+    "1625192106446-149799691.jpeg"
+  ],
+  "name": "Quần Short Đơn Giản",
+  "description": "                                                Quần short thun nam cao cấp có thành phần từ sợi cotton và spandex - một trong những công thức chất liệu tối ưu cho mùa hè. Vải cotton vốn là một chất liệu được ưa thích rộng rãi ở rất nhiều các quốc gia khác nhau. Với nguồn gốc thiên nhiên lành tính và thân thiện với môi trường, thành phần cotton mang đến sự an toàn cho những chiếc quần short nam.\r\n                    \r\n                    ",
+  "price": 200000,
+  "sizes": [
+    {
+      "_id": {
+        "$oid": "60de870ae9873311449e41f9"
+      },
+      "name": "XL",
+      "quantity": 10
+    },
+    {
+      "_id": {
+        "$oid": "60de870ae9873311449e41fa"
+      },
+      "name": "L",
+      "quantity": 10
+    },
+    {
+      "_id": {
+        "$oid": "60de870ae9873311449e41fb"
+      },
+      "name": "M",
+      "quantity": 10
+    },
+    {
+      "_id": {
+        "$oid": "60de870ae9873311449e41fc"
+      },
+      "name": "S",
+      "quantity": 10
+    },
+    {
+      "_id": {
+        "$oid": "60de870ae9873311449e41fd"
+      },
+      "name": "XS",
+      "quantity": 10
+    }
+  ],
+  "productType": {
+    "$oid": "60de6beeb7e29d3ad0986dfe"
+  },
+  "createdAt": {
+    "$date": "2021-07-02T02:14:38.338Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-02T03:24:58.913Z"
+  },
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "60dead5aad9dcb50e06bbaf9"
+  },
+  "img": [
+    "1625206105155-76315973.jpeg",
+    "1625206105160-808141733.jpeg",
+    "1625206105162-832309369.jpeg",
+    "1625206105171-413390451.jpeg"
+  ],
+  "name": "Áo tay dài basic",
+  "description": "Thành phần vải: 90% cotton 10% elastane. Áo có form oversize, vải áo thấm hút mồ hôi rất nhanh tạo sự thoáng mát khi mặt.vải áo được xử lý thêm 3 bước giặt lạnh, hấp khô và giặt thơm.",
+  "price": 200000,
+  "sizes": [
+    {
+      "_id": {
+        "$oid": "60dead5aad9dcb50e06bbafa"
+      },
+      "name": "XL",
+      "quantity": 10
+    },
+    {
+      "_id": {
+        "$oid": "60dead5aad9dcb50e06bbafb"
+      },
+      "name": "L",
+      "quantity": 10
+    },
+    {
+      "_id": {
+        "$oid": "60dead5aad9dcb50e06bbafc"
+      },
+      "name": "M",
+      "quantity": 10
+    },
+    {
+      "_id": {
+        "$oid": "60dead5aad9dcb50e06bbafd"
+      },
+      "name": "S",
+      "quantity": 10
+    },
+    {
+      "_id": {
+        "$oid": "60dead5aad9dcb50e06bbafe"
+      },
+      "name": "XS",
+      "quantity": 10
+    }
+  ],
+  "productType": {
+    "$oid": "60de6bcab7e29d3ad0986dfb"
+  },
+  "createdAt": {
+    "$date": "2021-07-02T06:08:26.079Z"
+  },
+  "updatedAt": {
+    "$date": "2021-07-02T06:08:26.079Z"
+  },
+  "__v": 0
+}]

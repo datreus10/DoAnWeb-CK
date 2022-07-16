@@ -17,7 +17,7 @@ router.get("/", auth, cartFillter, async (req, res) => {
     let cart = req.cart;
     cart = await cart.populate({
         path: 'items.itemId',
-        select: '_id name img price sizes'
+        select: '_id name img price quantity'
     }).execPopulate()
 
     res.render("./client/cart", {

@@ -57,7 +57,6 @@ router.post('/', auth, async (req, res) => {
             _id: e["_id"],
             itemId: e["product-checkbox-id"],
             quantity: e["quantity"],
-            size: e["size"]
         }
 
 
@@ -117,7 +116,7 @@ async function createBill(req, res) {
     for (let i of usercart.items) {
         let isFound = false;
         for (let j of req.session.checkoutItem) {
-            if (i.itemId.toString() == j.itemId && i.size == j.size && i.quantity == j.quantity) {
+            if (i.itemId.toString() == j.itemId && i.quantity == j.quantity) {
                 isFound = true;
             }
         }
@@ -127,7 +126,7 @@ async function createBill(req, res) {
     req.session.cart = remainItem
     cart = await cart.populate({
         path: 'items.itemId',
-        select: '_id name img price'
+        select: '_id name img price quantity'
     }).execPopulate()
 
     // tao bill
@@ -143,11 +142,10 @@ async function createBill(req, res) {
     // giam so luong san pham theo size
     for (let item of cart.items) {
         await Product.updateOne({
-            _id: item.itemId.id,
-            'sizes.name': item.size
-        }, {
-            $inc: {
-                'sizes.$.quantity': -item.quantity
+            _id: item.itemId.id,      
+        },{
+            $set:{
+                quantity : item.itemId.quantity -item.quantity
             }
         })
     }

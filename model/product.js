@@ -12,10 +12,12 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    description: {
-        type: String,
-        required: true
-    },
+    description: [
+        {
+            key: String,
+            value:String
+        }
+    ],
     img: [{
         type: String,
         required: true
@@ -24,10 +26,10 @@ const productSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    sizes: [{
-        name: String,
-        quantity: Number
-    }],
+    quantity: {
+        type: Number,
+        required: true
+    },
     productType: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
@@ -36,12 +38,17 @@ const productSchema = new mongoose.Schema({
 }, {
     timestamps: true,
     getters: true,
-    toObject: { virtuals: true },
-    toJSON: { virtuals: true }
+    toObject: {
+        virtuals: true
+    },
+    toJSON: {
+        virtuals: true
+    }
 });
 
 productSchema.virtual('fileLinks').get(function () {
-    return this.img.map(e => helper.getFileLink(e));
+    // return this.img.map(e => helper.getFileLink(e));
+    return this.img.map(e => '/img/product/' + e);
 });
 
 productSchema.virtual('priceFormat').get(function () {
@@ -69,7 +76,7 @@ productSchema.virtual('priceFormat').get(function () {
 //     catch(err){
 //         next(err)
 //     }
-   
+
 // })
 
 

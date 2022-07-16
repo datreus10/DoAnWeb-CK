@@ -33,31 +33,24 @@ router.post('/add', uploadMultiple, async (req, res, next) => {
     const listFileName = [];
     for (let file of req.files.product_img) {
         listFileName.push(file.filename);
-        const result = await helper.uploadFile(file)
-        await unlinkFile(file.path)
+        // const result = await helper.uploadFile(file)
+        // await unlinkFile(file.path)
     }
     try {
+        const description = req.body.description.trim().split('\n').map(e=>{
+            const tmp = e.trim().split(':')
+            return {
+                key: tmp.length >0 ? tmp[0] : "",
+                value: tmp.length >1 ? tmp[1] : "",
+            }
+        })
+
         const newProduct = new Product({
             name: req.body.name.trim(),
-            description: req.body.description.trim(),
+            description: description,
             img: listFileName,
             price: req.body.price.trim(),
-            sizes: [{
-                name: 'XL',
-                quantity: req.body.XL
-            }, {
-                name: 'L',
-                quantity: req.body.L
-            }, {
-                name: 'M',
-                quantity: req.body.M
-            }, {
-                name: 'S',
-                quantity: req.body.S
-            }, {
-                name: 'XS',
-                quantity: req.body.XS
-            }],
+            quantity: req.body.quantity,
             productType: req.body.type
         });
         await newProduct.save();
