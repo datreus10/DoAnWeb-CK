@@ -1,31 +1,25 @@
 [{
   "_id": {
-    "$oid": "60de6bb1b7e29d3ad0986dfa"
+    "$oid": "62dd216b8602c83cd96b5e9c"
   },
-  "name": "Áo khoác",
+  "name": "Casio MTP",
   "__v": 0
 },{
   "_id": {
-    "$oid": "60de6bcab7e29d3ad0986dfb"
+    "$oid": "62dd27cb8602c832896b5f1b"
   },
-  "name": "Áo thun",
+  "name": "Citizen C7 ",
   "__v": 0
 },{
   "_id": {
-    "$oid": "60de6bd3b7e29d3ad0986dfc"
+    "$oid": "62dd29e98602c86d386b5f63"
   },
-  "name": "Áo sơ mi",
+  "name": "Orient Bambino ",
   "__v": 0
 },{
   "_id": {
-    "$oid": "60de6bddb7e29d3ad0986dfd"
+    "$oid": "62dd2bf58602c837626b5fac"
   },
-  "name": "Quần Jean",
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "60de6beeb7e29d3ad0986dfe"
-  },
-  "name": "Quần short",
+  "name": "Seiko Presage ",
   "__v": 0
 }]

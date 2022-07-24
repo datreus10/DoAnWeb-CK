@@ -34,7 +34,8 @@ router.get("/", auth, cartFillter, async (req, res) => {
 
 // add product to cart
 router.post("/product/:id", auth, cartFillter,addItemToCart, (req, res) => {
-    res.redirect("/cart");
+    // res.redirect("/cart");
+    res.redirect(req.get('referer'));
 });
 
 router.post("/remove", auth,cartFillter,removeItemFromCart, (req, res) => {

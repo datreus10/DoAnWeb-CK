@@ -38,7 +38,7 @@ const signin = async (req, res) => {
         }, 'test', {
             expiresIn: "1h"
         });
-        res.cookie("token", token);
+        res.cookie("token", token,{maxAge:900000,httpOnly:true});
         if(req.session.urlcheckout=="checkout")
             {
                 req.session.urlcheckout=null;

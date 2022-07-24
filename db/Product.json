@@ -1,659 +1,2317 @@
 [{
   "_id": {
-    "$oid": "60de6cbfb7e29d3ad0986dff"
+    "$oid": "62dd24da8602c863a66b5e9d"
   },
   "img": [
-    "1625189566202-527836303.jpeg",
-    "1625189566223-586626063.jpeg",
-    "1625189566225-425096690.jpeg",
-    "1625189566246-851607219.jpeg"
+    "1658660058263-519175444.png",
+    "1658660058270-73981510.png",
+    "1658660058278-641139173.png",
+    "1658660058284-304200885.png"
   ],
-  "name": "Break the law T-shirt",
-  "description": "                        Thành phần vải: 90% cotton và 10% elastane. Form áo được làm theo form box tee, được dùng kỹ thuật in screen printing. Vải áo được xử lý thêm 3 bước giặt lạnh, hấp khô và giặt thơm.\r\n                    ",
-  "price": 320000,
-  "sizes": [
+  "name": "CASIO EFV-550L-1AVUDF – NAM – QUARTZ (PIN) – DÂY DA",
+  "description": [
     {
       "_id": {
-        "$oid": "60de7093444f8734e474984e"
+        "$oid": "62dd24da8602c84abd6b5e9e"
       },
-      "name": "XL",
-      "quantity": -1
+      "key": "Mẫu Casio EFV-550L-1AVUDF mang đến cho phái mạnh vẻ ngoài lịch lãm nhưng cũng không kém phần trẻ trung đặc trưng thuộc dòng Edifice với kiểu dáng đồng hồ 6 kim đi kèm tính năng đo thời gian Chronograph.",
+      "value": ""
     },
     {
       "_id": {
-        "$oid": "60de7093444f8734e474984f"
+        "$oid": "62dd24da8602c8934c6b5e9f"
       },
-      "name": "L",
-      "quantity": 0
+      "key": "",
+      "value": ""
     },
     {
       "_id": {
-        "$oid": "60de7093444f8734e4749850"
+        "$oid": "62dd24da8602c861796b5ea0"
       },
-      "name": "M",
-      "quantity": 1
+      "key": "Thương Hiệu",
+      "value": " Casio"
     },
     {
       "_id": {
-        "$oid": "60de7093444f8734e4749851"
+        "$oid": "62dd24da8602c80af96b5ea1"
       },
-      "name": "S",
-      "quantity": 4
+      "key": "Số Hiệu Sản Phẩm",
+      "value": " EFV-550L-1AVUDF"
     },
     {
       "_id": {
-        "$oid": "60de7093444f8734e4749852"
+        "$oid": "62dd24da8602c888b36b5ea2"
       },
-      "name": "XS",
-      "quantity": 6
+      "key": "Xuất Xứ",
+      "value": " Nhật Bản"
+    },
+    {
+      "_id": {
+        "$oid": "62dd24da8602c8b3206b5ea3"
+      },
+      "key": "Giới Tính",
+      "value": " Nam"
+    },
+    {
+      "_id": {
+        "$oid": "62dd24da8602c832e26b5ea4"
+      },
+      "key": "Kính",
+      "value": " Mineral Crystal (Kính Cứng)"
+    },
+    {
+      "_id": {
+        "$oid": "62dd24da8602c8cea56b5ea5"
+      },
+      "key": "Máy",
+      "value": " Quartz (Pin)"
+    },
+    {
+      "_id": {
+        "$oid": "62dd24da8602c85c816b5ea6"
+      },
+      "key": "Bảo Hành Quốc Tế",
+      "value": " 1 Năm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd24da8602c8e74b6b5ea7"
+      },
+      "key": "Bảo Hành Tại Hải Triều",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd24da8602c8b2a76b5ea8"
+      },
+      "key": "Đường Kính Mặt Số",
+      "value": " 47 mm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd24da8602c8abb46b5ea9"
+      },
+      "key": "Bề Dày Mặt Số",
+      "value": " 12.1 mm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd24da8602c824c96b5eaa"
+      },
+      "key": "Niềng",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd24da8602c8eac26b5eab"
+      },
+      "key": "Dây Đeo",
+      "value": " Dây Da Chính Hãng"
+    },
+    {
+      "_id": {
+        "$oid": "62dd24da8602c872406b5eac"
+      },
+      "key": "Màu Mặt Số",
+      "value": " Đen"
+    },
+    {
+      "_id": {
+        "$oid": "62dd24da8602c86f806b5ead"
+      },
+      "key": "Chống Nước",
+      "value": " 10 ATM"
+    },
+    {
+      "_id": {
+        "$oid": "62dd24da8602c832416b5eae"
+      },
+      "key": "Chức Năng",
+      "value": " Lịch Ngày – Chronograph"
+    },
+    {
+      "_id": {
+        "$oid": "62dd24da8602c8a9bf6b5eaf"
+      },
+      "key": "Nơi sản xuất (Tùy từng lô hàng)",
+      "value": " Trung Quốc"
     }
   ],
+  "price": 3529000,
+  "quantity": 10,
   "productType": {
-    "$oid": "60de6bcab7e29d3ad0986dfb"
+    "$oid": "62dd216b8602c83cd96b5e9c"
   },
   "createdAt": {
-    "$date": "2021-07-02T01:32:47.164Z"
-  },
-  "updatedAt": {
-    "$date": "2021-07-16T10:33:57.045Z"
-  },
-  "__v": 2
-},{
-  "_id": {
-    "$oid": "60de6e80b7e29d3ad0986e10"
-  },
-  "img": [
-    "1625190016249-812033122.jpeg",
-    "1625190016254-437533090.jpeg",
-    "1625190016256-175354192.jpeg",
-    "1625190016262-823666758.jpeg"
-  ],
-  "name": "I exist as I am",
-  "description": " Thành phần vải: 90% cotton 10% elastane. Hình in được dùng kỹ thuật in dtg hiện đại nhất hiện nay, cho ra hình in sắc nét và bền màu. Áo có form oversize, vải áo thấm hút mồ hôi rất nhanh tạo sự thoáng mát khi mặt. Vải áo được xử lý thêm 3 bước giặt lạnh, hấp khô và giặt thơm\r\n                    \r\n                    ",
-  "price": 350000,
-  "sizes": [
-    {
-      "_id": {
-        "$oid": "60f12c956eceda4250c74604"
-      },
-      "name": "XL",
-      "quantity": 1
-    },
-    {
-      "_id": {
-        "$oid": "60f12c956eceda4250c74605"
-      },
-      "name": "L",
-      "quantity": 0
-    },
-    {
-      "_id": {
-        "$oid": "60f12c956eceda4250c74606"
-      },
-      "name": "M",
-      "quantity": 5
-    },
-    {
-      "_id": {
-        "$oid": "60f12c956eceda4250c74607"
-      },
-      "name": "S",
-      "quantity": 8
-    },
-    {
-      "_id": {
-        "$oid": "60f12c956eceda4250c74608"
-      },
-      "name": "XS",
-      "quantity": 6
+    "$date": {
+      "$numberLong": "1658660058303"
     }
-  ],
-  "productType": {
-    "$oid": "60de6bcab7e29d3ad0986dfb"
-  },
-  "createdAt": {
-    "$date": "2021-07-02T01:40:16.812Z"
   },
   "updatedAt": {
-    "$date": "2021-07-16T11:41:56.061Z"
-  },
-  "__v": 3
-},{
-  "_id": {
-    "$oid": "60de6ea6b7e29d3ad0986e16"
-  },
-  "img": [
-    "1625190150530-91001487.jpeg",
-    "1625190150535-495964722.jpeg",
-    "1625190150588-610322947.jpeg",
-    "1625190150596-144926283.jpeg"
-  ],
-  "name": "Basic tee",
-  "description": "                                                                        Thành phần vải: 90% cotton 10% spandex. Chất liệu co giãn 4 chiều đem lại sự thoải mái suốt ngày dài, mềm mại, không nhão, không xù lông. Vải áo được xử lý thêm 3 bước giặt lạnh, hấp khô và giặt thơm.\r\n                    \r\n                    \r\n                    ",
-  "price": 250000,
-  "sizes": [
-    {
-      "_id": {
-        "$oid": "60f1546bce03d70f847860ed"
-      },
-      "name": "XL",
-      "quantity": 8
-    },
-    {
-      "_id": {
-        "$oid": "60f1546bce03d70f847860ee"
-      },
-      "name": "L",
-      "quantity": 9
-    },
-    {
-      "_id": {
-        "$oid": "60f1546bce03d70f847860ef"
-      },
-      "name": "M",
-      "quantity": 10
-    },
-    {
-      "_id": {
-        "$oid": "60f1546bce03d70f847860f0"
-      },
-      "name": "S",
-      "quantity": 12
-    },
-    {
-      "_id": {
-        "$oid": "60f1546bce03d70f847860f1"
-      },
-      "name": "XS",
-      "quantity": 15
+    "$date": {
+      "$numberLong": "1658660058303"
     }
-  ],
-  "productType": {
-    "$oid": "60de6bcab7e29d3ad0986dfb"
-  },
-  "createdAt": {
-    "$date": "2021-07-02T01:40:54.977Z"
-  },
-  "updatedAt": {
-    "$date": "2021-07-16T10:45:08.007Z"
-  },
-  "__v": 5
-},{
-  "_id": {
-    "$oid": "60de706d444f8734e4749848"
-  },
-  "img": [
-    "1625190509399-613450939.jpeg",
-    "1625190509469-270854225.jpeg",
-    "1625190509472-895786552.jpeg",
-    "1625190509486-510053889.jpeg"
-  ],
-  "name": "Áo khoác dù",
-  "description": "Áo khoác dù nam với chất liệu vải dù cao cấp, thiết kế đơn giản nhưng năng động, thoải mái, dễ phối đồ",
-  "price": 230000,
-  "sizes": [
-    {
-      "_id": {
-        "$oid": "60de706d444f8734e4749849"
-      },
-      "name": "XL",
-      "quantity": 0
-    },
-    {
-      "_id": {
-        "$oid": "60de706d444f8734e474984a"
-      },
-      "name": "L",
-      "quantity": 8
-    },
-    {
-      "_id": {
-        "$oid": "60de706d444f8734e474984b"
-      },
-      "name": "M",
-      "quantity": 9
-    },
-    {
-      "_id": {
-        "$oid": "60de706d444f8734e474984c"
-      },
-      "name": "S",
-      "quantity": 9
-    },
-    {
-      "_id": {
-        "$oid": "60de706d444f8734e474984d"
-      },
-      "name": "XS",
-      "quantity": 9
-    }
-  ],
-  "productType": {
-    "$oid": "60de6bb1b7e29d3ad0986dfa"
-  },
-  "createdAt": {
-    "$date": "2021-07-02T01:48:29.966Z"
-  },
-  "updatedAt": {
-    "$date": "2021-07-16T10:30:12.070Z"
   },
   "__v": 0
 },{
   "_id": {
-    "$oid": "60de70d8444f8734e4749853"
+    "$oid": "62dd26ec8602c8191e6b5ed7"
   },
   "img": [
-    "1625190616082-813814432.jpeg",
-    "1625190616099-280805127.jpeg",
-    "1625190616123-361682152.jpeg",
-    "1625190616146-357360154.jpeg"
+    "1658660588280-78063782.png",
+    "1658660588283-724031436.png",
+    "1658660588285-352706946.png",
+    "1658660588289-678485413.png"
   ],
-  "name": "Áo khoác hoodie",
-  "description": "Áo khoác hoodie với thiết kế cách điệu đơn giản, tạo cảm giác thời thường với chất liệu vải cotton bông tạo cảm giác ấm áp đặc biệt vào mùa đông giá lạnh, hoặc phù hợp với người có trái tim cô đơn cần tìm nơi sưởi ấm.",
-  "price": 250000,
-  "sizes": [
+  "name": "CASIO MTP-1384D-1AVDF – NAM – QUARTZ (PIN) – DÂY KIM LOẠI",
+  "description": [
     {
       "_id": {
-        "$oid": "60de70d8444f8734e4749854"
+        "$oid": "62dd26ec8602c8fb8c6b5ed8"
       },
-      "name": "XL",
-      "quantity": 8
+      "key": "Với mặt số đồng hồ Casio MTP-1384D-1AVDF màu đen mạnh mẽ, kim chỉ và vạch chỉ giờ bằng số La Mã được làm mỏng tinh tế nổi bật trên nền số, dây đeo kim loại lịch lãm, đồng hồ chịu được độ sâu 10ATM phù hợp cho các hoạt động dưới nước trừ việc lặn.",
+      "value": ""
     },
     {
       "_id": {
-        "$oid": "60de70d8444f8734e4749855"
+        "$oid": "62dd26ec8602c822d86b5ed9"
       },
-      "name": "L",
-      "quantity": 10
+      "key": "",
+      "value": ""
     },
     {
       "_id": {
-        "$oid": "60de70d8444f8734e4749856"
+        "$oid": "62dd26ec8602c8af656b5eda"
       },
-      "name": "M",
-      "quantity": 10
+      "key": "Thương Hiệu",
+      "value": " Casio"
     },
     {
       "_id": {
-        "$oid": "60de70d8444f8734e4749857"
+        "$oid": "62dd26ec8602c804656b5edb"
       },
-      "name": "S",
-      "quantity": 10
+      "key": "",
+      "value": ""
     },
     {
       "_id": {
-        "$oid": "60de70d8444f8734e4749858"
+        "$oid": "62dd26ec8602c8bcd26b5edc"
       },
-      "name": "XS",
-      "quantity": 10
+      "key": "Số Hiệu Sản Phẩm",
+      "value": " MTP-1384D-1AVDF"
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c8cb9d6b5edd"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c8999a6b5ede"
+      },
+      "key": "Xuất Xứ",
+      "value": " Nhật Bản"
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c801606b5edf"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c8d1f96b5ee0"
+      },
+      "key": "Giới Tính",
+      "value": " Nam"
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c8f3746b5ee1"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c8861a6b5ee2"
+      },
+      "key": "Kính",
+      "value": " Mineral Crystal (Kính Cứng)"
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c824406b5ee3"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c85a3a6b5ee4"
+      },
+      "key": "Máy",
+      "value": " Quartz (Pin)"
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c8442b6b5ee5"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c861586b5ee6"
+      },
+      "key": "Bảo Hành Quốc Tế",
+      "value": " 1 Năm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c86f876b5ee7"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c888ab6b5ee8"
+      },
+      "key": "Bảo Hành Tại Hải Triều",
+      "value": " 5 Năm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c8c3b96b5ee9"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c883706b5eea"
+      },
+      "key": "Đường Kính Mặt Số",
+      "value": " 47mm × 41mm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c88fa46b5eeb"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c8e1cb6b5eec"
+      },
+      "key": "Bề Dày Mặt Số",
+      "value": " 10 mm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c800976b5eed"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c8089b6b5eee"
+      },
+      "key": "Niềng",
+      "value": " Thép Không Gỉ"
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c81d196b5eef"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c85df06b5ef0"
+      },
+      "key": "Dây Đeo",
+      "value": " Thép Không Gỉ"
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c805606b5ef1"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c859046b5ef2"
+      },
+      "key": "Màu Mặt Số",
+      "value": " Đen"
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c871ff6b5ef3"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c8f9666b5ef4"
+      },
+      "key": "Chống Nước",
+      "value": " 10 ATM"
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c827296b5ef5"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c83be56b5ef6"
+      },
+      "key": "Chức Năng",
+      "value": " Lịch Ngày – Lịch Thứ"
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c899db6b5ef7"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd26ec8602c853996b5ef8"
+      },
+      "key": "Nơi sản xuất (Tùy từng lô hàng)",
+      "value": " Trung Quốc"
     }
   ],
+  "price": 2171000,
+  "quantity": 10,
   "productType": {
-    "$oid": "60de6bb1b7e29d3ad0986dfa"
+    "$oid": "62dd216b8602c83cd96b5e9c"
   },
   "createdAt": {
-    "$date": "2021-07-02T01:50:16.742Z"
+    "$date": {
+      "$numberLong": "1658660588310"
+    }
   },
   "updatedAt": {
-    "$date": "2021-07-13T09:40:46.253Z"
+    "$date": {
+      "$numberLong": "1658660588310"
+    }
   },
   "__v": 0
 },{
   "_id": {
-    "$oid": "60de7102444f8734e4749859"
+    "$oid": "62dd278c8602c8488d6b5ef9"
   },
   "img": [
-    "1625190657187-512805942.jpeg",
-    "1625190657192-789089533.jpeg",
-    "1625190657207-737890477.jpeg",
-    "1625190657235-321557062.jpeg"
+    "1658660748236-728266795.webp",
+    "1658660748237-132275924.webp",
+    "1658660748239-761335212.webp",
+    "1658660748240-128393959.webp"
   ],
-  "name": "Áo khoác Jean nam",
-  "description": "Áo khoac jean với chất liệu cao cấp, đơn giản, thời thượng, cá tính, năng động, dễ mix mọi trang phục, đậm chất bụi phủi",
-  "price": 300000,
-  "sizes": [
+  "name": "CASIO MTP-1384L-7AVDF – NAM – QUARTZ (PIN) – DÂY DA",
+  "description": [
     {
       "_id": {
-        "$oid": "60de7102444f8734e474985a"
+        "$oid": "62dd278c8602c86a9f6b5efa"
       },
-      "name": "XL",
-      "quantity": 5
+      "key": "Đồng hồ Casio MTP-1384L-7AVDF có vỏ kim loại bằng chất liệu thép không gỉ mạ màu đồng sang trọng bao quanh nền trắng mặt số, kim chỉ và vạch số La Mã truyền thống được làm mỏng nổi bật.",
+      "value": ""
     },
     {
       "_id": {
-        "$oid": "60de7102444f8734e474985b"
+        "$oid": "62dd278c8602c8178c6b5efb"
       },
-      "name": "L",
-      "quantity": 9
+      "key": "",
+      "value": ""
     },
     {
       "_id": {
-        "$oid": "60de7102444f8734e474985c"
+        "$oid": "62dd278c8602c866f36b5efc"
       },
-      "name": "M",
-      "quantity": 10
+      "key": "Thương Hiệu",
+      "value": " Casio"
     },
     {
       "_id": {
-        "$oid": "60de7102444f8734e474985d"
+        "$oid": "62dd278c8602c8d3356b5efd"
       },
-      "name": "S",
-      "quantity": 9
+      "key": "",
+      "value": ""
     },
     {
       "_id": {
-        "$oid": "60de7102444f8734e474985e"
+        "$oid": "62dd278c8602c858d56b5efe"
       },
-      "name": "XS",
-      "quantity": 10
+      "key": "Số Hiệu Sản Phẩm",
+      "value": " MTP-1384L-7AVDF"
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c8d9d86b5eff"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c8c2296b5f00"
+      },
+      "key": "Xuất Xứ",
+      "value": " Nhật Bản"
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c830db6b5f01"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c826e66b5f02"
+      },
+      "key": "Giới Tính",
+      "value": " Nam"
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c829546b5f03"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c8d6c66b5f04"
+      },
+      "key": "Kính",
+      "value": " Mineral Crystal (Kính Cứng)"
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c814306b5f05"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c83d7c6b5f06"
+      },
+      "key": "Máy",
+      "value": " Quartz (Pin)"
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c83f096b5f07"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c887716b5f08"
+      },
+      "key": "Bảo Hành Quốc Tế",
+      "value": " 1 Năm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c864ef6b5f09"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c818c26b5f0a"
+      },
+      "key": "Bảo Hành Tại Hải Triều",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c81a656b5f0b"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c8144b6b5f0c"
+      },
+      "key": "Đường Kính Mặt Số",
+      "value": " 41mm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c83e0e6b5f0d"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c82d0d6b5f0e"
+      },
+      "key": "Bề Dày Mặt Số",
+      "value": " 10 mm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c834a66b5f0f"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c884226b5f10"
+      },
+      "key": "Niềng",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c8e4086b5f11"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c8e4046b5f12"
+      },
+      "key": "Dây Đeo",
+      "value": " Dây Da Chính Hãng"
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c8c33e6b5f13"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c84d7c6b5f14"
+      },
+      "key": "Màu Mặt Số",
+      "value": " Trắng"
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c87cb56b5f15"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c8e10f6b5f16"
+      },
+      "key": "Chống Nước",
+      "value": " 10 ATM"
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c896336b5f17"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c82f2b6b5f18"
+      },
+      "key": "Chức Năng",
+      "value": " Lịch Ngày – Lịch Thứ"
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c8bb9c6b5f19"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd278c8602c806016b5f1a"
+      },
+      "key": "Nơi sản xuất (Tùy từng lô hàng)",
+      "value": " Trung Quốc"
     }
   ],
+  "price": 2073000,
+  "quantity": 10,
   "productType": {
-    "$oid": "60de6bb1b7e29d3ad0986dfa"
+    "$oid": "62dd216b8602c83cd96b5e9c"
   },
   "createdAt": {
-    "$date": "2021-07-02T01:50:58.128Z"
+    "$date": {
+      "$numberLong": "1658660748258"
+    }
   },
   "updatedAt": {
-    "$date": "2021-07-16T10:45:07.964Z"
+    "$date": {
+      "$numberLong": "1658660748258"
+    }
   },
   "__v": 0
 },{
   "_id": {
-    "$oid": "60de726e444f8734e474985f"
+    "$oid": "62dd28388602c81f716b5f1c"
   },
   "img": [
-    "1625191020637-520926422.jpeg",
-    "1625191020725-407150196.jpeg",
-    "1625191020777-757812282.jpeg",
-    "1625191020798-325611470.jpeg"
+    "1658660920684-239411904.webp",
+    "1658660920687-907590899.webp",
+    "1658660920688-311617089.webp",
+    "1658660920690-927610194.webp"
   ],
-  "name": "Áo sơ mi nam dài tay Bamboo",
-  "description": "Với mỗi dòng sản phẩm chúng tôi đều mong muốn mang đến cho khách hàng nhiều sự lựa chọn và những cải tiến cùng công nghệ tốt nhất, đó là lý do Coolmate giới thiệu đến bạn những chiếc áo sơ mi chất liệu bamboo (vải tre) Ex-Soft này, sẽ mang đến cho khách hàng những trải nghiệm mới mẻ hơn. Cùng tìm hiểu những chiếc áo bamboo này có gì đặc biệt nhé!",
-  "price": 480000,
-  "sizes": [
+  "name": "CITIZEN C7 NH8394-70H – NAM – AUTOMATIC – MÁY NHẬT",
+  "description": [
     {
       "_id": {
-        "$oid": "60f0ec733e35d43ca8fc6869"
+        "$oid": "62dd28388602c82fa96b5f1d"
       },
-      "name": "XL",
-      "quantity": 13
+      "key": "Mẫu Citizen C7 NH8394-70H phiên bản dây đeo demi thời trang phối cùng các chi tiết kim chỉ cùng cọc vạch số mạ vàng hồng sang trọng trên nền mặt số 40mm với họa tiết trải tia nhẹ.",
+      "value": ""
     },
     {
       "_id": {
-        "$oid": "60f0ec733e35d43ca8fc686a"
+        "$oid": "62dd28388602c80ee26b5f1e"
       },
-      "name": "L",
-      "quantity": 10
+      "key": "",
+      "value": ""
     },
     {
       "_id": {
-        "$oid": "60f0ec733e35d43ca8fc686b"
+        "$oid": "62dd28388602c8c6fb6b5f1f"
       },
-      "name": "M",
-      "quantity": 10
-    },
-    {
-      "_id": {
-        "$oid": "60f0ec733e35d43ca8fc686c"
-      },
-      "name": "S",
-      "quantity": 10
-    },
-    {
-      "_id": {
-        "$oid": "60f0ec733e35d43ca8fc686d"
-      },
-      "name": "XS",
-      "quantity": 10
+      "key": "Mẫu Citizen C7 NH8394-70H phiên bản dây đeo demi thời trang phối cùng các chi tiết kim chỉ cùng cọc vạch số mạ vàng hồng sang trọng trên nền mặt số 40mm với họa tiết trải tia nhẹ.",
+      "value": ""
     }
   ],
+  "price": 9177000,
+  "quantity": 10,
   "productType": {
-    "$oid": "60de6bd3b7e29d3ad0986dfc"
+    "$oid": "62dd27cb8602c832896b5f1b"
   },
   "createdAt": {
-    "$date": "2021-07-02T01:57:02.517Z"
+    "$date": {
+      "$numberLong": "1658660920697"
+    }
   },
   "updatedAt": {
-    "$date": "2021-07-16T04:08:11.805Z"
+    "$date": {
+      "$numberLong": "1658660920697"
+    }
   },
-  "__v": 1
+  "__v": 0
 },{
   "_id": {
-    "$oid": "60de7399444f8734e4749865"
+    "$oid": "62dd28c48602c864506b5f20"
   },
   "img": [
-    "1625191320169-359357133.jpeg",
-    "1625191320171-945114710.jpeg",
-    "1625191320178-602939032.jpeg",
-    "1625191320510-426933053.jpeg"
+    "1658661060881-642543194.webp",
+    "1658661060883-4034039.webp",
+    "1658661060885-933531081.webp",
+    "1658661060887-324407666.webp"
   ],
-  "name": "Áo sơ mi nam ngắn tay",
-  "description": "Áo sơ mi là một trong những sản phẩm tối quan trọng không thể thiếu trong tủ đồ của các chàng trai, Shop nam hiểu bạn cần một chiếc áo sơ mi basic đủ tốt được dùng trong những dịp quan trọng để mình trông lịch sự hơn, mặc sơ mi khi đi làm, áo sơ mi cũng dành cho những buổi đi chơi với nửa còn lại,... Sau 3 tháng nghiên cứu và phát triển sản phẩm, Shop nam cuối cùng đã cho ra mắt chiếc áo sơ mi đơn giản phù hợp với mọi dịp mà đạt đến độ chỉn chu từ những chi tiết nhỏ nhất.",
-  "price": 510000,
-  "sizes": [
+  "name": "CITIZEN C7 NH8390-11X – NAM – AUTOMATIC – MÁY NHẬT",
+  "description": [
     {
       "_id": {
-        "$oid": "60efac2d72937010dce58dca"
+        "$oid": "62dd28c48602c849d16b5f21"
       },
-      "name": "XL",
-      "quantity": 10
+      "key": "Mẫu Citizen C7 NH8390-11X phiên bản da nâu trơn lịch lãm trẻ trung kết hợp cùng thiết kế đơn giản 3 kim trên nền mặt số size 40mm phối tone màu đỏ nổi bật.",
+      "value": ""
     },
     {
       "_id": {
-        "$oid": "60efac2d72937010dce58dcb"
+        "$oid": "62dd28c48602c8041a6b5f22"
       },
-      "name": "L",
-      "quantity": 15
+      "key": "",
+      "value": ""
     },
     {
       "_id": {
-        "$oid": "60efac2d72937010dce58dcc"
+        "$oid": "62dd28c48602c8d4f76b5f23"
       },
-      "name": "M",
-      "quantity": 10
+      "key": "Thương Hiệu",
+      "value": " Citizen"
     },
     {
       "_id": {
-        "$oid": "60efac2d72937010dce58dcd"
+        "$oid": "62dd28c48602c817546b5f24"
       },
-      "name": "S",
-      "quantity": 10
+      "key": "",
+      "value": ""
     },
     {
       "_id": {
-        "$oid": "60efac2d72937010dce58dce"
+        "$oid": "62dd28c48602c8d0956b5f25"
       },
-      "name": "XS",
-      "quantity": 10
+      "key": "Số Hiệu Sản Phẩm",
+      "value": " NH8390-11X"
+    },
+    {
+      "_id": {
+        "$oid": "62dd28c48602c830226b5f26"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd28c48602c8ba4c6b5f27"
+      },
+      "key": "Xuất Xứ",
+      "value": " Nhật Bản"
+    },
+    {
+      "_id": {
+        "$oid": "62dd28c48602c804bc6b5f28"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd28c48602c87cea6b5f29"
+      },
+      "key": "Giới Tính",
+      "value": " Nam"
+    },
+    {
+      "_id": {
+        "$oid": "62dd28c48602c8300b6b5f2a"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd28c48602c81a5d6b5f2b"
+      },
+      "key": "Kính",
+      "value": " Mineral Crystal (Kính Cứng)"
+    },
+    {
+      "_id": {
+        "$oid": "62dd28c48602c85b746b5f2c"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd28c48602c87d276b5f2d"
+      },
+      "key": "Máy",
+      "value": " Automatic (Tự Động)"
+    },
+    {
+      "_id": {
+        "$oid": "62dd28c48602c833f56b5f2e"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd28c48602c8eabe6b5f2f"
+      },
+      "key": "Bảo Hành Quốc Tế",
+      "value": " 1 Năm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd28c48602c81e726b5f30"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd28c48602c8c9ef6b5f31"
+      },
+      "key": "Bảo Hành Tại Hải Triều",
+      "value": " 5 Năm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd28c48602c80f086b5f32"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd28c48602c8b4c76b5f33"
+      },
+      "key": "Đường Kính Mặt Số",
+      "value": " 40.2 mm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd28c48602c811e26b5f34"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd28c48602c866646b5f35"
+      },
+      "key": "Bề Dày Mặt Số",
+      "value": " 13.1 mm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd28c48602c833f06b5f36"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd28c48602c875126b5f37"
+      },
+      "key": "Niềng",
+      "value": " Thép Không Gỉ"
+    },
+    {
+      "_id": {
+        "$oid": "62dd28c48602c87f976b5f38"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd28c48602c800696b5f39"
+      },
+      "key": "Dây Đeo",
+      "value": " Dây Da Chính Hãng"
+    },
+    {
+      "_id": {
+        "$oid": "62dd28c48602c8cfba6b5f3a"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd28c48602c812566b5f3b"
+      },
+      "key": "Màu Mặt Số",
+      "value": " Đỏ"
+    },
+    {
+      "_id": {
+        "$oid": "62dd28c48602c8291c6b5f3c"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd28c48602c8e1f96b5f3d"
+      },
+      "key": "Chống Nước",
+      "value": " 5 ATM"
+    },
+    {
+      "_id": {
+        "$oid": "62dd28c48602c86d836b5f3e"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd28c48602c880096b5f3f"
+      },
+      "key": "Chức Năng",
+      "value": " Lịch Ngày – Lịch Thứ"
     }
   ],
+  "price": 8177000,
+  "quantity": 10,
   "productType": {
-    "$oid": "60de6bd3b7e29d3ad0986dfc"
+    "$oid": "62dd27cb8602c832896b5f1b"
   },
   "createdAt": {
-    "$date": "2021-07-02T02:02:01.842Z"
+    "$date": {
+      "$numberLong": "1658661060901"
+    }
   },
   "updatedAt": {
-    "$date": "2021-07-16T04:11:37.913Z"
+    "$date": {
+      "$numberLong": "1658661060901"
+    }
   },
-  "__v": 3
+  "__v": 0
 },{
   "_id": {
-    "$oid": "60de75b6444f8734e4749871"
+    "$oid": "62dd29308602c84cb36b5f40"
   },
   "img": [
-    "1625191860572-767393161.jpeg",
-    "1625191860572-457415483.jpeg",
-    "1625191860573-199253143.jpeg"
+    "1658661168279-771910010.webp",
+    "1658661168280-573476042.webp",
+    "1658661168282-177651701.webp",
+    "1658661168283-947433865.webp"
   ],
-  "name": "Quần Dài Jean Skinny",
-  "description": "                        Đặc tính: Thanh lịch, hiện đại. Thể loại: Trang phục  công sở. Màu sắc: Đen - Kem. Chất liệu: Bố chéo (Không nhăn, không ra màu, thấm hút mồ hôi tốt).\r\n                    ",
-  "price": 380000,
-  "sizes": [
+  "name": "CITIZEN C7 NH8396-82E – NAM – AUTOMATIC – MÁY NHẬT",
+  "description": [
     {
       "_id": {
-        "$oid": "60de86ebe9873311449e41f4"
+        "$oid": "62dd29308602c881246b5f41"
       },
-      "name": "XL",
-      "quantity": 10
+      "key": "Mẫu Citizen C7 NH8396-82E phiên bản dây đeo dạng lưới tone màu đen trẻ trung nhưng không phần sang trọng với chi tiết cọc vạch số cùng kim chỉ mạ vàng hồng.",
+      "value": ""
     },
     {
       "_id": {
-        "$oid": "60de86ebe9873311449e41f5"
+        "$oid": "62dd29308602c8dd3e6b5f42"
       },
-      "name": "L",
-      "quantity": 10
+      "key": "",
+      "value": ""
     },
     {
       "_id": {
-        "$oid": "60de86ebe9873311449e41f6"
+        "$oid": "62dd29308602c852726b5f43"
       },
-      "name": "M",
-      "quantity": 10
+      "key": "Thương Hiệu",
+      "value": " Citizen"
     },
     {
       "_id": {
-        "$oid": "60de86ebe9873311449e41f7"
+        "$oid": "62dd29308602c89c306b5f44"
       },
-      "name": "S",
-      "quantity": 10
+      "key": "",
+      "value": ""
     },
     {
       "_id": {
-        "$oid": "60de86ebe9873311449e41f8"
+        "$oid": "62dd29308602c834fe6b5f45"
       },
-      "name": "XS",
-      "quantity": 10
+      "key": "Số Hiệu Sản Phẩm",
+      "value": " NH8396-82E"
+    },
+    {
+      "_id": {
+        "$oid": "62dd29308602c83ad86b5f46"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd29308602c82d626b5f47"
+      },
+      "key": "Xuất Xứ",
+      "value": " Nhật Bản"
+    },
+    {
+      "_id": {
+        "$oid": "62dd29308602c84c2b6b5f48"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd29308602c85c0b6b5f49"
+      },
+      "key": "Giới Tính",
+      "value": " Nam"
+    },
+    {
+      "_id": {
+        "$oid": "62dd29308602c86ae36b5f4a"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd29308602c86f896b5f4b"
+      },
+      "key": "Kính",
+      "value": " Mineral Crystal (Kính Cứng)"
+    },
+    {
+      "_id": {
+        "$oid": "62dd29308602c814446b5f4c"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd29308602c8e30e6b5f4d"
+      },
+      "key": "Máy",
+      "value": " Automatic (Tự Động)"
+    },
+    {
+      "_id": {
+        "$oid": "62dd29308602c8a64b6b5f4e"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd29308602c8cc246b5f4f"
+      },
+      "key": "Bảo Hành Quốc Tế",
+      "value": " 1 Năm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd29308602c82d716b5f50"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd29308602c80c0e6b5f51"
+      },
+      "key": "Bảo Hành Tại Hải Triều",
+      "value": " 5 Năm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd29308602c8cf316b5f52"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd29308602c8d4116b5f53"
+      },
+      "key": "Đường Kính Mặt Số",
+      "value": " 40.2 mm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd29308602c8d86e6b5f54"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd29308602c81e786b5f55"
+      },
+      "key": "Bề Dày Mặt Số",
+      "value": " 13.1 mm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd29308602c866666b5f56"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd29308602c8549a6b5f57"
+      },
+      "key": "Niềng",
+      "value": " Thép Không Gỉ"
+    },
+    {
+      "_id": {
+        "$oid": "62dd29308602c823e46b5f58"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd29308602c80f346b5f59"
+      },
+      "key": "Dây Đeo",
+      "value": " Thép Không Gỉ"
+    },
+    {
+      "_id": {
+        "$oid": "62dd29308602c833e06b5f5a"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd29308602c82fe96b5f5b"
+      },
+      "key": "Màu Mặt Số",
+      "value": " Đen"
+    },
+    {
+      "_id": {
+        "$oid": "62dd29308602c827e86b5f5c"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd29308602c8769c6b5f5d"
+      },
+      "key": "Chống Nước",
+      "value": " 5 ATM"
+    },
+    {
+      "_id": {
+        "$oid": "62dd29308602c86aab6b5f5e"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd29308602c835d86b5f5f"
+      },
+      "key": "Chức Năng",
+      "value": " Lịch Ngày – Lịch Thứ"
     }
   ],
+  "price": 9177000,
+  "quantity": 10,
   "productType": {
-    "$oid": "60de6bddb7e29d3ad0986dfd"
+    "$oid": "62dd27cb8602c832896b5f1b"
   },
   "createdAt": {
-    "$date": "2021-07-02T02:11:02.864Z"
+    "$date": {
+      "$numberLong": "1658661168297"
+    }
   },
   "updatedAt": {
-    "$date": "2021-07-02T03:24:27.640Z"
+    "$date": {
+      "$numberLong": "1658661168297"
+    }
   },
-  "__v": 1
+  "__v": 0
 },{
   "_id": {
-    "$oid": "60de768e444f8734e4749877"
+    "$oid": "62dd2a3f8602c87c056b5f64"
   },
   "img": [
-    "1625192106444-79480034.jpeg",
-    "1625192106445-816266203.jpeg",
-    "1625192106446-149799691.jpeg"
+    "1658661439768-957391650.webp",
+    "1658661439769-479285976.webp",
+    "1658661439770-363822797.webp",
+    "1658661439771-688710045.webp"
   ],
-  "name": "Quần Short Đơn Giản",
-  "description": "                                                Quần short thun nam cao cấp có thành phần từ sợi cotton và spandex - một trong những công thức chất liệu tối ưu cho mùa hè. Vải cotton vốn là một chất liệu được ưa thích rộng rãi ở rất nhiều các quốc gia khác nhau. Với nguồn gốc thiên nhiên lành tính và thân thiện với môi trường, thành phần cotton mang đến sự an toàn cho những chiếc quần short nam.\r\n                    \r\n                    ",
-  "price": 200000,
-  "sizes": [
+  "name": "ORIENT BAMBINO RA-AG0005L10B – NAM",
+  "description": [
     {
       "_id": {
-        "$oid": "60de870ae9873311449e41f9"
+        "$oid": "62dd2a3f8602c836df6b5f65"
       },
-      "name": "XL",
-      "quantity": 10
+      "key": "Mẫu Orient RA-AG0005L10B thiết kế Open Heart nổi bật trên nền mặt số xanh thời trang với ô chân kính phô diễn ra hoạt động của bộ máy cơ tạo nên vẻ ngoài độc đáo dành cho phái mạnh.",
+      "value": ""
     },
     {
       "_id": {
-        "$oid": "60de870ae9873311449e41fa"
+        "$oid": "62dd2a3f8602c8c26d6b5f66"
       },
-      "name": "L",
-      "quantity": 10
+      "key": "",
+      "value": ""
     },
     {
       "_id": {
-        "$oid": "60de870ae9873311449e41fb"
+        "$oid": "62dd2a3f8602c849d06b5f67"
       },
-      "name": "M",
-      "quantity": 10
+      "key": "Thương Hiệu",
+      "value": " Orient"
     },
     {
       "_id": {
-        "$oid": "60de870ae9873311449e41fc"
+        "$oid": "62dd2a3f8602c822086b5f68"
       },
-      "name": "S",
-      "quantity": 10
+      "key": "",
+      "value": ""
     },
     {
       "_id": {
-        "$oid": "60de870ae9873311449e41fd"
+        "$oid": "62dd2a3f8602c86a6a6b5f69"
       },
-      "name": "XS",
-      "quantity": 10
+      "key": "Số Hiệu Sản Phẩm",
+      "value": " RA-AG0005L10B"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c87a116b5f6a"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c840a26b5f6b"
+      },
+      "key": "Xuất Xứ",
+      "value": " Nhật Bản"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c866b96b5f6c"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c8d7cd6b5f6d"
+      },
+      "key": "Giới Tính",
+      "value": " Nam"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c81a5b6b5f6e"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c89ff16b5f6f"
+      },
+      "key": "Kính",
+      "value": " Mineral Crystal (Kính Cứng)"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c8af0f6b5f70"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c816dd6b5f71"
+      },
+      "key": "Máy",
+      "value": " Automatic (Tự Động)"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c81abb6b5f72"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c8387e6b5f73"
+      },
+      "key": "Bảo Hành Quốc Tế",
+      "value": " 1 Năm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c8f0226b5f74"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c86ca96b5f75"
+      },
+      "key": "Bảo Hành Tại Hải Triều",
+      "value": " 5 Năm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c8f59f6b5f76"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c80d326b5f77"
+      },
+      "key": "Đường Kính Mặt Số",
+      "value": " 40.5 mm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c8167b6b5f78"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c8703e6b5f79"
+      },
+      "key": "Bề Dày Mặt Số",
+      "value": " 12 mm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c80e5a6b5f7a"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c821566b5f7b"
+      },
+      "key": "Niềng",
+      "value": " Thép Không Gỉ"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c8f8376b5f7c"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c8c74a6b5f7d"
+      },
+      "key": "Dây Đeo",
+      "value": " Dây Da Chính Hãng"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c869876b5f7e"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c875c46b5f7f"
+      },
+      "key": "Màu Mặt Số",
+      "value": " Xanh"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c8407e6b5f80"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c817b16b5f81"
+      },
+      "key": "Chống Nước",
+      "value": " 3 ATM"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c8a5876b5f82"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c8509f6b5f83"
+      },
+      "key": "Chức Năng",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c85f416b5f84"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2a3f8602c88c026b5f85"
+      },
+      "key": "Nơi sản xuất (Tùy từng lô hàng)",
+      "value": " Trung Quốc"
     }
   ],
+  "price": 8510000,
+  "quantity": 10,
   "productType": {
-    "$oid": "60de6beeb7e29d3ad0986dfe"
+    "$oid": "62dd29e98602c86d386b5f63"
   },
   "createdAt": {
-    "$date": "2021-07-02T02:14:38.338Z"
+    "$date": {
+      "$numberLong": "1658661439788"
+    }
   },
   "updatedAt": {
-    "$date": "2021-07-02T03:24:58.913Z"
+    "$date": {
+      "$numberLong": "1658661439788"
+    }
   },
-  "__v": 2
+  "__v": 0
 },{
   "_id": {
-    "$oid": "60dead5aad9dcb50e06bbaf9"
+    "$oid": "62dd2ac18602c81eae6b5f86"
   },
   "img": [
-    "1625206105155-76315973.jpeg",
-    "1625206105160-808141733.jpeg",
-    "1625206105162-832309369.jpeg",
-    "1625206105171-413390451.jpeg"
+    "1658661569892-84444804.webp",
+    "1658661569894-824532136.webp",
+    "1658661569896-653141663.webp",
+    "1658661569898-188316496.webp"
   ],
-  "name": "Áo tay dài basic",
-  "description": "Thành phần vải: 90% cotton 10% elastane. Áo có form oversize, vải áo thấm hút mồ hôi rất nhanh tạo sự thoáng mát khi mặt.vải áo được xử lý thêm 3 bước giặt lạnh, hấp khô và giặt thơm.",
-  "price": 200000,
-  "sizes": [
+  "name": "ORIENT BAMBINO FAC08003A0 – NAM – AUTOMATIC – MÁY NHẬT",
+  "description": [
     {
       "_id": {
-        "$oid": "60dead5aad9dcb50e06bbafa"
+        "$oid": "62dd2ac18602c813336b5f87"
       },
-      "name": "XL",
-      "quantity": 10
+      "key": "Đồng hồ nam Orient FAC08003A0 thiết kế với phong cách cổ điển, kim chỉ và vạch số được phủ đồng trên nền màu xám mạnh mẽ, kết hợp với dây đeo bằng da màu nâu tạo nên vẻ lịch lãm cho phái mạnh.",
+      "value": ""
     },
     {
       "_id": {
-        "$oid": "60dead5aad9dcb50e06bbafb"
+        "$oid": "62dd2ac18602c8b25a6b5f88"
       },
-      "name": "L",
-      "quantity": 10
+      "key": "",
+      "value": ""
     },
     {
       "_id": {
-        "$oid": "60dead5aad9dcb50e06bbafc"
+        "$oid": "62dd2ac18602c820286b5f89"
       },
-      "name": "M",
-      "quantity": 10
+      "key": "Thương Hiệu",
+      "value": " Orient"
     },
     {
       "_id": {
-        "$oid": "60dead5aad9dcb50e06bbafd"
+        "$oid": "62dd2ac18602c81bf06b5f8a"
       },
-      "name": "S",
-      "quantity": 10
+      "key": "",
+      "value": ""
     },
     {
       "_id": {
-        "$oid": "60dead5aad9dcb50e06bbafe"
+        "$oid": "62dd2ac18602c8a4176b5f8b"
       },
-      "name": "XS",
-      "quantity": 10
+      "key": "Số Hiệu Sản Phẩm",
+      "value": " FAC08003A0"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c81ba96b5f8c"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c800d16b5f8d"
+      },
+      "key": "Xuất Xứ",
+      "value": " Nhật Bản"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c83bac6b5f8e"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c83e3c6b5f8f"
+      },
+      "key": "Giới Tính",
+      "value": " Nam"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c802d46b5f90"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c8df796b5f91"
+      },
+      "key": "Kính",
+      "value": " Mineral Crystal (Kính Cứng)"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c85eac6b5f92"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c86b096b5f93"
+      },
+      "key": "Máy",
+      "value": " Automatic (Tự Động)"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c874426b5f94"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c821f16b5f95"
+      },
+      "key": "Bảo Hành Quốc Tế",
+      "value": " 1 Năm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c815c06b5f96"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c858466b5f97"
+      },
+      "key": "Bảo Hành Tại Hải Triều",
+      "value": " 5 Năm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c8a7a76b5f98"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c855526b5f99"
+      },
+      "key": "Đường Kính Mặt Số",
+      "value": " 42 mm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c8ec336b5f9a"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c868e66b5f9b"
+      },
+      "key": "Bề Dày Mặt Số",
+      "value": " 11 mm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c879d36b5f9c"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c84bc06b5f9d"
+      },
+      "key": "Niềng",
+      "value": " Thép Không Gỉ"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c8f3486b5f9e"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c849c66b5f9f"
+      },
+      "key": "Dây Đeo",
+      "value": " Dây Da Chính Hãng"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c8c12f6b5fa0"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c86f216b5fa1"
+      },
+      "key": "Màu Mặt Số",
+      "value": " Xám"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c86d016b5fa2"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c89b1b6b5fa3"
+      },
+      "key": "Chống Nước",
+      "value": " 3 ATM"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c8aa2b6b5fa4"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c89d226b5fa5"
+      },
+      "key": "Chức Năng",
+      "value": " Lịch Ngày – Lên dây cót – Hacking Second"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c86a516b5fa6"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ac18602c8bf0d6b5fa7"
+      },
+      "key": "Nơi sản xuất (Tùy từng lô hàng)",
+      "value": " Trung Quốc"
     }
   ],
+  "price": 7510000,
+  "quantity": 10,
   "productType": {
-    "$oid": "60de6bcab7e29d3ad0986dfb"
+    "$oid": "62dd29e98602c86d386b5f63"
   },
   "createdAt": {
-    "$date": "2021-07-02T06:08:26.079Z"
+    "$date": {
+      "$numberLong": "1658661569921"
+    }
   },
   "updatedAt": {
-    "$date": "2021-07-02T06:08:26.079Z"
+    "$date": {
+      "$numberLong": "1658661569921"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62dd2b128602c871fd6b5fa8"
+  },
+  "img": [
+    "1658661650001-88829752.webp",
+    "1658661650002-395132286.webp",
+    "1658661650004-652294735.webp",
+    "1658661650005-230182287.webp"
+  ],
+  "name": "ORIENT BAMBINO FAC00005W0 – NAM – AUTOMATIC – MÁY NHẬT",
+  "description": [
+    {
+      "_id": {
+        "$oid": "62dd2b128602c8c1426b5fa9"
+      },
+      "key": "Đồng hồ nam Orient FAC00005W0 với kiều dáng nam tính theo phong cách cổ điển, vỏ máy bằng thép không gỉ màu bạc, kết hợp cùng dây đeo da màu nâu tạo nên phong cách lịch lãm cho phái mạnh.",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2b128602c8109b6b5faa"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2b128602c87c216b5fab"
+      },
+      "key": "Đồng hồ nam Orient FAC00005W0 với kiều dáng nam tính theo phong cách cổ điển, vỏ máy bằng thép không gỉ màu bạc, kết hợp cùng dây đeo da màu nâu tạo nên phong cách lịch lãm cho phái mạnh.",
+      "value": ""
+    }
+  ],
+  "price": 7510000,
+  "quantity": 10,
+  "productType": {
+    "$oid": "62dd216b8602c83cd96b5e9c"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1658661650013"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1658661650013"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62dd2c458602c887406b5fad"
+  },
+  "img": [
+    "1658661957766-495653430.webp",
+    "1658661957767-922587029.webp"
+  ],
+  "name": "SEIKO SRPE41J1 – NAM – AUTOMATIC (TỰ ĐỘNG)",
+  "description": [
+    {
+      "_id": {
+        "$oid": "62dd2c458602c84ae06b5fae"
+      },
+      "key": "Mẫu Seiko SRPE41J1 phiên bản dây da trơn nâu thời trang thiết kế đơn giản chức năng 3 kim cùng các cọc vạch số mạ bạc nổi bật trên nền mặt số kích thước 38.5mm.",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2c458602c8eff36b5faf"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2c458602c854266b5fb0"
+      },
+      "key": "Mẫu Seiko SRPE41J1 phiên bản dây da trơn nâu thời trang thiết kế đơn giản chức năng 3 kim cùng các cọc vạch số mạ bạc nổi bật trên nền mặt số kích thước 38.5mm.",
+      "value": ""
+    }
+  ],
+  "price": 12020000,
+  "quantity": 10,
+  "productType": {
+    "$oid": "62dd2bf58602c837626b5fac"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1658661957770"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1658661957770"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62dd2ce48602c8c4576b5fb1"
+  },
+  "img": [
+    "1658662116836-50111433.webp",
+    "1658662116837-123508936.webp"
+  ],
+  "name": "SEIKO SSA443J1 – NAM – KÍNH SAPPHIRE – AUTOMATIC (TỰ ĐỘNG)",
+  "description": [
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c817956b5fb2"
+      },
+      "key": "Mẫu Seiko SSA443J1 thiết kế open heart (máy cơ lộ tim) tạo nên vẻ độc đáo nổi bật trên nền mặt số trắng kích thước 41.8mm.",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c84ec56b5fb3"
+      },
+      "key": "Thương Hiệu",
+      "value": " Seiko"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c854726b5fb4"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c8f51a6b5fb5"
+      },
+      "key": "Số Hiệu Sản Phẩm",
+      "value": " SSA443J1"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c8e1e06b5fb6"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c830196b5fb7"
+      },
+      "key": "Xuất Xứ",
+      "value": " Nhật Bản"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c87d946b5fb8"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c8a5a06b5fb9"
+      },
+      "key": "Giới Tính",
+      "value": " Nam"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c86fe56b5fba"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c8b36b6b5fbb"
+      },
+      "key": "Kính",
+      "value": " Sapphire (Kính Chống Trầy)"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c899496b5fbc"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c8385e6b5fbd"
+      },
+      "key": "Máy",
+      "value": " Automatic (Tự Động)"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c828566b5fbe"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c802266b5fbf"
+      },
+      "key": "Bảo Hành Quốc Tế",
+      "value": " 1 Năm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c81c0a6b5fc0"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c8c34c6b5fc1"
+      },
+      "key": "Bảo Hành Tại Hải Triều",
+      "value": " 5 Năm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c874006b5fc2"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c8a3a96b5fc3"
+      },
+      "key": "Đường Kính Mặt Số",
+      "value": " 41.8 mm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c824566b5fc4"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c8cfde6b5fc5"
+      },
+      "key": "Bề Dày Mặt Số",
+      "value": " 12.5 mm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c8596e6b5fc6"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c8d5546b5fc7"
+      },
+      "key": "Niềng",
+      "value": " Thép Không Gỉ"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c89e0d6b5fc8"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c82f776b5fc9"
+      },
+      "key": "Dây Đeo",
+      "value": " Thép Không Gỉ"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c893996b5fca"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c8af6a6b5fcb"
+      },
+      "key": "Màu Mặt Số",
+      "value": " Trắng"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c8894d6b5fcc"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c8a9446b5fcd"
+      },
+      "key": "Chống Nước",
+      "value": " 3 ATM"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c856676b5fce"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2ce48602c832176b5fcf"
+      },
+      "key": "Chức Năng",
+      "value": " Đồng Hồ 24 Giờ"
+    }
+  ],
+  "price": 15325000,
+  "quantity": 10,
+  "productType": {
+    "$oid": "62dd2bf58602c837626b5fac"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1658662116848"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1658662116848"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62dd2d248602c849a46b5fd0"
+  },
+  "img": [
+    "1658662180384-805743612.webp",
+    "1658662180387-256020301.webp"
+  ],
+  "name": "SEIKO SSA445J1 – NAM – AUTOMATIC (TỰ ĐỘNG)",
+  "description": [
+    {
+      "_id": {
+        "$oid": "62dd2d248602c85d5b6b5fd1"
+      },
+      "key": "Mẫu Seiko SSA445J1 phiên bản giới hạn chỉ 4000 chiếc trên toàn thế giới, thiết kế open heart (máy cơ lộ tim) tạo nên vẻ độc đáo trên nền mặt số xanh kích thước 40.8mm.",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c807726b5fd2"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c842056b5fd3"
+      },
+      "key": "Thương Hiệu",
+      "value": " Seiko (Phiên Bản Giới Hạn Chỉ 4000 Chiếc Trên Toàn Thế Giới)"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c8696a6b5fd4"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c8d1d96b5fd5"
+      },
+      "key": "Số Hiệu Sản Phẩm",
+      "value": " SSA445J1"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c80e046b5fd6"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c867386b5fd7"
+      },
+      "key": "Xuất Xứ",
+      "value": " Nhật Bản"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c828936b5fd8"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c84c1b6b5fd9"
+      },
+      "key": "Giới Tính",
+      "value": " Nam"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c8b2096b5fda"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c81b8c6b5fdb"
+      },
+      "key": "Kính",
+      "value": " Hardlex Crystal (Kính Cứng)"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c811456b5fdc"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c89bab6b5fdd"
+      },
+      "key": "Máy",
+      "value": " Automatic (Tự Động)"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c82c5a6b5fde"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c879566b5fdf"
+      },
+      "key": "Bảo Hành Quốc Tế",
+      "value": " 1 Năm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c83e096b5fe0"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c8cef16b5fe1"
+      },
+      "key": "Bảo Hành Tại Hải Triều",
+      "value": " 5 Năm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c832d16b5fe2"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c876b86b5fe3"
+      },
+      "key": "Đường Kính Mặt Số",
+      "value": " 40.8 mm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c866326b5fe4"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c871e26b5fe5"
+      },
+      "key": "Bề Dày Mặt Số",
+      "value": " 12.8 mm"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c897c36b5fe6"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c8106e6b5fe7"
+      },
+      "key": "Niềng",
+      "value": " Thép Không Gỉ"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c8df166b5fe8"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c874a36b5fe9"
+      },
+      "key": "Dây Đeo",
+      "value": " Thép Không Gỉ"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c877ed6b5fea"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c8ec156b5feb"
+      },
+      "key": "Màu Mặt Số",
+      "value": " Xanh"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c8b5996b5fec"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c88b8a6b5fed"
+      },
+      "key": "Chống Nước",
+      "value": " 5 ATM"
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c8fb406b5fee"
+      },
+      "key": "",
+      "value": ""
+    },
+    {
+      "_id": {
+        "$oid": "62dd2d248602c86fbf6b5fef"
+      },
+      "key": "Chức Năng",
+      "value": " Đồng Hồ 24 Giờ"
+    }
+  ],
+  "price": 16950000,
+  "quantity": 10,
+  "productType": {
+    "$oid": "62dd2bf58602c837626b5fac"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1658662180397"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1658662180397"
+    }
   },
   "__v": 0
 }]
